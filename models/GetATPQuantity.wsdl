@@ -1,0 +1,103 @@
+<wsdl:definitions name="GetATPQtyBPELComponent" targetNamespace="http://xmlns.oracle.com/GolfSmithWebPubProjects/GetATPQuantity/GetATPQtyBPELComponent" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:client="http://xmlns.oracle.com/GolfSmithWebPubProjects/GetATPQuantity/GetATPQtyBPELComponent" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+   <plnk:partnerLinkType name="GetATPQtyBPELComponent">
+      <plnk:role name="GetATPQtyBPELComponentProvider" portType="client:GetATPQtyBPELComponent"/>
+   </plnk:partnerLinkType>
+   <wsdl:types>
+        <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+                   targetNamespace="http://xmlns.oracle.com/GolfSmithWebPubProjects/GetATPQuantity/GetATPQtyBPELComponent"
+                   xmlns="http://xmlns.oracle.com/GolfSmithWebPubProjects/GetATPQuantity/GetATPQtyBPELComponent"
+                   xmlns:xs="http://www.w3.org/2001/XMLSchema">
+         <xs:element name="ATPRequest" type="ATPReqInputCollection"/>
+         <xs:complexType name="ATPReqInputCollection">
+          <xs:sequence>
+           <xs:element name="ATPReqInput" type="ATPReqInput" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+         </xs:complexType>
+         <xs:complexType name="ATPReqInput">
+          <xs:sequence>
+           <xs:element name="SALES_CHANNEL_CODE" type="xs:string" minOccurs="1" nillable="false"/>
+           <xs:element name="INVENTORY_ITEM_ID" type="xs:int" minOccurs="1" nillable="false"/>
+           <xs:element name="ORGANIZATION_ID" type="xs:int" minOccurs="1" nillable="false"/>
+           <xs:element name="QUANTITY" type="xs:int" minOccurs="0" nillable="true"/>
+          </xs:sequence>
+         </xs:complexType>
+         <xs:element name="ATPResponse" type="ATPResponseCollection"/>
+         <xs:complexType name="ATPResponseCollection">
+          <xs:sequence>
+           <xs:element name="ATPOutput" type="ATPOutput" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+         </xs:complexType>
+         <xs:complexType name="ATPOutput">
+          <xs:sequence>
+           <xs:element name="INVENTORY_ITEM_ID" type="xs:int" nillable="false"/>
+           <xs:element name="ORGANIZATION_ID" type="xs:int" nillable="false"/>
+           <xs:element name="WEB_EFFECTIVE_DATE" type="xs:string" nillable="true"/>
+           <xs:element name="GT_WEB_EFFECTIVE_DATE" type="xs:string" nillable="true"/>
+           <xs:element name="AVAILABILITY_DATE" type="xs:string" nillable="true"/>
+           <xs:element name="EMBARGO_DATE" type="xs:string" nillable="true"/>
+           <xs:element name="DROPSHIP_FLAG" type="xs:string" nillable="true"/>
+           <xs:element name="PREPROCESSING_LT" type="xs:string" nillable="true"/>
+           <xs:element name="PROCESSING_LT" type="xs:string" minOccurs="0" nillable="true"/>
+           <xs:element name="POSTPROCESSING_LT" type="xs:string" nillable="true"/>
+           <xs:element name="VENDOR_NAME" type="xs:string" nillable="true"/>
+           <xs:element name="VENDOR_ADDRESS1" type="xs:string" nillable="true"/>
+           <xs:element name="VENDOR_ADDRESS2" type="xs:string" nillable="true"/>
+           <xs:element name="VENDOR_CITY" type="xs:string" nillable="true"/>
+           <xs:element name="VENDOR_STATE" type="xs:string" nillable="true"/>
+           <xs:element name="VENDOR_COUNTRY_CODE" type="xs:string" nillable="true"/>
+           <xs:element name="VENDOR_ZIPCODE" type="xs:string" nillable="true"/>
+           <xs:element name="TOTAL_QUANTITY" type="xs:string" nillable="true"/>
+           <xs:element name="MESSAGE_STATUS" type="MessageStatus"/>
+           <xs:element name="AvlbleToPromise" type="AvlbleToPromiseType"/>
+          </xs:sequence>
+         </xs:complexType>
+         <xs:simpleType name="MessageStatus">
+          <xs:restriction base="xs:string">
+           <xs:enumeration value="VALID"/>
+           <xs:enumeration value="NOT_FOUND"/>
+          </xs:restriction>
+         </xs:simpleType>
+         <xs:complexType name="AvlbleToPromiseType">
+          <xs:sequence>
+           <xs:element name="ATPAvlbleTyp" type="ATPAvlbleTyp" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+         </xs:complexType>
+         <xs:complexType name="ATPAvlbleTyp">
+          <xs:sequence>
+           <xs:element name="ATP_STATUS" type="xs:string" nillable="true"/>
+           <xs:element name="PROMISED_DATE" type="xs:string" nillable="true"/>
+           <xs:element name="QUANTITY" type="xs:string" nillable="true"/>
+          </xs:sequence>
+         </xs:complexType>
+        </xs:schema>
+   </wsdl:types>
+   <wsdl:message name="GetATPQtyBPELComponentRequestMessage">
+      <wsdl:part name="payload" element="client:ATPRequest"/>
+   </wsdl:message>
+   <wsdl:message name="GetATPQtyBPELComponentResponseMessage">
+      <wsdl:part name="payload" element="client:ATPResponse"/>
+   </wsdl:message>
+   <wsdl:portType name="GetATPQtyBPELComponent">
+      <wsdl:operation name="process">
+         <wsdl:input message="client:GetATPQtyBPELComponentRequestMessage"/>
+         <wsdl:output message="client:GetATPQtyBPELComponentResponseMessage"/>
+      </wsdl:operation>
+   </wsdl:portType>
+   <wsdl:binding name="GetATPQtyBPELComponentBinding" type="client:GetATPQtyBPELComponent">
+      <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+      <wsdl:operation name="process">
+         <soap:operation style="document" soapAction="process"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+   </wsdl:binding>
+   <wsdl:service name="getatpqtybpelcomponent_client_ep">
+      <wsdl:port name="GetATPQtyBPELComponent_pt" binding="client:GetATPQtyBPELComponentBinding">
+         <soap:address location="http://prodsoacluster.gsicorp.com:7777/soa-infra/services/Common/GetATPQuantity/getatpqtybpelcomponent_client_ep"/>
+      </wsdl:port>
+   </wsdl:service>
+</wsdl:definitions>

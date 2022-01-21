@@ -1,0 +1,2206 @@
+<?php 
+
+//Assumes the controller includes SiteInit.php (which includes gsi_helper.inc)
+//Thus, we shouldn't need any other includes here
+include_once('models/Endeca.php');
+require_once('Zend/View.php');
+include_once('functions/MyJoys.php');
+include_once('functions/QBD_functions.php');
+
+class ProductPage {
+ 
+  private $v_style_number;
+  private $i_site;
+  private $_QBD_info;
+
+  public function __construct($p_style_number) {
+    $this->v_style_number = $p_style_number;
+    
+  }
+
+  //display a page
+  public function displayPage() {
+
+  	$i_site_init = $this->i_site;
+  	
+    $screen_title = "PPAGE" ;
+    $trck_flag    = 'N' ;
+
+    //check for any customer/source code pricing
+    //session_start();
+    
+
+    //always modified
+
+    header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+    header("Cache-Control: no-store, no-cache, must-revalidate");
+    header("Cache-Control: post-check=0, pre-check=0", false);
+    header("Pragma: no-cache");
+
+    $i_site_init = new SiteInit('product');
+    $i_site_init->loadInit($v_connect_mssql);
+
+    //this will get QBD related info if applicable
+    $this->_QBD_info = $this->get_QBD_info();
+    
+    if ( !empty( $_SESSION['s_cust_price_list']) || !empty($_SESSION['s_source_code']) ||  $this->_QBD_info['active'] == 'Y' || !empty($_REQUEST['scode'])) {
+      global $mssql_db;
+      get_mssql_connection();      
+    }
+    
+    global $web_db ;
+
+    include_once(FPATH . 'ppage_functions');
+
+    $_GET['stynum'] = ( $_GET['stynum'] ? $_GET['stynum'] : $this->v_style_number);
+
+    if (!$_POST['stynum']) {
+      $this->v_style_number = strtoupper($_GET['stynum']) ;
+      $p_xref         = strtoupper($_GET['xref']) ;
+    }
+
+    $this->v_style_number = trim($this->v_style_number) ;
+    $remove_char = array("\\", "'");
+    $this->v_style_number = str_replace($remove_char, "", $this->v_style_number) ;
+
+    ob_start();
+    $valid_style = $this->validate_style($v_forecast, &$a_ci_params) ;
+    $style_display = ob_get_contents();
+    ob_end_clean();
+
+    $i_site_init->loadMain();
+
+    if ($valid_style) {
+      echo $style_display;
+    }
+
+    if ($valid_style != 1) {
+      $msg = $i_site_init->get_timestamp() ;
+      $msg = $msg . '  ' . $this->v_style_number ;
+      include(FPATH . 'invalid_style');
+    } // invalid style
+
+    //CI Implementation
+    $i_site_init->loadFooter('PRODUCT', &$a_ci_params);
+
+  }
+  
+  function get_valid_style($p_style){
+  	global $web_db;
+  	$v_new_style="";
+  	if('300'<>substr($p_style,0,3)){
+  	  $sql="select style_number from gsi_style_info_all where old_style='$p_style'";
+  	  $result = mysql_query($sql, $web_db);
+  	  $myrow = mysql_fetch_array($result);
+  	  $v_new_style=$myrow['style_number'];  	
+  	}else{
+  	  $v_new_style=$p_style;	
+  	}
+  	return $v_new_style;
+  }
+
+  public function validate_style ($p_forecast, &$a_ci_params) {
+
+    global $mssql_db ;
+    global $web_db;
+    global $record_sequence ;
+    global $override_header_contents ;
+    global $items;
+    global $p_group;
+    global $p_group_number;
+    global $p_group_segment2;
+    global $p_group_segment3;
+    global $p_group_segment4;
+    global $p_group_segment5;
+
+
+    $p_valid_style = 0 ;
+
+   $p_style_number=$this->get_valid_style($this->v_style_number);
+	
+	//echo "Return Style:-".$p_style_number  ." ---".substr($this->v_style_number,0,3) ."==".$this->v_style_number; 
+    //$p_style_number = $this->v_style_number;
+/*
+    $sql = "select item_category_desc, item_category_url, item_category_id, manufacturer_desc
+    , manufacturer_image_file, manufacturer_url, segment2, segment3, segment4, segment5
+    , segment2_values_desc segment2_values, segment3_values_desc segment3_values
+    , segment4_values_desc segment4_values, segment5_values_desc segment5_values
+    , segment2_values segment2_val, segment3_values segment3_val
+    , segment4_values segment4_val, segment5_values segment5_val, skus_str, item_id_str
+    , price_str, act_price_str, orig_price_str, price_svg_str, atp_str, atp_str2
+    , giftwrap_str, attr_values_cnt_str, record_sequence, 1 valid_style
+    from " .GSI_CMN_STYLE_DATA. "
+    where style_number = '$this->v_style_number' " ;
+*/
+	$sql = "select segment2, segment3, segment4, segment5
+    , segment2_values_desc segment2_values, segment3_values_desc segment3_values
+    , segment4_values_desc segment4_values, segment5_values_desc segment5_values
+    , segment2_values segment2_val, segment3_values segment3_val
+    , segment4_values segment4_val, segment5_values segment5_val, skus_str, item_id_str
+    , price_str, act_price_str, orig_price_str, price_svg_str, atp_str
+    , attr_values_cnt_str, style_number record_sequence, 1 valid_style
+    from gsi_cmn_style_data
+    where style_number = '$p_style_number' " ;
+	
+    $result = mysql_query($sql, $web_db);
+    display_mysql_error($sql) ;
+
+    $myrow = mysql_fetch_array($result) ;
+   // $item_category_desc      = $myrow["item_category_desc"] ;
+   // $item_category_url       = $myrow["item_category_url"] ;
+   // $item_category_id        = $myrow["item_category_id"] ;
+   // $manufacturer_desc       = $myrow["manufacturer_desc"] ;
+   // $manufacturer_image_file = $myrow["manufacturer_image_file"] ;
+   // $manufacturer_url        = $myrow["manufacturer_url"] ;
+    $segment2                = $myrow["segment2"] ;
+    $segment3                = $myrow["segment3"] ;
+    $segment4                = $myrow["segment4"] ;
+    $segment5                = $myrow["segment5"] ;
+    $segment2_values         = $myrow["segment2_values"] ;
+    $segment3_values         = $myrow["segment3_values"] ;
+    $segment4_values         = $myrow["segment4_values"] ;
+    $segment5_values         = $myrow["segment5_values"] ;
+    $segment2_val            = $myrow["segment2_val"] ;
+    $segment3_val            = $myrow["segment3_val"] ;
+    $segment4_val            = $myrow["segment4_val"] ;
+    $segment5_val            = $myrow["segment5_val"] ;
+    $skus_str                = $myrow["skus_str"] ;
+    $item_id_str             = $myrow["item_id_str"] ;
+    $price_str               = $myrow["price_str"] ;
+    $act_price_str           = $myrow["act_price_str"] ;
+    $orig_price_str          = $myrow["orig_price_str"] ;
+    $price_svg_str           = $myrow["price_svg_str"] ;
+    $atp_str                 = $myrow["atp_str"] ;
+//    $atp_str                .= $myrow["atp_str2"] ;
+//    $giftwrap_str            = $myrow["giftwrap_str"] ;
+    $attr_values_cnt_str     = $myrow["attr_values_cnt_str"] ;
+    $record_sequence         = $myrow["record_sequence"] ;
+    $p_valid_style           = $myrow["valid_style"] ;
+    mysql_free_result($result);
+
+    //echo "<br />Seg2:-".$segment2 ."Seg3:-".$segment3 ."Seg3:-".$segment4 ."Seg5:-".$segment5 ."<br/>";
+   // echo "Seg2 Desc:-".$segment2_values ."Seg3 desc:-".$segment3_values ."Seg4 desc:-".$segment4_values ."Seg5 desc:-".$segment5_values;
+   // echo "<br/>Seg2 val:-".$segment2_val ."Seg3 val:-".$segment3_val ."Seg4 val:-".$segment4_val ."Seg5 desc:-".$segment5_val;
+    //check for logo item
+    if ($item_category_id == 1696534) {
+      $v_logo_item = "Y";
+      $v_logo_apparel = "Y";
+      $v_logo_other = "N";
+    } elseif ($item_category_id == 1559825 || $item_category_id == 3075038 || $item_category_id == 1696533) {
+      $v_logo_item = "Y";
+      $v_logo_apparel = "N";
+      $v_logo_other = "Y" ;
+    } else {
+      $v_logo_item = "N" ;
+      $v_logo_apparel = "N";
+      $v_logo_other = "N";
+    }
+
+    if ($item_category_id == 1547947 || $item_category_id == 1547942) { //unstrung tennis rocket
+      $v_disp_help = 'Y';
+    }
+
+    //CI Implementation
+    $a_ci_params['CI_ItemID'] = "'" . $this->v_style_number . "'";
+    $a_ci_params['CI_ItemName'] = "'" . $manufacturer_desc . "'";
+    $a_ci_params['CI_CatID'] = "'" . $item_category_id . "'";
+    $a_ci_params['CI_CatName'] = "'" . $item_category_desc . "'";
+    $a_ci_params['CI_ItemMfr'] = "''";
+
+    $dropship_str = "";
+    if($this->find_dropship_yesno($this->v_style_number) == 'Y') {
+     $dropship_str = $this->get_dropship_array($item_id_str);
+    }
+
+    $v_show_atp = 'N';
+    if($p_valid_style == 1 && !empty($p_forecast)) {
+      $sql = "select show_atp_flag from gsi_cmn_cache_data
+              where forecast_designator = '" . $p_forecast . "'";
+      $result = mysql_query($sql, $web_db);
+      display_mysql_error($sql) ;
+      if($myrow = mysql_fetch_array($result))
+        $v_show_atp = $myrow["show_atp_flag"] ;
+      if (empty($v_show_atp))
+         $v_show_atp = 'N';
+      mysql_free_result($result) ;
+
+      // Added 'P' as a value here - 19Oct2004
+      // It turns out that sometimes, we want to limit the
+      // set of SKUs the user chooses from (by forecast)
+      // but we DON'T want to show quantities of items.  That's P.
+      if ($v_show_atp == 'Y' || $v_show_atp == 'P') {
+         $p_valid_style = rebuild_item_str($p_forecast, &$item_id_str, &$atp_str, &$price_str, $v_show_atp);
+      }
+      $current_forecast = $p_forecast;
+    }
+
+    if ($p_valid_style == 1) {
+      // check if style belongs to a Group
+      $sql = "select gcg.group_name, gcs.segment2, gcs.segment3, gcs.segment4, gcs.segment5 from gsi_cmn_product_groups gcg, gsi_cmn_product_group_styles gcs where gcg.record_status = 'VALID' and gcg.group_id = gcs.group_id and gcs.style_number = '$this->v_style_number'" ;
+      $result = mysql_query($sql, $web_db);
+      display_mysql_error($sql) ;
+      $myrow = mysql_fetch_array($result) ;
+      $v_group_name = $myrow["group_name"] ;
+      $p_group_segment2 = $myrow["segment2"] ;
+      $p_group_segment3 = $myrow["segment3"] ;
+      $p_group_segment4 = $myrow["segment4"] ;
+      $p_group_segment5 = $myrow["segment5"] ;
+
+      $sql = "select concat(ifnull(manuf_desc,''), ' ', ifnull(description,'') ) style_title
+        , large_image_file image_file, long_copy, specifications, no_price_message, atp_message
+        , contract_rqmts, disclaimers, header_wrapper, left_wrapper, right_wrapper
+        , ifnull(min_order_qty, 1) min_order_qty
+        from gsi_cmn_prod_data_summary
+        where record_sequence = $record_sequence " ;
+
+      $result = mysql_query($sql, $web_db);
+      display_mysql_error($sql) ;
+      $myrow = mysql_fetch_array($result) ;
+      extract( $myrow);
+
+      $product_title     = $myrow["style_title"] ;
+      $product_title_disp= $myrow["style_title"] ;
+      $product_image     = $myrow["image_file"] ;
+      $product_long_copy = $myrow["long_copy"] ;
+      $product_specs     = $myrow["specifications"] ;
+      $no_price_message  = $myrow["no_price_message"] ;
+      $atp_message       = $myrow["atp_message"] ;
+      $contract_rqmts    = $myrow["contract_rqmts"] ;
+      $disclaimers       = $myrow["disclaimers"] ;
+      $header_wrapper    = $myrow["header_wrapper"] ;
+      $left_wrapper      = $myrow["left_wrapper"] ;
+      $right_wrapper     = $myrow["right_wrapper"] ;
+      $min_order_qty     = $myrow["min_order_qty"] ;
+      mysql_free_result($result);
+
+      $v_segment_count = 0;
+
+      if (!empty($segment2)) {
+        $v_segment_count++;
+        $attr_types_str = '"' . $segment2 . '"' ;
+        $attr_names_str = '"' . ucfirst( strToLower( $segment2)) . '"' ;
+      }
+
+      if (!empty($segment3)) {
+        $v_segment_count++;
+        $attr_types_str .= ',"' . $segment3 . '"';
+        $attr_names_str .= ',"' . ucfirst( strToLower( $segment3)) . '"';
+      }
+      if (!empty($segment4)) {
+        $v_segment_count++;
+        $attr_types_str .= ',"' . $segment4 . '"';
+        $attr_names_str .= ',"' . ucfirst( strToLower( $segment4)) . '"';
+      }
+      if (!empty($segment5)) {
+        $v_segment_count++;
+        $attr_types_str .= ',"' . $segment5 . '"';
+        $attr_names_str .= ',"' . ucfirst( strToLower( $segment5)) . '"';
+      }
+
+      //tracking for coremetrics (older version pre 11/28/2005 - Serna)
+      $cm_category    = post_or_get('cseq') ;
+      if(!empty($cm_category)) {
+        $cm_category = ereg_replace('~', '', $cm_category);
+      } else {
+        //  default setting
+        $cm_category = "EXPRESSORDER";
+      }
+      $cm_lcode    = post_or_get('lcode') ;
+      if (!empty($cm_lcode))
+        $cm_category = $cm_lcode ;
+
+      $attr_types_str = str_replace(" ", "_", $attr_types_str);
+      $v_cust_price_list_id  = $_SESSION['s_cust_price_list'];
+      $v_source_code         = $_SESSION['s_source_code'] ;
+      $std_price_str         = $price_str ;
+      
+      if ($this->_QBD_info['active'] == 'Y') {
+      	$v_cust_price_list_id = 2408;
+      }
+      
+	  // check for any customer/source code pricing or QBD price
+      if( !empty($v_cust_price_list_id) || !empty($v_source_code) ) {
+
+        $v_sp = mssql_init("gsi_cmn_item_reprice_style");
+        $v_webprofile = C_WEB_PROFILE;
+
+        gsi_mssql_bind ($v_sp, "@p_style_number", $this->v_style_number, "varchar", 80, false);
+        gsi_mssql_bind ($v_sp, "@p_price_list", $v_cust_price_list_id, "gsi_id_type", 50, false);
+        gsi_mssql_bind ($v_sp, "@p_source_code", $v_source_code, "varchar", 150, false);
+        gsi_mssql_bind ($v_sp, "@p_profile_scope", $v_webprofile, "varchar", 50, false);
+        gsi_mssql_bind ($v_sp, "@p_price_str", &$price_str, "varchar", 4000, true);
+        gsi_mssql_bind ($v_sp, "@p_price_svg", &$price_svg_str, "varchar", 4000, true);
+        gsi_mssql_bind ($v_sp, "@p_orig_price_str", &$orig_price_str, "varchar", 4000, true);
+        gsi_mssql_bind ($v_sp, "@p_act_price_str", &$act_price_str, "varchar", 4000, true);
+        //gsi_mssql_bind ($v_sp, "@o_return_status", &$return, "varchar", 200, true);
+
+        $v_result = mssql_execute($v_sp);
+
+        if (!$v_result){
+          display_mssql_error("gsi_cmn_item_reprice_style" . $msg, "call from ProductPage.php");
+        }
+        mssql_free_statement($v_sp);
+        mssql_free_result ($v_result);
+
+      } else {
+        // add quote to orig price
+        $orig_price_str = "\"" . str_replace(",", "\",\"", $orig_price_str) . "\"" ;
+      }
+
+       $this->override_header();
+
+      if ($std_price_str != $price_str)
+        $price_break_flag = "N";
+      $inventory_item_id   = $this->get_first_item_id ($item_id_str) ;
+
+      /************Coremeterics serna 11/28/2005 ********************/
+      $cm_category_new=get_record_parent_1($this->v_style_number);
+      $screen_name = $_SESSION['s_screen_name'] ;
+      if (empty($screen_name))
+        $screen_name = 'ps' ;
+      $cm_category_new = $screen_name . $cm_category_new ;
+
+      if($item_not_available==2) {
+        $product_id=$_POST['stynum'];
+        $product_name=$_POST['sdes'];
+        $qty=$_POST['qty'];
+        $script_name=$_SERVER['SCRIPT_NAME'];
+        $query_string=$_SERVER['QUERY_STRING'];
+
+        $product_title=str_replace('"','',$product_title);
+        $product_title_disp = str_replace('"','&quot;',$product_title_disp);
+        $product_name=str_replace('"','',$product_name);
+      } else {
+
+        $product_title=str_replace('"','',$product_title);
+        $product_title_disp = str_replace('"','&quot;',$product_title_disp);
+        $product_name=str_replace('"','',$product_name);
+
+        ?>
+        <!-- Used for Looking at Products -->
+        <SCRIPT language="javascript1.1" type="text/javascript" >
+                cmCreateProductviewTag("<?=$this->v_style_number?>", "<?=$product_title?>","<?=$cm_category_new?>");
+        </SCRIPT>
+        <? 
+      }
+
+      /*************End  Coremeterics serna 11/28/2005 ****************/
+      $sno = 1;
+
+      ob_start();
+      if (!empty($v_group_name)){
+        $this->define_product_array($sno);
+        $p_valid_style = validate_group($v_group_name, $sno);
+        if ($p_valid_style == 1) {
+          $p_group_number = $this->v_style_number;
+        }
+        $sno++;
+      }
+      $p_group = "N";
+      $this->define_product_array($sno);
+
+      if($this->has_scene7()){
+        $avl_images_str = $this->get_avl_images();
+        $this->setproduct_property($sno, 'avl_images', "$avl_images_str", true);
+      }
+
+      $v_atp_formatted = preg_replace('/([0-9]{1,2})-([A-Z]{3})-([0-9]{4})/', '$2 $1, $3', $atp_str);
+      $va_abbreviated_months = array('JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC');
+      $va_full_months = array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
+      $v_atp_formatted = str_replace($va_abbreviated_months, $va_full_months, $v_atp_formatted);
+
+      $this->setproduct_property($sno, 'sku_prices', "$price_str", true);
+      $this->setproduct_property($sno, 'sku_prices2', "$orig_price_str",true);
+      $this->setproduct_property($sno, 'act_sku_prices', "$act_price_str",true);
+      $this->setproduct_property($sno, 'price_svg', "$price_svg_str",true);
+      $this->setproduct_property($sno, 'item_ids', "$item_id_str",true);
+      $this->setproduct_property($sno, 'attr_names', "$attr_names_str",true);
+      $this->setproduct_property($sno, 'attr_types', "$attr_types_str",true);
+      //$this->setproduct_property($sno, 'sku_atp', "$atp_str",true);
+      $this->setproduct_property($sno, 'sku_atp', "$v_atp_formatted",true);
+      $this->setproduct_property($sno, 'sku_giftwrap', "$giftwrap_str",true);
+      $this->setproduct_property($sno, 'sku_numbers', "$skus_str",true);
+      $this->setproduct_property($sno, 'atp_message', "$atp_message",false);
+      $this->setproduct_property($sno, 'no_price_message', "<span class=\"save\">$no_price_message</span>",false);
+      $this->setproduct_property($sno, 'min_order_qty', "$min_order_qty",false);
+      $this->setproduct_property($sno, 'max_order_qty', "9999",false);
+      $this->setproduct_property($sno, 'lcode', "$cm_category",false);
+      $this->setproduct_property($sno, 'dropship', "$dropship_str",true);
+      $this->setproduct_property($sno, 'group_price_str', "",false);
+      $this->setproduct_property($sno, 'group_item', $p_group,false);
+
+      //changes for MyJoys shoes
+      $v_myjoys_obj = new MyJoys();
+      $v_myjoys_obj->v_style = $this->v_style_number; 
+  	  $v_is_myjoys = $v_myjoys_obj->is_myjoys();
+      $va_myjoys = $v_is_myjoys;
+  	  if (is_array($v_is_myjoys) && !empty($v_is_myjoys))
+      	$v_is_myjoys = true;
+      else
+      	$v_is_myjoys = false;
+      if (!$v_is_myjoys) {
+
+        $this->setproduct_property($sno, 'attr_values_count', "$attr_values_cnt_str", true);
+        $this->setproduct_property($sno, 'group_segment2', $p_group_segment2,false);
+        $this->setproduct_property($sno, 'group_segment3', $p_group_segment3,false);
+        $this->setproduct_property($sno, 'group_segment4', $p_group_segment4,false);
+        $this->setproduct_property($sno, 'group_segment5', $p_group_segment5,false);
+        $this->setproduct_property($sno, 'stynum', $this->v_style_number,false);
+        if (!empty($p_group_segment2))
+          $items[$sno]['group_segment2']        = $p_group_segment2;
+        if (!empty($p_group_segment3))
+          $items[$sno]['group_segment3']        = $p_group_segment3;
+        if (!empty($p_group_segment4))
+          $items[$sno]['group_segment4']        = $p_group_segment4;
+        if (!empty($p_group_segment5))
+          $items[$sno]['group_segment5']        = $p_group_segment5;
+
+
+        if (!empty($segment2_values)) {
+          $this->setproduct_property($sno, 'seg2_list', $segment2_values, true);
+          $this->setproduct_property($sno, 'seg2_val', $segment2_val, true);
+          $items[$sno]['segment2']        = $segment2;
+          $items[$sno]['segment2_values'] = $segment2_values;
+          $_SESSION['segment2_values']=$segment2_val;
+        }
+        if (!empty($segment3_values)) {
+          $this->setproduct_property($sno, 'seg3_list', $segment3_values, true);
+          $this->setproduct_property($sno, 'seg3_val', $segment3_val, true);
+          $items[$sno]['segment3']        = $segment3;
+          $items[$sno]['segment3_values'] = $segment3_values;
+          $_SESSION['segment3_values']=$segment3_val;
+        }
+        if (!empty($segment4_values)) {
+          $this->setproduct_property($sno, 'seg4_list', $segment4_values, true);
+          $this->setproduct_property($sno, 'seg4_val', $segment4_val, true);
+          $items[$sno]['segment4']        = $segment4;
+          $items[$sno]['segment4_values'] = $segment4_values;
+          $_SESSION['segment4_values']=$segment4_val;
+        }
+        if (!empty($segment5_values)) {
+          $this->setproduct_property($sno, 'seg5_list', $segment5_values, true);
+          $this->setproduct_property($sno, 'seg5_val', $segment5_val, true);
+          $items[$sno]['segment5']        = $segment5;
+          $items[$sno]['segment5_values'] = $segment5_values;
+          $_SESSION['segment5_values']=$segment5_val;
+        }
+
+      } else {
+        $this->setproduct_property($sno, 'attr_values_count', "", true);
+      }
+
+
+      $items[$sno]['group'] = 'N';
+      $init_product = ob_get_contents();
+      ob_end_clean();
+    } else {
+      $sno = 1;
+      ob_start();
+      $this->define_product_array($sno);
+      $p_valid_style = validate_group($this->v_style_number, $sno);
+      if ($p_valid_style == 1) {
+        $p_group_number = $this->v_style_number;
+      }
+      $init_product = ob_get_contents();
+      ob_end_clean();
+
+    }
+
+
+    if (!empty($p_valid_style)){
+      if ($p_group == 'Y') {
+        $display_links = $items[1]['display_links'];
+        $product_long_copy = $items[1]['product_long_copy'];
+        $manufacturer_image_file = $items[1]['manufacturer_image_file'];
+        $manufacturer_url = $items[1]['manufacturer_url'];
+        $product_image = $items[1]['product_image'] ;
+        $product_title = $items[1]['product_title'] ;
+      }
+      global $item_not_available ;
+
+
+      if($item_not_available==2){
+        include(FPATH . 'add_item_view');
+      } else {
+
+        require_once('Zend/View.php');
+        $z_view = new Zend_View(array('scriptPath' => VIEW_PATH));
+
+        include(FPATH . 'ppage');
+
+        //if no segments, we already know our inventory item id
+        if((empty($segment2)) || $v_is_myjoys ) {
+          $z_view->inventory_item_id = $inventory_item_id;
+        }
+
+        $z_view->action = (!empty($_SESSION['s_screen_name']) ? '/' . $_SESSION['s_screen_name'] : '');
+        $z_view->show_quantity = TRUE;
+        $z_view->myjoys = $va_myjoys;
+        
+        
+        if($item_category_id == 1547947) {
+          $z_view->action .= '/tstringing.php';
+          $z_view->button = 'continue_tstringing';
+        } else if($v_logo_apparel == 'Y') {
+          $z_view->action .= '/order_details.php';
+          $z_view->button = 'continue_logo';
+        } else if($v_is_myjoys) {
+          $z_view->action .= '/myjoys.php?cseq=EXPRESSORDER&sku=' . $this->v_style_number;
+          $z_view->button = 'continue_myjoys';
+          $z_view->show_quantity = FALSE;
+          $z_view->continue_note = 'Click "Continue" to customize your MyJoys.';
+        } else {
+          $z_view->action .= '/add_to_cart.php?cseq=EXPRESSORDER';
+          $z_view->button = 'addtocart';
+        }
+
+
+        $z_view->item_category_id = $item_category_id;
+        $z_view->logo_item = $v_logo_item;
+        $z_view->logo_apparel = $v_logo_apparel;
+        $z_view->logo_other = $v_logo_other;
+        //$this->is_excluded_item(&$v_source_code, &$v_is_excluded);
+        $z_view->source_code = $v_source_code;
+        //$z_view->is_excluded = $v_is_excluded;
+
+        if ($p_group == 'Y') {
+          $this->get_promo_messages($p_group_number, $v_shipping_message, $v_9090_message, $v_wf_message) ;
+        } else {
+          $this->get_promo_messages('', $v_shipping_message, $v_9090_message, $v_wf_message) ;
+        }
+
+        //keeping the code form ppage for now
+        if(!empty($header)) {
+          $z_view->header_info = $header;
+        }
+        
+        //we need to know if item is preowned; if it is, remove Q&A section
+        $z_view->is_preowned = 'N';
+        if ($header_wrapper == 'ps_preown_disclaimer.html') {
+        	$z_view->is_preowned = 'Y';
+        } 
+
+        $z_view->shipping_message = $v_shipping_message;
+        $z_view->v_9090_message = $v_9090_message;
+        $z_view->wf_message = $v_wf_message;
+
+        $this->define_sku_options($v_disp_help, $v_logo_item, $v_logo_apparel,$v_segment_count, &$va_sku_options); 
+
+        $z_view->init_product = $init_product;
+
+        $z_view->sku_options = $va_sku_options;
+
+        $this->generatePersonalizationCheckboxes(&$va_personalization_checkboxes);
+        
+        if($v_logo_apparel == 'N') {
+          $this->generatePersonalizationData(&$v_service_type, &$va_personalization_data, &$v_per_line_count);
+          $z_view->per_line_count = $v_per_line_count;
+        }
+
+        $z_view->personalization_item = $v_service_type;
+
+        $z_view->personalization_checkbox_data = $va_personalization_checkboxes;
+        
+        $z_view->personalization_data = $va_personalization_data;
+
+        $z_view->personalize_url = $this->findAvailablePersonalization();
+
+        if(!empty($z_view->personalize_url)) {
+          $z_view->personalize_url = "/products/" . $z_view->personalize_url;
+        }
+
+
+        //protocol is used for chat, but it might be useful for other things later
+        $v_port = $_SERVER[SERVER_PORT];
+
+        if($v_port == '443') {
+          $z_view->url_protocol = 'https';
+        } else {
+          $z_view->url_protocol = 'http';
+        }
+
+        //browser version - we only care whether it's IE6 for now
+        $z_view->is_ie6 = FALSE;
+        if (ereg( 'MSIE ([0-9].[0-9]{1,2})', $_SERVER[HTTP_USER_AGENT], $va_log_version)) {
+          $v_browser_ver = $va_log_version[1];
+          if($v_browser_ver == '6.0') {
+            $z_view->is_ie6 = TRUE;
+          }
+        }
+
+        if($_SESSION['s_enable_chat'] === TRUE) {
+          $z_view->chat_dept_id = '24194';
+          $z_view->chat_default_screen_name = 'PR';
+        } else {
+          $z_view->chat_dept_id = '';
+        }
+
+        $z_view->isp_available = 'N';
+        $z_view->isp_available = $this->find_isp_yesno();
+
+        $z_view->atp_message = $atp_message;
+
+        $this->getSpecialOffers(&$va_special_offers);
+
+        $z_view->special_offers = $va_special_offers;
+ 
+        if($z_view->logo_apparel == 'Y' || $z_view->logo_other == 'Y') {
+          $this->getPricingArray(&$va_pricing_array, &$v_low_quantity);
+          $z_view->logo_pricing = $va_pricing_array;
+        } else if($price_break_flag != 'N' && strpos($price_str,"N") === FALSE) {
+          $this->getPriceBreaks(&$va_pricebreak_array, &$v_low_quantity);
+          $z_view->price_breaks = $va_pricebreak_array;
+        }
+
+        if(empty($v_low_quantity)) {
+          $v_low_quantity = 1;
+        }
+        $z_view->default_quantity = $v_low_quantity;
+
+        $z_view->scene7_base_url = SCENE7_URL;
+        $this->get_main_image($product_image, &$v_main_image);
+        $z_view->cross_sell_1 = $cross_sell_1;
+        $z_view->cross_sell_2 = $cross_sell_2;
+        $z_view->cross_sell_3 = $cross_sell_3;
+
+        /* before this upsale feed shows only upto 6 style / items 
+         * now it will show upto 10 items and we are also removing repeated style numbers  
+         * */
+        $va_also_purchased = array();
+        
+        $v_sequence=1; // Initializing $v_sequence counter to loop until end of record
+        do{
+	        $this->generateAlsoPurchased($record_sequence, $v_sequence, &$va_also_purchased_tmp);
+		    if(is_array($va_also_purchased_tmp)) {
+		    	$va_also_purchased[] = $va_also_purchased_tmp;
+		    }
+		    $v_sequence++;
+        }while($v_sequence<11); /* Since, we need 2 rows consisting of 5 records in each row. */ 
+        
+        /* Eliminate redundant array values from the array.
+         * 
+         */ 
+		foreach ($va_also_purchased as $ak_k=>$av_ap)
+			$new_ap[$ak_k] = serialize($av_ap); // Serializing
+		$va_uniq_ap = array_unique($new_ap);
+		
+		foreach($va_uniq_ap as $ak_k=>$av_ser)
+			$va_t[$ak_k] = unserialize($av_ser); // Unserializing
+		
+		/* **************************************************************** */
+		$va_also_purchased=$va_t; // transferring the legit array values to va_also_purchased
+       	
+		unset($va_t); // Unsetting the $va_t
+		
+        $z_view->also_purchased = $va_also_purchased;
+        $z_view->has_scene7 = $this->has_scene7();
+        $z_view->main_image = $v_main_image;
+        $z_view->render_set = $this->get_render();
+        $z_view->spin_set = $this->get_spin();
+        $z_view->video_set = $this->get_video();
+        $z_view->style_number = $this->v_style_number;
+        $z_view->product_title = $product_title_disp;
+        $z_view->show_specs_tab = $this->has_specifications();
+        $z_view->record_sequence=$record_sequence;
+
+        $v_server_name = $_SERVER['SERVER_NAME'];
+        if ( (substr($v_server_name, 0, 3) == "dev" || substr($v_server_name, 0, 8) == "redesign" || substr($v_server_name, 0, 7) == "www-dev") && substr($v_server_name, -13) == "golfsmith.com") {
+          $z_view->bazaarvoice_environment = 'bvstaging/';
+        } else {
+          $z_view->bazaarvoice_environment = '';
+        }
+        $z_view->server_name = $v_server_name;
+        $z_view->bv_user_id = "__USERID__";
+
+        $v_custom_style = $this->get_associated_custom_style();
+        if(!empty($v_custom_style)) {
+          $z_view->custom_url = '/';
+          if(!empty($_SESSION['s_screen_name'])) {
+            $z_view->custom_url .= $_SESSION['s_screen_name'] . '/';
+          }
+          $z_view->custom_url .= 'oem_ocf.php?from_ppage=1&base_style=' . $v_custom_style;
+        }
+
+        if(!empty($z_view->render_set)) {
+          $this->get_thumbs(&$va_thumb_list);
+          $z_view->thumb_list = $va_thumb_list;
+        }
+
+        $z_view->breadcrumbs = $this->get_breadcrumbs($item_category_id, $z_view->product_title);
+
+        $this->getBrowseLinkData(&$v_browse_link_data);
+        $z_view->browse_link_data = $v_browse_link_data;
+        
+        if ($_SESSION['s_enable_invodo'])
+        {
+        	$z_view->has_video = $this->has_video();
+        } else {
+        	$z_view->has_video = "";
+        }
+                
+		$z_view->QBD_info = $this->_QBD_info;
+		
+        echo $z_view->render("product.phtml");
+      }
+    }
+
+
+    // Set the pageTitle equal to description - vendor name
+    global $pageTitle, $metaKeywords, $metaDescription;
+    $pageTitle = $product_title . ' - ' . ucfirst( strToLower( $manufacturer_desc));
+    $metaKeywords = $pageTitle;
+    $metaDescription= $pageTitle;
+
+    $_SESSION['product_title'] = $product_title;
+
+    return $p_valid_style ;
+  } // end of function validate_style
+
+  public function setproduct_property($p_sno, $p_property_name, $p_property_value, $p_isarray){
+    if($p_isarray === true) { ?>
+      product_list[<?=$p_sno ?>][<?= "'" . $p_property_name . "'"?>] = new Array().concat(<?= $p_property_value?>);
+    <? 
+    } else { ?>
+      product_list[<?=$p_sno ?>][<?= "'" . $p_property_name . "'"?>] = <?= "'" . str_replace('"', '', $p_property_value) . "'" ?>;
+    <? 
+    }
+
+  }
+
+  public function find_dropship_yesno() {
+    global $web_db;
+
+    $v_msg = 'N' ;
+
+    $v_sql = "select count(*) n_cnt 
+            from gsi_cmn_sku_flags 
+            where style_number = '$this->v_style_number' 
+             and dropship_flag = 'Y'";
+
+    $v_result = mysql_query($v_sql, $web_db) ;
+    $v_error = display_mysql_error($v_sql);
+    if (empty($v_error)){
+      $va_row = mysql_fetch_array($v_result);
+      if($va_row['n_cnt'] > 0) {
+        $v_msg = 'Y' ;
+      }
+    }
+
+    return($v_msg);
+  } // end of function find_dropship_yesno
+  
+  
+  public function has_video() {
+    global $web_db;
+
+    $v_videoXML='';
+
+    $v_sql = "select video_xml 
+            from webonly.gsi_invodo_styles 
+            where trim(style)= '$this->v_style_number'";
+
+    $v_result = mysql_query($v_sql, $web_db) ;
+    $v_error = display_mysql_error($v_sql);
+    if (empty($v_error)){
+      $va_row = mysql_fetch_array($v_result);
+      if(!empty($va_row['video_xml'])) {
+        $v_videoXML=$va_row['video_xml'];
+      }
+    }
+
+    return($v_videoXML);
+  }
+  
+  public function get_dropship_array($item_id_str) {
+    global $web_db;
+    $v_dropship_flag = "";
+    $item_ids = explode(",", $item_id_str);
+
+    $idx = 0 ;
+    while ($idx < count($item_ids)) {
+      if ($item_ids[$idx] > 0) {
+         $v_flag = 'N';
+         $sql = "select dropship_flag,item_price from gsi_cmn_sku_flags
+               where inventory_item_id = " . $item_ids[$idx] ."";
+         $result = mysql_query($sql, $web_db);
+         display_mysql_error($sql) ;
+         if($row = mysql_fetch_array($result))
+           $v_flag = $row["dropship_flag"] ;
+           $v_price = $row["item_price"] ;
+         if (empty($v_flag))
+           $v_flag = 'N';
+         mysql_free_result($result) ;
+
+         if(($v_flag == 'Y') && ($v_price > 75)) {
+           $v_flag = 'Y';
+         } else {
+           $v_flag = 'N';
+         }
+
+      }
+      $v_dropship_flag[$idx] = '"'.$v_flag.'"';
+      $idx++;
+    }
+    $dropship_str = implode(',', $v_dropship_flag);
+
+    return ($dropship_str);
+  } // end of function get_dropship_array 
+
+  
+  public function override_header() {
+    global $override_header_contents, $web_db;
+    
+    $by_style_filename = STATIC_HTML_PATH . '_meta_overrides/product/' . strToLower( $this->v_style_number) . '.html';
+    if(! file_exists( $by_style_filename)) {
+      if("products"==strtolower(substr($_SERVER['REQUEST_URI'],1,8))||"products"==strtolower(substr($_SERVER['REQUEST_URI'],4,8))){
+        $by_common_filename = STATIC_HTML_PATH . '_meta_overrides/product/_product_default.html';
+      }
+    }
+    
+    $override_header_file = '';
+    if ( file_exists( $by_style_filename))
+      $override_header_file = $by_style_filename;
+    else if ( file_exists( $by_common_filename))
+      $override_header_file = $by_common_filename;
+    if ($override_header_file) {
+      $sql = "select record_name, description, manuf_desc, item_category_desc, record_parent_1, gcpds.*
+              from gsi_cmn_prod_data_summary gcpds
+              where record_name = '$this->v_style_number'
+              and record_type = 'STYLE'";
+      $result = mysql_query( $sql, $web_db);
+      while( $row = mysql_fetch_assoc( $result)) {
+        extract( $row);
+      }
+      ob_start();
+      include( $override_header_file);
+      $override_header_contents = ob_get_contents();
+      ob_end_clean();
+      
+    }
+  }// end of the override_header function
+  
+
+  public function get_first_item_id ($item_str) {
+    $item_ids = explode(",", $item_str);
+    $idx = 0 ;
+
+    while (! empty($item_ids[$idx])) {
+      if ($item_ids[$idx] > 0) {
+        return($item_ids[$idx]);
+      }
+      $idx++;
+    }
+  }
+
+  public function define_product_array($sno) {
+  ?>
+    product_list[<?=$sno?>] = new Array();
+    product_list[<?=$sno?>]['start_idx'] = 0;
+    product_list[<?=$sno?>]['end_idx'] = 0;
+    product_list[<?=$sno?>]['attr_increment'] = 0;
+  <?
+  }
+
+  public function has_scene7(){
+    global $web_db;
+
+    $sql="SELECT change_seg_number, style_number from " . MS_WEBONLYDB_NAME.".gsi_scene7_data where style_number ='$this->v_style_number' order by image_type";
+
+    $results=mysql_query($sql,$web_db);
+    mysql_error();
+    $row=mysql_fetch_row($results);
+
+    if($row) {
+
+     //return $row[0];
+     $_SESSION['change_seg_number']= $row[0];
+     return true;
+    } else {
+     return false;
+    }
+  }
+
+  public function get_render() {
+    global $web_db;
+
+    $sql="SELECT full_name from " . MS_WEBONLYDB_NAME.".gsi_scene7_data where style_number = '$this->v_style_number' and image_type='rn' ";
+
+    $results=mysql_query($sql,$web_db);
+    mysql_error();
+
+    while($row=mysql_fetch_row($results)) {
+      $return = $row[0] ;
+      return $return;
+    }
+
+
+  }
+
+  public function get_spin() {
+    global $web_db;
+
+    $v_sql = "SELECT full_name from " . MS_WEBONLYDB_NAME.".gsi_scene7_data where style_number = '$this->v_style_number' and image_type='sp'";
+
+    $v_result = mysql_query($v_sql, $web_db);
+    mysql_error();
+
+    while($row = mysql_fetch_row($v_result)) {
+      $v_return = $row[0];
+      return $v_return;
+    }
+
+  }
+
+  public function get_video() {
+    global $web_db;
+
+    $v_sql = "SELECT full_name from " . MS_WEBONLYDB_NAME . ".gsi_scene7_data where style_number = '$this->v_style_number' and image_type='vd'";
+
+    $v_result = mysql_query($v_sql, $web_db);
+    mysql_error();
+
+    while($row = mysql_fetch_row($v_result)) {
+      $v_return = $row[0];
+      return $v_return;
+    }
+  }
+
+  public function get_avl_images(){
+
+    global $web_db;
+    $sql="SELECT full_name, change_seg_number, change_seg_value from " . MS_WEBONLYDB_NAME.".gsi_scene7_data where style_number = '$this->v_style_number' and image_type='im' ";
+
+    $results=mysql_query($sql,$web_db);
+    mysql_error();
+
+
+    $index=0; //index used to to relate back to drop down
+
+    $js_image_str="";
+
+    while($row=mysql_fetch_row($results)){
+      $index++;
+      $row[2]=str_replace("~","/",$row[2]); //deal with mask
+      if($this->is_instock($row[1], $row[2])){
+        //set JS Array of all available images
+        $js_image_name_array=$js_image_name_array. " \"$row[0]\",";
+      } //end is in stock
+    }
+    $js_image_name_str=substr($js_image_name_array,0, -1);
+    return $js_image_name_str;
+  }
+
+  public function is_instock($change_segment_num, $chang_seg_value){ //check to see if a sku is in stock
+    global $web_db;
+    //need to initiate valid sku list
+    $valid_sku_array=get_sku_str($this->v_style_number);
+    $valid_sku_array=str_replace('"',"",$valid_sku_array);
+    $valid_sku_array=explode(",",$valid_sku_array);  //getting individual SKUs
+
+    foreach ($valid_sku_array as $key => $value){
+       $segment_array=explode("-",$value);  //split sku into segments
+        $index=$change_segment_num-1;
+        $segment=$segment_array[$index];
+        $segment=str_replace("&","",$segment); //deal with ampersand   
+         if(($segment==$chang_seg_value)){   //check segment values
+            return true;
+         }
+    }
+
+
+  } //end function is_instock
+
+
+  public function get_main_image($p_product_image, &$p_main_image) { //get the main image file name from table.
+    global $web_db;
+
+    if(!empty($p_product_image)) {
+      if(strpos($p_product_image, '/') === 0) {
+        $v_static_image = substr($p_product_image, 1);
+      } else {
+        $v_static_image = $p_product_image;
+      }     
+    } else {
+      $v_image_file_path = IMAGE_PATH . strtolower($this->v_style_number) . ".jpg";
+      if (is_file($v_image_file_path)) {
+        $v_static_image = "images/" . strtolower($this->v_style_number) . ".jpg" ;
+      } else {
+        $v_static_image = "images/comingsoon.jpg" ;
+      }
+    }
+
+    $v_sql="SELECT full_name, change_seg_number, change_seg_value
+          FROM " . MS_WEBONLYDB_NAME.".gsi_scene7_data
+          WHERE style_number = '$this->v_style_number' 
+            and image_type='im'
+          ORDER BY pos_num";
+
+    $v_result = mysql_query($v_sql, $web_db);
+
+    mysql_error();
+
+    if (mysql_num_rows($v_result) > 0) {
+
+      while($va_row = mysql_fetch_row($v_result)){
+        $va_row[2] = str_replace("~", "/", $va_row[2]); //deal with mask
+
+        if($this->is_instock($va_row[1], $va_row[2])) {
+          $p_main_image = SCENE7_URL . $va_row[0] . "?hei=405&wid=375&op_sharpen=1";
+          return true;
+        }
+      }
+    }
+
+    //if we've exited the loop, no Scene7 images found (either no skus in stock had an image, or 
+    // there were no images to begin with
+    if (file_exists($v_static_image)) {
+      $p_main_image = '/' . $v_static_image;
+      return true;
+    } else {
+      return false;
+    }
+
+  } //end get_mail Image Function
+
+  public function get_thumbs(&$p_thumb_list) {
+    global $web_db;
+
+    $v_sql = "SELECT full_name, change_seg_number, change_seg_value 
+              FROM " . MS_WEBONLYDB_NAME.".gsi_scene7_data 
+              WHERE style_number = '$this->v_style_number' 
+                and image_type='sw' 
+              ORDER BY 'change_seg_value'";
+
+    $v_result = mysql_query($v_sql, $web_db);
+    mysql_error();
+
+    while($va_row = mysql_fetch_row($v_result)) { //get thumbnails for the style
+
+      $session_index = "segment" . $va_row[1] ."_values";
+      $va_drop_values = explode(",", str_replace('"', "", $_SESSION[$session_index]));
+      foreach ($va_drop_values as $v_key => $v_drop_value) { //need to cycle through all colors
+
+        $va_row[2] = str_replace("~", "/", $va_row[2]); //deal with mask
+
+        if($va_row[2] == $v_drop_value) { //has thumb
+          if($this->is_instock($va_row[1], $va_row[2])) { //is instock
+            $v_change_seg_number = $va_row[1];
+            $v_drop_name = $this->get_drop_name($v_change_seg_number);
+            $v_sm_img = $va_row[0];
+            $v_target = str_replace("_sw_", "_im_", $v_sm_img);
+
+            $v_sm_img_passed = str_replace("~", "/", $v_sm_img); //deal with mask
+
+            $p_thumb_list[] = array('change_seg_number' => $v_change_seg_number,
+                                    'drop_name'         => $v_drop_name,
+                                    'small_image'       => $v_sm_img,
+                                    'target'            => $v_target,
+                                    'small_image_passed'=> $v_sm_img_passed);                                    
+          } //end is in stock
+        } //has pic
+
+      } //for each
+
+    } //end while
+
+  } //end get thumbs function
+
+
+  public function get_drop_name($p_change_seg_number){
+    global $web_db;
+    $v_segment="segment$p_change_seg_number";
+
+    $v_sql = "select $v_segment from gsi_cmn_style_data where style_number = '$this->v_style_number'";
+
+    $v_result = mysql_query($v_sql, $web_db);
+
+    mysql_error();
+
+    while($va_row = mysql_fetch_row($v_result)) {
+        $v_return = $va_row[0] . "1";
+        return $v_return;
+    }
+
+  }
+
+  public function get_breadcrumbs($p_item_category_id, $p_product_title) {
+
+    if( $_SESSION['site'] == 'US'){
+      if( $_SESSION['s_last_search']) {
+
+        $GLOBALS['endeca_referer'] = $_SESSION['s_last_search']['referer'];
+
+        if (! $s_screen_name)
+          $s_screen_name = $_SESSION['s_screen_name'];
+
+        if (! $s_screen_name)
+          $s_screen_name = $_SESSION['s_screen_name'] = 'ps';
+
+        $i_endeca = new Endeca();
+
+        $response = $i_endeca->bridge($_SESSION['s_last_search']);
+
+        $v_breadcrumb_text = $i_endeca->getValue($response, 'bread_crumb');
+        $v_breadcrumb_text = $i_endeca->removeDelimiter('bread_crumb', $v_breadcrumb_text);
+
+        $v_bread_crumb = '<li><a href="/' . $s_screen_name . '/">' . str_replace(' ', '&nbsp;', ucwords( $GLOBALS['s_screen_title']))
+                 . '</a></li>'
+                 . $v_breadcrumb_text;
+
+        //now format for new way
+        $v_bread_crumb = preg_replace('/ &gt; /', '<li>&nbsp;&raquo; </li><li>', $v_bread_crumb, 1);
+        $v_bread_crumb = str_replace(' &gt; ', '</li><li> &raquo; </li><li>', $v_bread_crumb);
+        $v_bread_crumb = str_replace(' class="searchnav_sm"', '', $v_bread_crumb);
+        $v_bread_crumb .= '</li>';
+
+      } else {
+        //get this piece working
+        $v_bread_crumb = $this->show_breadcrumb_trail( $p_item_category_id);
+      }
+
+      if(!empty($p_product_title)) {
+        $v_bread_crumb .= '<li> &raquo; </li>';
+        $v_bread_crumb .= '<li>' . str_replace(array ("Assorted","ASSORTED","assorted"),array ("","",""), $p_product_title) . '</li>';
+      }
+      $v_bread_crumb = '<ul class="breadCrumbs">' . $v_bread_crumb . '</ul>';
+      return $v_bread_crumb;
+    }
+  }
+
+  public function breadcrumb_list( $page_name_or_category_id ) {
+
+    global $web_db, $s_screen_title;
+    $screen_name = $_SESSION['s_screen_name'];
+
+    if ( is_array( $page_name_or_category_id)) {
+      array_unshift( $page_name_or_category_id
+                   , array( 'url' => "/$screen_name/", 'description' => ucfirst( $s_screen_title))
+                   );
+      return $page_name_or_category_id;
+    }
+
+    $forecast = strToUpper( $_SESSION['s_forecast']);
+    $breadcrumb_list = array();
+
+    $exception_page_list = array(
+      'outlet' => 'outlet'
+    , 'OUTLETPRO' => 'outlet'
+    , 'clearance' => 'clearance'
+    , 'OUTLETCOMP' => 'clearance'
+    , 'newproducts' => 'newproducts'
+    , 'NEWITEMS' => 'newproducts'
+    , 'USA' => 'USA'
+    , 'collegiate' => 'collegiate'
+    , 'COLLEGIATE' => 'collegiate'
+    );
+
+    $breadcrumb_list[] = array( 'url' => "/$screen_name/", 'description' => ucfirst( $s_screen_title));
+
+    if ((int) $page_name_or_category_id) {
+      if ($exception_page_list[$forecast]) {
+        $breadcrumb_list[] = array( 'url' => "/$screen_name/category/" . $exception_page_list[$forecast]
+                                  , 'description' => ucfirst( strToLower( $exception_page_list[$forecast])));
+      }
+      $category_id = (int) $page_name_or_category_id;
+
+      $sql = "select record_name, description
+              from gsi_cmn_prod_data_summary
+              where record_type='ITEM_CATEGORY'
+                and record_sequence = $category_id;";
+      $result = mysql_query( $sql, $web_db);
+      while ( $row = mysql_fetch_assoc( $result)) {
+        $current_category = $row;
+      }
+
+      $category_parent_list = explode( '-', $current_category['record_name']);
+      $previous_parent = '';
+
+      foreach( $category_parent_list as $parent_name) {
+        if (!($previous_parent || $exception_page_list[$forecast])) {
+          $previous_parent = $parent_name;
+          if (strToLower( $parent_name) == 'golf gloves')
+             $parent_name = 'gloves';
+          $url = "/$screen_name/browse/" . strToLower( $parent_name);
+          $description = ucfirst( strToLower( $parent_name));
+
+          if (strToLower( $parent_name) == 'golfbags travel') {
+             $parent_name = 'golfbagstravel';
+             $url = "/$screen_name/browse/golfbags-travel/";
+             $description = "Golf Bags &amp; Travel";
+          }
+          $sql = "select lower(replace(record_name,' ','-')) rec_name, record_sequence, description
+                  from gsi_cmn_prod_data_summary
+                  where record_type='ITEM_CATEGORY'
+                    and record_name = upper('$description');";
+          $result = mysql_query( $sql, $web_db);
+          while( $row = mysql_fetch_assoc( $result)) {
+            $breadcrumb_list[] = array( 'url' => "/$screen_name/browse/" . $row['rec_name']
+                                      , 'description' => $row['description']);
+          }
+
+        } else {
+
+          $record_name = ($previous_parent ? $previous_parent .'-' : '') . $parent_name;
+
+          $sql = "select lower(replace(record_name,' ','-')) rec_name, record_sequence, description
+                  from gsi_cmn_prod_data_summary
+                  where record_type='ITEM_CATEGORY'
+                    and record_name = '$record_name';";
+
+          $result = mysql_query( $sql, $web_db);
+          while( $row = mysql_fetch_assoc( $result)) {
+            $breadcrumb_list[] = array( 'url' => "/$screen_name/browse/" . $row['rec_name']
+                                      , 'description' => $row['description']);
+          }
+        }
+      }
+
+    } else {
+      $page_name = $page_name_or_category_id;
+
+      if ($exception_page_list[$forecast]) {
+        $url = "/$screen_name/category/" . $exception_page_list[$forecast];
+        $description = ucfirst( strToLower( $exception_page_list[$forecast]));
+        $breadcrumb_list[] = array( 'url' => $url, 'description' => $description);
+      }
+
+      if (strToLower( $page_name) == 'golfbagstravel') {
+        $url = "/$screen_name/category/golfbagstravel/";
+        $description = "Golf Bags &amp; Travel";
+        $breadcrumb_list[] = array( 'url' => $url, 'description' => $description);
+      } elseif ( ! $exception_page_list[$page_name]) {
+        $description = ucfirst( strToLower( $page_name));
+        $url = "/$screen_name/category/$page_name";
+        $breadcrumb_list[] = array( 'url' => $url, 'description' => $description);
+      }
+    }
+
+    return $breadcrumb_list;
+  }
+
+  public function show_breadcrumb_trail( $category) {
+    $breadcrumb_list = $this->breadcrumb_list( $category);
+
+    $trail = '';
+    foreach ($breadcrumb_list as $breadcrumb) {
+      $url = $breadcrumb['url'];
+      $description = $breadcrumb['description'];
+      $trail .= (!empty($trail) ? '<li>&nbsp;&raquo; </li>' : '');
+      $trail .= '<li><a href="'.$url.'">'.$description. '</a></li>';
+    }
+    return $trail;
+  }
+
+
+  //get custom styles for clubs
+  public function get_associated_custom_style() {
+    global $web_db;
+
+    $v_style_list = '';
+
+    //remove the limit 1 clause when we've added handling for multiple
+    //  custom styles mapped to the same original style
+    //exclude Lynx (manufacturer_id of 6) for now
+    $v_sql = "select map.mapped_style_number
+          from gsi_ocf_style_mappings map, gsi_ocf_models m
+          where map.original_style_number = '$this->v_style_number'
+            and map.mapped_style_number = m.style_number
+            and m.available_flag = 'Y'
+            and m.manufacturer_id <> 6
+          limit 1";
+
+
+    $v_result = mysql_query($v_sql, $web_db);
+    display_mysql_error($v_sql);
+
+    while($va_row = mysql_fetch_assoc($v_result)) {
+      if(!empty($v_style_list)) {
+        $v_style_list .= ',';
+      }
+      $v_style_list .= $va_row['mapped_style_number'];
+
+    }
+
+    mysql_free_result($v_result);
+
+    return $v_style_list;
+
+  }
+
+
+  public function define_sku_options($p_disp_help, $p_logo_item, $p_logo_apparel, $p_segment_count, &$p_sku_options) {
+
+    global $items;
+
+    $p_sku_options = array();
+
+    for($v_idx=1 ; $v_idx <= count($items); $v_idx++){
+
+      if ($items[$idx]['group'] == 'Y') {
+        $v_disp_help = 'N';
+      } else {
+        $v_disp_help = $p_disp_help;
+        $disp_number='Y';
+      }
+
+      if($p_logo_item == 'N') { //regular item 
+        $this->define_sku_option($items[$v_idx]['segment2'], $items[$v_idx]['segment2_values'], 2, $v_disp_help, $v_idx, &$p_sku_options[]);
+        $this->define_sku_option($items[$v_idx]['segment3'], $items[$v_idx]['segment3_values'], 3, $v_disp_help, $v_idx, &$p_sku_options[]);
+        $this->define_sku_option($items[$v_idx]['segment4'], $items[$v_idx]['segment4_values'], 4, $v_disp_help, $v_idx, &$p_sku_options[]);
+        $this->define_sku_option($items[$v_idx]['segment5'], $items[$v_idx]['segment5_values'], 5, $v_disp_help, $v_idx, &$p_sku_options[]);
+
+      } else { //logo item
+
+      	if ($p_logo_apparel == 'Y')
+      	{
+      		if($p_segment_count == 1) { 
+	          $this->define_sku_option($items[$v_idx]['segment2'], $items[$v_idx]['segment2_values'], 2, $v_disp_help, $v_idx, &$p_sku_options[]);
+	        }        
+	        if($p_segment_count == 2) {
+	          $this->define_sku_option($items[$v_idx]['segment2'], $items[$v_idx]['segment2_values'], 2, $v_disp_help, $v_idx, &$p_sku_options[]);	          
+	        }
+	        if($p_segment_count == 3) {
+	          $this->define_sku_option($items[$v_idx]['segment2'], $items[$v_idx]['segment2_values'], 2, $v_disp_help, $v_idx, &$p_sku_options[]);
+	          $this->define_sku_option($items[$v_idx]['segment3'], $items[$v_idx]['segment3_values'], 3, $v_disp_help, $v_idx, &$p_sku_options[]);	          
+	        }
+	        if($p_segment_count == 4) {
+	          $this->define_sku_option($items[$v_idx]['segment2'], $items[$v_idx]['segment2_values'], 2, $v_disp_help, $v_idx, &$p_sku_options[]);
+	          $this->define_sku_option($items[$v_idx]['segment3'], $items[$v_idx]['segment3_values'], 3, $v_disp_help, $v_idx, &$p_sku_options[]);
+	          $this->define_sku_option($items[$v_idx]['segment4'], $items[$v_idx]['segment4_values'], 4, $v_disp_help, $v_idx, &$p_sku_options[]);	          
+        	}
+      		
+      	}else {
+      	
+	        if($p_segment_count == 1) { 
+	          $this->define_sku_option($items[$v_idx]['segment2'], $items[$v_idx]['segment2_values'], 2, $v_disp_help, $v_idx, &$p_sku_options[]);
+	        }        
+	        if($p_segment_count == 2) {
+	          $this->define_sku_option($items[$v_idx]['segment2'], $items[$v_idx]['segment2_values'], 2, $v_disp_help, $v_idx, &$p_sku_options[]);
+	          $this->define_sku_option($items[$v_idx]['segment3'], $items[$v_idx]['segment3_values'], 3, $v_disp_help, $v_idx, &$p_sku_options[]);
+	        }
+	        if($p_segment_count == 3) {
+	          $this->define_sku_option($items[$v_idx]['segment2'], $items[$v_idx]['segment2_values'], 2, $v_disp_help, $v_idx, &$p_sku_options[]);
+	          $this->define_sku_option($items[$v_idx]['segment3'], $items[$v_idx]['segment3_values'], 3, $v_disp_help, $v_idx, &$p_sku_options[]);
+	          $this->define_sku_option($items[$v_idx]['segment4'], $items[$v_idx]['segment4_values'], 4, $v_disp_help, $v_idx, &$p_sku_options[]);
+	        }
+	        if($p_segment_count == 4) {
+	          $this->define_sku_option($items[$v_idx]['segment2'], $items[$v_idx]['segment2_values'], 2, $v_disp_help, $v_idx, &$p_sku_options[]);
+	          $this->define_sku_option($items[$v_idx]['segment3'], $items[$v_idx]['segment3_values'], 3, $v_disp_help, $v_idx, &$p_sku_options[]);
+	          $this->define_sku_option($items[$v_idx]['segment4'], $items[$v_idx]['segment4_values'], 4, $v_disp_help, $v_idx, &$p_sku_options[]);
+	          $this->define_sku_option($items[$v_idx]['segment5'], $items[$v_idx]['segment5_values'], 5, $v_disp_help, $v_idx, &$p_sku_options[]);
+        	}
+      	}
+      }
+    }
+
+  }
+
+  public function define_sku_option($p_seg_name, $p_seg_values, $p_seg_number, $p_disp_help, $p_sno, &$p_options) {
+
+    global $web_db;
+
+    $v_next_seg = $p_seg_number - 2 ;
+
+    $v_select_name = str_replace(" ", "_", $p_seg_name);
+    $v_select_name = $v_select_name . $p_sno;
+    if(empty($p_disp_help) || !isset($p_disp_help)) {
+      $p_disp_help = 'N';
+    }
+
+    if (!empty($p_seg_name)) {
+      $p_seg_name = ucfirst(strtolower($p_seg_name));
+
+      $v_change_seg_number= $_SESSION['change_seg_number'];
+
+      if ($v_change_seg_number == $p_seg_number){
+        $v_use_scene7 = TRUE;
+      } else {
+        $v_use_scene7 = FALSE;
+      }
+      $v_size_chart_name = get_size_chart($this->v_style_number);
+      //if we're not on the right segment, don't show the size chart
+      if($v_size_chart_name == '' || (strtoupper($p_seg_name) != 'SIZE' && strtoupper($p_seg_name) != 'WIDTH')) {
+        $v_tennis_head = '';
+        if($p_seg_name == 'Tennis head size')
+          $v_tennis_head = "Y";
+     
+         if($p_disp_help == 'Y') {
+           $v_help_text = 'Size Chart';
+           if($v_tennis_head == 'Y') {
+             $v_help_link = '/display_page.php?page_num=racquet_glossary&hdr=N#HeadSize';
+           } else {
+             $v_help_link = '/display_page.php?page_num=racquet_glossary&hdr=N#GripSize';
+           }
+         } else {
+           $v_help_link = '';
+           $v_help_text = '';
+         }
+
+      } else {
+        $v_help_link = '/static_pages/htmlarch/size_charts/' . $v_size_chart_name;
+        $v_help_text = 'Size Chart';
+      }
+
+      //HTML now gets printed elsewhere
+      $p_options = array('select_name' => $v_select_name, 'sno' => $p_sno, 'next_seg' => $v_next_seg, 'seg_name' => $p_seg_name, 'change_seg_number' => $v_change_seg_number, 'use_scene7' => $v_use_scene7, 'help_link' => $v_help_link, 'help_text' => $v_help_text);
+
+    } else {
+      return false;
+    }
+  }
+
+  public function generatePersonalizationCheckboxes(&$pa_checkbox_data) {
+    global $web_db;
+
+    $v_sql = "select service_type, service_style_number, service_item_id
+              from gsi_cmn_style_services
+              where style_number = '$this->v_style_number' 
+                and service_type != 'PERSONALIZE_TEXT'";
+
+    $v_result = mysql_query($v_sql, $web_db);
+    display_mysql_error($v_sql) ;
+
+    $pa_checkbox_data = array();
+
+    $v_count = 0;
+
+    while ($va_row = mysql_fetch_array($v_result)) {
+
+      $pa_checkbox_data[$v_count] = array();
+
+      $pa_checkbox_data[$v_count]['service_type'] = $va_row['service_type'];
+
+      $v_sql2 = "select replace(description, ' ', '&nbsp;') description, url
+               from gsi_cmn_prod_data_summary
+               where record_type = 'STYLE'
+                 and record_name = '" . $pa_checkbox_data[$v_count]['service_type'] . "'";
+
+      $v_result2 = mysql_query($v_sql2, $web_db);
+      display_mysql_error($v_sql2);
+
+      if ($va_row2 = mysql_fetch_array($v_result2)){
+        $pa_checkbox_data[$v_count]['service_desc'] = $va_row2["description"] ;
+        $pa_checkbox_data[$v_count]['service_url'] = ( ! strPos( $va_row2['url'], '/') ? '' : '/') . $va_row2["url"] ;
+        
+      }
+      mysql_free_result($v_result2);
+      $v_count++;
+    }
+    mysql_free_result($v_result);
+
+  }
+
+
+  public function generatePersonalizationData(&$p_service_type, &$pa_personalization_data, &$p_per_line_count) {
+    global $web_db;
+
+    $pa_personalization_data = array();
+
+    $p_service_type = '';
+    $template_id = '';
+    $sql = "select style_number, template_id, service_type
+        from gsi_cmn_style_services
+        where service_style_number = '$this->v_style_number'
+          and service_type in ('PERSONALIZE_TEXT')
+          and template_id is not null";
+    $result = mysql_query($sql, $web_db);
+    display_mysql_error($sql);
+    if ($myrow = mysql_fetch_array($result)) {
+      $p_service_type = $myrow["service_type"];
+      $org_style_number = $myrow["style_number"];
+      $template_id = $myrow["template_id"];
+    }
+    mysql_free_result($result);
+
+    if (!empty($template_id)) {
+
+      $sql2 = "select distinct l.user_action,l.display_label,a.attribute_name
+               from gsi_per_attribute_lookup l
+                  , gsi_per_template_attributes a
+               where l.attribute_name = a.attribute_name
+                 and a.template_id = $template_id
+               order by ifnull(a.display_sequence,1),l.user_action,a.attribute_name" ;
+      $result2 = mysql_query($sql2, $web_db);
+      display_mysql_error($sql2);
+      $line_cnt = 0;
+      $type_cnt = 0;
+      $choose_cnt = 0;
+      while($myrow2 = mysql_fetch_array($result2)){
+        $user_action    = $myrow2["user_action"];
+        $display_label  = $myrow2["display_label"];
+        $attribute_name = $myrow2["attribute_name"];
+        switch ($user_action) {
+          case 'CHOOSE':
+            $this->display_choose($template_id, $display_label, $attribute_name, &$pa_personalization_data[]);
+            $choose_cnt++;
+            break;
+          case 'TYPE':
+            $this->display_text($template_id, $display_label, $attribute_name, &$pa_personalization_data[]);
+            $type_cnt++;
+            if (substr($attribute_name,0,4) == 'LINE')
+              $line_cnt++;
+            break;
+        } // end of switch
+      } // end of while
+      mysql_free_result($result2);
+
+      if (($choose_cnt > 0) || ($type_cnt > 0) ) { ?>
+        <?
+      } // if there are attributes displayed
+      if ($line_cnt > 0) {
+      ?>
+        <!--<input type="hidden" name="per_line_cnt" value="<? echo $line_cnt ?>">-->
+      <?
+      } // if line_cnt > 0
+    } // if not empty template id
+
+    $p_per_line_count = $line_cnt;
+
+  }
+
+  public function display_text ($p_template_id, $p_display_label, $p_attribute_name, &$pa_personalization_data) {
+    global $web_db;
+
+    $pa_personalization_data = array();
+
+    $tmp_sql = "select attribute_value 
+                from gsi_per_template_attributes 
+                where template_id = $p_template_id 
+                  and attribute_name = '$p_attribute_name'" ;
+    $tmp_result = mysql_query($tmp_sql, $web_db);
+
+    display_mysql_error($tmp_sql);
+    $tmp_myrow = mysql_fetch_array($tmp_result) ;
+    $max_length = $tmp_myrow["attribute_value"];
+    mysql_free_result($tmp_result);
+
+    $pa_personalization_data['type'] = 'text';
+    $pa_personalization_data['max_length'] = $max_length;
+    $pa_personalization_data['field_name'] = "per_" . strtolower(str_replace(' ', '_', $p_attribute_name));
+    $pa_personalization_data['label'] = $p_display_label;
+  } // end of function display_text ;
+
+  public function display_choose($p_template_id, $p_display_label, $p_attribute_name, &$pa_personalization_data) {
+    global $web_db;
+
+    $pa_personalization_data = array();
+    $pa_personalization_data['type'] = 'select';
+    $pa_personalization_data['options'] = array();
+
+    $tmp_sql = "select a.attribute_value, v.display_label
+                from gsi_per_template_attributes  a
+                   , gsi_per_attribute_value_lookup v
+                where a.template_id = $p_template_id
+                  and a.attribute_name = '$p_attribute_name'
+                  and v.attribute_name = a.attribute_name
+                  and v.attribute_value = a.attribute_value
+                order by a.val_display_sequence, a.attribute_value" ;
+    $tmp_result = mysql_query($tmp_sql, $web_db);
+    display_mysql_error($tmp_sql);
+    $idx = 0;
+    while($tmp_myrow = mysql_fetch_array($tmp_result)){
+      if($idx == 0) {
+        $v_selected = TRUE;
+      } else {
+        $v_selected = FALSE;
+      }
+      $pa_personalization_data['options'][$idx] = array('label' => ucfirst(strtolower($tmp_myrow["display_label"])), 'value' => $tmp_myrow["attribute_value"], 'selected' => $v_selected);
+      $idx++;
+    }
+    mysql_free_result($tmp_result);
+
+    $pa_personalization_data['field_name'] = "per_" . strtolower(str_replace(' ', '_', $p_attribute_name));
+    $pa_personalization_data['label'] = $p_display_label;
+
+  } // end of function display_choose ;
+
+  public function find_isp_yesno() {
+    global $web_db;
+
+    $v_msg = 'N' ;
+    $sql = "select count(*) n_cnt from gsi_cmn_sku_flags where " ;
+    $sql .= " style_number = '$this->v_style_number' and (store_pickup_flag = 'N' or austin_to_store_flag = 'N')";
+
+    $result = mysql_query($sql, $web_db) ;
+    $error = display_mysql_error($sql);
+    if (empty($error)){
+      $row = mysql_fetch_array($result);
+      if ($row['n_cnt'] == 0){
+        $v_msg = 'Y' ;
+      }
+    }
+    return($v_msg);
+  } // end of function find_isp_yesno
+
+
+  public function findAvailablePersonalization() {
+
+    global $web_db;
+
+    $v_personalize_style = '';
+
+    $v_sql = "SELECT a.service_style_number 
+               FROM gsi_cmn_style_services a, gsi_cmn_style_data b 
+               WHERE b.style_number = a.service_style_number 
+                 AND a.style_number <> a.service_style_number 
+                 AND a.service_type IN ('PERSONALIZE_TEXT') AND a.style_number = '$this->v_style_number'";
+
+    $v_result = mysql_query($v_sql, $web_db);
+    display_mysql_error($v_sql);
+
+    while ($va_row = mysql_fetch_assoc($v_result)) {
+      $v_personalize_style = $va_row['service_style_number'];
+    }
+
+    return $v_personalize_style;
+
+  }
+
+  public function getSpecialOffers(&$va_special_offers) {
+    global $web_db;
+
+    $va_special_offers = array();
+
+    $v_sql = "select distinct gso.* 
+              from webonly.gsi_special_offer gso 
+                 , webonly.gsi_specialoffer_style gss
+              where gss.style_number = '$this->v_style_number' 
+                and gss.promo_id = gso.promo_id
+                and now() between start_date and end_date 
+              order by end_date desc";
+
+    $v_result = mysql_query($v_sql, $web_db);
+    display_mysql_error($v_sql);
+
+    while($va_row = mysql_fetch_assoc($v_result)) {
+      $va_special_offers[] = $va_row;
+    }
+
+  }
+
+  public function getPricingArray(&$pa_pricing_array, &$p_low_quantity) {
+    global $web_db;
+
+    $pa_pricing_array = array();
+
+    if (!empty($this->v_style_number)) {
+      $price_sql = " select low, high, price
+                     from gsi_cmn_style_price_breaks
+                     where style_number = '$this->v_style_number'
+                     order by low ";
+
+      $price_result = mysql_query($price_sql, $web_db);
+      display_mysql_error($price_sql) ;
+      $price_idx = 0;
+      while ($price_myrow = mysql_fetch_array($price_result)) {
+        if(empty($p_low_quantity)) {
+          $p_low_quantity = $price_myrow["low"];
+        }
+        $pa_pricing_array[$price_idx]["low"] = $price_myrow["low"];
+        if($price_myrow["high"] <= 1000) {
+          $pa_pricing_array[$price_idx]["high"] = $price_myrow["high"];
+        }
+        $pa_pricing_array[$price_idx]["price"] = $price_myrow["price"];
+        $price_idx++;
+      }
+      mysql_free_result($price_result);
+
+      if (count($pa_pricing_array) == 0) {
+        $price_str_sql = " select price_str
+                           from " .GSI_CMN_STYLE_DATA. "
+                           where style_number = '$this->v_style_number' ";
+        $price_str_result = mysql_query($price_str_sql, $web_db);
+        display_mysql_error($price_str_sql);
+        $price_str_myrow = mysql_fetch_array($price_str_result);
+        $v_price_str = $price_str_myrow["price_str"];
+        mysql_free_result($price_str_result);
+
+        if (!empty($v_price_str)) {
+          $price_str_array = split(',',$v_price_str);
+          $price_str_array_cnt = count($price_str_array);
+
+          $idx2 = 0;
+          for ($idx=0; $idx < $price_str_array_cnt; $idx++) {
+            if ($price_str_array[$idx] != '"0.0"') {
+              $new_price_str_array[$idx2] = trim($price_str_array[$idx],'"');
+              $new_price_str_array[$idx2] = trim($new_price_str_array[$idx2],'$');
+              $idx2++;
+            }
+          }
+
+          $v_low_price = min($new_price_str_array);
+          $v_high_price = max($new_price_str_array);
+
+          $p_low_quantity = 1;
+
+          if ($v_low_price == $v_high_price) {
+            $pa_pricing_array[0]["low"] = "1+";
+            $pa_pricing_array[0]["price"] = $v_low_price;
+          } else {
+            $pa_pricing_array[0]["low"] = "1+";
+            $pa_pricing_array[0]["price"] = $v_low_price . " - " . $v_high_price;
+          }
+        }
+      }
+
+    }
+
+  }
+ 
+  
+  //this will validate ordered quantity versus available quantity
+  public function validateATP($p_iid, $p_org_id) {  	
+    
+   global $mssql_db;
+   $v_atp = 0;
+
+    $v_stmt = mssql_init("direct.dbo.gsi_get_item_atp");
+
+    gsi_mssql_bind($v_stmt, "@p_iid", $p_iid, "bigint", -1);
+    gsi_mssql_bind($v_stmt, "@p_org_id", $p_org_id, "bigint", -1);
+    gsi_mssql_bind($v_stmt, "@p_atp", &$v_atp, "bigint", -1, true);
+
+    $v_result = mssql_execute($v_stmt);
+
+    if(!$v_result) {
+      display_mssql_error("direct..gsi_get_item_atp called from ProductPage.php");
+      $v_atp = -1;
+    }
+
+    mssql_free_statement($v_stmt);
+
+    return $v_atp;
+  	
+  }
+  
+  public function get_QBD_info() {
+  	
+  	$v_arr_QBD = array();
+
+  	if ($_SESSION['site'] != 'CA') {
+	  	$v_arr_QBD = get_active_QBD(); 	
+	  	$v_arr_QBD2 = array();
+	  	
+	  	if (strtolower($v_arr_QBD['style']) == strtolower($this->v_style_number)) {
+	  		
+	  		$v_arr_QBD2 = $v_arr_QBD;
+	  		
+	  	} else {
+	  		
+	  		$v_arr_QBD2['active'] = 'N';
+	  		
+	  	}
+  	} else {
+  		
+  		$v_arr_QBD2['active'] = 'N';
+  		
+  	}
+  	return $v_arr_QBD2;
+  	
+  }
+  
+  
+
+  public function getPriceBreaks(&$pa_pricing_array, &$p_low_quantity) {
+    global $web_db;
+
+    $sql = "select low, high, price from ". GSI_CMN_STYLE_PRICE_BREAKS. " where style_number = '$this->v_style_number' order by low " ;
+
+    $result = mysql_query($sql, $web_db);
+    display_mysql_error($sql) ;
+
+    $v_idx = 0;
+
+    while ($myrow = mysql_fetch_array($result)) {
+
+      if(empty($p_low_quantity)) {
+        $p_low_quantity = $myrow["low"];
+      }
+
+      $min_qty = $myrow["low"] ;
+      $max_qty = $myrow["high"] ;
+      $price = $myrow["price"] ;
+
+      $price_dsp = format_currency($price);
+
+      if ($min_qty == 1) {
+        $pa_pricing_array[$v_idx]['quantity'] = 'per unit';
+        $pa_pricing_array[$v_idx]['price'] = $price_dsp;
+      } else {
+        $pa_pricing_array[$v_idx]['quantity'] = "$min_qty or more";
+        $pa_pricing_array[$v_idx]['price'] = $price_dsp;
+      }
+      $v_idx++;
+    }
+    mysql_free_result($result);
+
+
+  }
+ 
+  //promo messaging
+  function get_promo_messages ($p_group_number, &$p_shipping_message, &$p_9090_message, &$p_wf_message) {
+    global $web_db;
+    if (!empty($p_group_number)) {
+      $sql = "select group_id from gsi_cmn_product_groups where group_name = '$p_group_number'" ;
+      $result = mysql_query($sql, $web_db) ;
+      $row    = mysql_fetch_array($result) ;
+      $v_group_id = $row['group_id'];
+    }
+    if (!empty($this->v_style_number)) {
+      $sql2    = "select max(item_price) item_price from gsi_cmn_sku_flags where style_number = '$this->v_style_number'";
+      $result2 = mysql_query($sql2,$web_db);
+      $row2    = mysql_fetch_array($result2);
+      $v_item_price = $row2['item_price'];
+    }
+    $p_shipping_message = $this->get_message_by_column ($v_group_id, 'shipping_indicator') ;
+    $p_9090_message = $this->get_message_by_column ($v_group_id, 'ninty_ninty_flag') ;
+    if ($v_item_price > 100 && $_SESSION['site'] != 'CA') {  //GE Card is available on US site only
+      $p_wf_message = $this->get_message_by_column ($v_group_id, 'gsi_card_promotion_plan') ;
+    }
+  } // end of function
+
+  function get_message_by_column ($p_group_id, $p_column_name) {
+    global $web_db;
+
+    $sql = "select distinct $p_column_name column_value from gsi_cmn_sku_flags where item_price <> 0 and " ;
+    if (empty($this->v_style_number))
+      $sql .= " product_group_id = $p_group_id ";
+    else
+      $sql .= " style_number = '$this->v_style_number' ";
+
+    $result     = mysql_query($sql, $web_db) ;
+    $v_num_rows = mysql_num_rows($result) ;
+    $row        = mysql_fetch_array($result) ;
+    $v_msg = '' ;
+    if ($v_num_rows == 1) {
+      $v_column_value = $row['column_value'] ;
+      $v_msg = $this->get_column_message($p_column_name, $v_column_value, $p_group_id) ;
+    }
+    return($v_msg);
+  } // end of function get_message_by_column
+
+  function get_column_message ($p_column_name, $p_column_value, $p_group_id) {
+    global $web_db ;
+
+    $v_message = '';
+    switch($p_column_name) {
+      case "shipping_indicator":
+        if ($p_column_value == 'F') {
+          $v_message = 'Free Shipping on this Item';
+        }
+        /*if ($p_column_value == 'Q') {
+          if($_SESSION['site'] == 'US')
+            $v_message = '$5.99 Flat-Rate Shipping!' ;
+          else
+            $v_message = 'Orders Over $100 CAD Ship Free' ;
+        }*/
+        //$v_message = '';
+        if ($p_column_value == 'O') {
+          $sql = "select shipping_override_amount from gsi_cmn_sku_flags where shipping_override_amount <> 0 and " ;
+          if (empty($this->v_style_number))
+            $sql .= " product_group_id = $p_group_id ";
+          else
+            $sql .= " style_number = '$this->v_style_number' ";
+
+          $result = mysql_query($sql, $web_db) ;
+          $row    = mysql_fetch_array($result) ;
+          $v_shipping_override = $row['shipping_override_amount'];
+          if ($v_shipping_override > 0) {
+            $v_message = 'Oversized Item: Extra shipping fees apply';
+          }
+        }
+        break;
+      case "ninty_ninty_flag":
+        if ($p_column_value == 'Y') {
+          $v_message = 'Playability Guarantee';
+        }
+        break;
+      case "gsi_card_promotion_plan":
+        if ($p_column_value <> 1) {
+          $v_message = 'Special Financing';
+        } // not regular terms
+        break;
+    } // end of switch
+    return($v_message);
+  } // end of function get_column_message
+
+  public function getBrowseLinkData(&$pa_browse_data) {
+
+    global $web_db;
+
+    $pa_category_data = array();
+
+    $v_show_manufacturer = FALSE;
+    $v_show_category = FALSE;
+    $v_show_combine = FALSE;
+
+    if ($_SESSION['site'] != 'CA') {
+
+      $v_sql = "select manuf_id, category_id 
+                FROM gsi_cmn_prod_data_summary 
+                WHERE record_type = 'STYLE' 
+                  AND record_name = '$this->v_style_number'";
+
+      $v_result = mysql_query($v_sql, $web_db);
+      display_mysql_error($strSQL);
+
+      while ($va_row = mysql_fetch_assoc($v_result)) {
+        $v_category_id = $va_row['category_id'];
+        $v_manufacturer_id = $va_row['manuf_id'];
+      }
+
+      //check for products that fit both categories
+      if ($v_category_id != '' && $v_manufacturer_id != '') {
+        $v_sql = "SELECT 1 
+                  FROM gsi_cmn_prod_data_summary 
+                  WHERE record_type = 'STYLE' 
+                    AND manuf_id = $v_manufacturer_id
+                    AND category_id = $v_category_id";
+        $v_result = mysql_query($v_sql, $web_db);
+        display_mysql_error($v_sql);
+
+        if(mysql_num_rows($v_result) > 1) {
+          $v_show_manufacturer = TRUE;
+          $v_show_category = TRUE;
+          $v_show_combine = TRUE;
+        } else { //still a chance we have to show one of them
+          $v_sql = "SELECT 1 
+                    FROM gsi_cmn_prod_data_summary 
+                    WHERE record_type = 'STYLE' 
+                      AND manuf_id = $v_manufacturer_id";
+          $v_result = mysql_query($v_sql, $web_db);
+          display_mysql_error($v_sql);
+          
+          if(mysql_num_rows($v_result) > 1) {
+            $v_show_manufacturer = TRUE;
+          }
+       
+          $v_sql = "SELECT 1
+                  FROM gsi_cmn_prod_data_summary
+                  WHERE record_type = 'STYLE'
+                    AND category_id = $v_category_id";
+          $v_result = mysql_query($v_sql, $web_db);
+          display_mysql_error($v_sql);
+
+          if(mysql_num_rows($v_result) > 1) {
+            $v_show_category = TRUE;
+          }
+
+        }
+
+        if($v_show_manufacturer === TRUE) {
+          //find manufacturer name
+          $v_sql = "SELECT description 
+                    FROM gsi_cmn_prod_data_summary 
+                    WHERE record_type = 'MANUFACTURER' 
+                      and record_sequence = $v_manufacturer_id";
+          $v_result = mysql_query($v_sql, $web_db);
+          display_mysql_error($v_sql);
+
+          $va_row = mysql_fetch_assoc($v_result);
+          $v_manufacturer_name = $va_row['description'];
+
+        }
+
+        if($v_show_category === TRUE) {
+          $v_sql = "SELECT description 
+                    FROM gsi_cmn_prod_data_summary 
+                    WHERE record_type = 'ITEM_CATEGORY' 
+                      and record_sequence = $v_category_id";
+
+          $v_result = mysql_query($v_sql, $web_db);
+          display_mysql_error($v_sql);
+
+          $va_row = mysql_fetch_assoc($v_result);
+          $v_category_name = $va_row['description'];
+        }
+
+      }
+
+      if($v_show_combine === TRUE) {
+        $pa_browse_data[] = array('label' => $v_manufacturer_name . ' ' . $v_category_name
+                                , 'id_string' => $v_manufacturer_id . '+' . $v_category_id);
+      }
+
+      if($v_show_manufacturer === TRUE) {
+        $pa_browse_data[] = array('label' => $v_manufacturer_name . ' Gear'
+                                , 'id_string' => $v_manufacturer_id);
+      }
+
+      if($v_show_category === TRUE) {
+        $pa_browse_data[] = array('label' => $v_category_name
+                                , 'id_string' => $v_category_id);
+      }
+
+    }
+  }
+
+  public function has_specifications() {
+    global $web_db;
+
+    $v_sql = "select a.sku, count(a.id) 
+              from gsi_cmn_prod_data_summary b, gsi_sku_attribute_options a 
+              where b.record_parent_1 not in (select record_sequence 
+                                              from gsi_cmn_prod_data_summary p 
+                                              where record_name like '%PREOWNED%' 
+                                                and record_type = 'ITEM_CATEGORY') 
+                and b.record_type = 'STYLE' 
+                and b.record_name = a.style  
+                and a.style = '$this->v_style_number' 
+              GROUP BY a.sku having count(a.id) > 1";
+
+    $v_result = mysql_query($v_sql, $web_db);
+    display_mysql_error($v_sql) ;
+
+    $v_show_specs = false;
+
+    if(mysql_num_rows($v_result) > 1) {
+      $v_show_specs = true;
+    }
+
+    mysql_free_result($v_result);
+
+    return $v_show_specs;
+  }
+
+  public function is_excluded_item(&$p_source_code, &$p_is_excluded) {
+
+    global $mssql_db;
+
+    //in case source code isn't in session...
+    if(empty($_SESSION['s_source_code'])) {
+      $p_source_code = strip_tags(post_or_get('scode'));
+      if(!empty($p_source_code)) {
+        $_SESSION['s_source_code'] = $v_source_code;
+      }
+    } else {
+      $p_source_code = $_SESSION['s_source_code'];
+    }
+
+    $v_stmt = mssql_init("direct.dbo.gsi_check_style_exclusion");
+
+    gsi_mssql_bind($v_stmt, "@p_source_code", $p_source_code, "varchar", 30);
+    gsi_mssql_bind($v_stmt, "@p_style_num", $this->v_style_number, "varchar", 50);
+    gsi_mssql_bind($v_stmt, "@p_is_excluded", &$v_is_excluded, "bigint", -1, true);
+
+    $v_result = mssql_execute($v_stmt);
+
+    if(!$v_result) {
+      display_mssql_error("direct..gsi_check_style_exclusion called from ProductPage.php");
+    }
+
+    mssql_free_statement($v_stmt);
+
+    if($v_is_excluded == 1) {
+      $p_is_excluded = TRUE;
+    } else {
+      $p_is_excluded = FALSE;
+    }
+  }
+  
+  
+  function generateAlsoPurchased($p_record_sequence, $p_slot_number, &$pa_also_purchased) {
+  	global $web_db;
+    
+    $v_screen_name = $_SESSION['s_screen_name'];
+
+    $v_sql = "select cross_style_number 
+              from gsi_cmetric_upsales 
+              where record_sequence = $p_record_sequence 
+              and slot_number = $p_slot_number";
+
+    $v_result = mysql_query($v_sql, $web_db);
+    display_mysql_error($v_sql);
+    $va_myrow = mysql_fetch_array($v_result);
+    $v_cross_style = $va_myrow["cross_style_number"];
+    
+    mysql_free_result($v_result);
+
+    if($this->v_style_number == $v_cross_style) {
+      $p_slot_number = $p_slot_number + 1;
+      $v_sql = "select cross_style_number 
+                from gsi_cmetric_upsales  
+                where record_sequence = $p_record_sequence 
+                  and slot_number = $p_slot_number";
+
+      $v_result = mysql_query($v_sql, $web_db) ;
+      display_mysql_error($v_sql) ;
+      $va_myrow = mysql_fetch_array($v_result) ;
+      $v_cross_style = $va_myrow["cross_style_number"] ;
+      mysql_free_result($v_result) ;
+    }
+    /************************************************************************************************/
+
+  	if(!empty($v_cross_style)) {
+
+      $v_sql = "select gcp.description
+                     , gcp.manuf_desc
+                     , gcp.small_image_file
+                     , gcp.url
+                     , gcs.price_str
+                     , gcs.item_id_str
+                     , gcp.original_price
+                from " . GSI_CMN_STYLE_DATA . "  as gcs
+                   , gsi_cmn_prod_data_summary as gcp
+                where gcs.style_number = '$v_cross_style'
+                  and gcp.record_type = 'STYLE'
+                  and gcp.record_name = gcs.style_number " ;
+
+      $v_result = mysql_query($v_sql, $web_db) ;
+      display_mysql_error($v_sql) ;
+      if($va_myrow = mysql_fetch_array($v_result)) {
+        $v_description      = $va_myrow["description"] ;
+        $v_manuf_desc       = $va_myrow["manuf_desc"] ;
+        $v_small_image_file = $va_myrow["small_image_file"] ;
+        $v_url              = $va_myrow["url"] ;
+        $v_price_str        = $va_myrow["price_str"] ;
+        $v_item_id_str      = $va_myrow["item_id_str"] ;
+        $v_original_price   = $va_myrow["original_price"] ;
+        mysql_free_result($v_result) ;
+ 		
+        $v_url_parts = explode( '&', $v_url);
+        $v_url_base = array_shift( $v_url_parts);
+
+        $v_url = str_replace( 'ppage.php?stynum=', '/' . $v_screen_name . '/products/', $v_url_base);
+        $v_url_rep_text=array(" ",'"');
+
+        // changed back to underscore from dash
+        $v_url = $v_url . '/' . str_replace($v_url_rep_text, '_', $v_manuf_desc) . '/' . str_replace($v_url_rep_text, '_', $v_description) . '?' . join( $v_url_parts, '&').'cm_vc=vc_us_pp';
+        
+        unset( $v_url_parts);
+
+        $v_price = get_price($v_price_str, $v_item_id_str);
+
+        if ( (ltrim($v_price,'$') == ltrim($v_original_price,'$')) ||
+             (ltrim($v_price,'$') > ltrim($v_original_price,'$')) ){
+          $v_original_price = '' ;
+        }else{
+          $v_dollar_saving=floor(ltrim($v_original_price,'$')-ltrim($v_price,'$'));
+          $v_percentage_saving=floor(((ltrim($v_original_price,'$')-ltrim($v_price,'$'))*100)/ltrim($v_original_price,'$'));
+        }
+       
+        //need to fix this
+        $v_image = get_image($v_small_image_file, $v_cross_style) ;
+
+        //$v_url .= "&lcode=cross_sales";
+
+        if($v_price <> 'N' && !empty($v_original_price)) {
+          $v_has_savings = TRUE;
+          if($v_dollar_saving>=$v_percentage_saving){
+          	 $v_saving_story='SAVE $'.$v_dollar_saving;
+          }else{
+          	 $v_saving_story='SAVE '.$v_percentage_saving .'%';
+          }
+        } else {
+          $v_has_savings = FALSE;
+        }
+
+        $pa_also_purchased = array('url' => $v_url, 'image' => $v_image, 'manufacturer' => $v_manuf_desc, 
+                                   'description' => $v_description, 'price' => $v_price, 'has_savings' => $v_has_savings, 'original_price' => $v_original_price, 'saving_story' =>$v_saving_story);
+      }
+    }
+  }
+  
+}
+
+?>

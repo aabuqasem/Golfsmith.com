@@ -1,0 +1,179 @@
+<wsdl:definitions name="verify" targetNamespace="http://xmlns.oracle.com/WebPub/AddressVerification/verify" xmlns:ns1="http://www.golfsmith.com/xsd/Address/Verification" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:ns3="http://schemas.oracle.com/bpel/extension" xmlns:client="http://xmlns.oracle.com/WebPub/AddressVerification/verify" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+   <plnk:partnerLinkType name="verify">
+      <plnk:role name="verifyProvider" portType="client:verify"/>
+   </plnk:partnerLinkType>
+   <wsdl:types>
+        <xsd:schema targetNamespace="http://www.golfsmith.com/xsd/services" elementFormDefault="qualified" version="1.4.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:gss="http://www.golfsmith.com/xsd/services">
+           <xsd:element name="systemRequest" type="gss:systemRequest"/>
+           <xsd:element name="serviceResponse" type="gss:serviceResponse"/>
+           <xsd:element name="systemResponse" type="gss:systemResponse"/>
+           <xsd:element name="systemMessage" type="gss:systemMessage"/>
+           <xsd:element name="systemParameters" type="gss:systemParameters"/>
+           <xsd:element name="DiagnosticLevel" type="gss:DiagnosticLevel"/>
+           <xsd:complexType name="systemRequest">
+              <xsd:sequence>
+                 <xsd:element name="usingSoapFault" type="xsd:boolean" minOccurs="0"/>
+                 <xsd:element name="diagnosticLevel" type="gss:DiagnosticLevel" minOccurs="0"/>
+                 <xsd:element name="selfPublish" type="xsd:boolean" minOccurs="0"/>
+                 <xsd:element name="fetchParameters" type="xsd:boolean" minOccurs="0"/>
+              </xsd:sequence>
+           </xsd:complexType>
+           <xsd:complexType name="serviceResponse">
+              <xsd:sequence>
+                 <xsd:element name="systemResponse" type="gss:systemResponse" minOccurs="1"/>
+              </xsd:sequence>
+           </xsd:complexType>
+           <xsd:complexType name="systemResponse">
+              <xsd:sequence>
+                 <xsd:element name="responseCode" type="xsd:integer" minOccurs="1"/>
+                 <xsd:element name="responseMessage" type="xsd:string" minOccurs="1"/>
+                 <xsd:element name="errorMessage" type="gss:systemMessage" minOccurs="0"/>
+                 <xsd:element name="diagnosticMessages" type="gss:systemMessages" minOccurs="0"/>
+                 <xsd:element name="systemParameters" type="gss:systemParameters" minOccurs="0"/>
+              </xsd:sequence>
+           </xsd:complexType>
+           <xsd:complexType name="systemMessages">
+              <xsd:sequence>
+                 <xsd:element name="message" type="gss:systemMessage" maxOccurs="unbounded" minOccurs="0"/>
+              </xsd:sequence>
+           </xsd:complexType>
+           <xsd:complexType name="systemMessage">
+              <xsd:sequence>
+                 <xsd:element name="message" type="xsd:string" minOccurs="1"/>
+                 <xsd:element name="messageLevel" type="gss:DiagnosticLevel" minOccurs="0"/>
+                 <xsd:element name="trace" type="xsd:string" minOccurs="0"/>
+              </xsd:sequence>
+           </xsd:complexType>
+           <xsd:complexType name="systemParameters">
+              <xsd:sequence>
+                 <xsd:element name="serverName" type="xsd:string" minOccurs="1"/>
+                 <xsd:element name="applicationVersion" type="xsd:string" minOccurs="1"/>
+                 <xsd:element name="schemaVersion" type="xsd:string" minOccurs="1"/>
+                 <xsd:element name="serviceUptime" type="xsd:string" minOccurs="1"/>
+              </xsd:sequence>
+           </xsd:complexType>
+           <xsd:simpleType name="DiagnosticLevel">
+              <xsd:restriction base="xsd:string">
+                 <xsd:enumeration value="SEVERE"/>
+                 <xsd:enumeration value="WARNING"/>
+                 <xsd:enumeration value="INFO"/>
+                 <xsd:enumeration value="CONFIG"/>
+                 <xsd:enumeration value="FINE"/>
+                 <xsd:enumeration value="FINER"/>
+                 <xsd:enumeration value="FINEST"/>
+              </xsd:restriction>
+           </xsd:simpleType>
+        </xsd:schema>
+   
+        <xsd:schema targetNamespace="http://www.golfsmith.com/xsd/Address/Verification" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.golfsmith.com/xsd/Address/Verification" xmlns:av="http://www.golfsmith.com/xsd/Address/Verification" xmlns:gsv="http://www.golfsmith.com/xsd/services">
+           <xsd:element name="Address" type="av:Address"/>
+           <xsd:element name="Addresses" type="av:Addresses"/>
+           <xsd:element name="AddressVerificationParameters" type="av:AddressVerificationParameters"/>
+           <xsd:element name="AddressVerificationRequest" type="av:AddressVerificationRequest"/>
+           <xsd:element name="AddressVerificationResponse" type="av:AddressVerificationResponse"/>
+           <xsd:element name="AddressVerificationResult" type="av:AddressVerificationResult"/>
+           <xsd:element name="CustomerInfo" type="av:CustomerInfo"/>
+           <xsd:element name="OriginatingSystem" type="av:OriginatingSystem"/>
+           <xsd:element name="ValidFlag" type="av:ValidFlag"/>
+           <xsd:complexType name="Address">
+              <xsd:sequence>
+                 <xsd:element name="Address1" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                 <xsd:element name="Address2" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                 <xsd:element name="City" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                 <xsd:element name="StateProvince" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                 <xsd:element name="PostalCode" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                 <xsd:element name="CountryCode" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+              </xsd:sequence>
+           </xsd:complexType>
+           <xsd:complexType name="Addresses">
+              <xsd:sequence>
+                 <xsd:element name="address" type="av:Address" maxOccurs="unbounded" minOccurs="0"/>
+              </xsd:sequence>
+           </xsd:complexType>
+           <xsd:complexType name="AddressVerificationParameters">
+              <xsd:sequence>
+                 <xsd:element name="OriginatingSystem" type="av:OriginatingSystem" minOccurs="1" maxOccurs="1"/>
+                 <xsd:element name="ShippingAddress" type="av:Address" minOccurs="1" maxOccurs="1"/>
+                 <xsd:element name="CustomerInfo" type="av:CustomerInfo" minOccurs="0" maxOccurs="1"/>
+              </xsd:sequence>
+           </xsd:complexType>
+           <xsd:complexType name="AddressVerificationRequest">
+              <xsd:sequence>
+                 <xsd:element name="AddressVerificationParameters" type="av:AddressVerificationParameters" minOccurs="1" maxOccurs="1"/>
+              </xsd:sequence>
+           </xsd:complexType>
+           <xsd:complexType name="AddressVerificationResponse">
+              <xsd:sequence>
+                 <xsd:element ref="gsv:systemResponse" minOccurs="1" maxOccurs="1"/>
+                 <xsd:element name="AddressVerificationResult" type="av:AddressVerificationResult" minOccurs="0" maxOccurs="1"/>
+              </xsd:sequence>
+           </xsd:complexType>
+           <xsd:complexType name="AddressVerificationResult">
+              <xsd:sequence>
+                 <xsd:element name="ValidFlag" type="av:ValidFlag" minOccurs="1" maxOccurs="1"/>
+                 <xsd:element name="SuggestedAddresses" type="av:Addresses" minOccurs="0" maxOccurs="1"/>
+              </xsd:sequence>
+           </xsd:complexType>
+           <xsd:complexType name="CustomerInfo">
+              <xsd:sequence>
+                 <xsd:element name="CustomerId" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                 <xsd:element name="FullName" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                 <xsd:element name="Email" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                 <xsd:element name="PhoneNumber" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                 <xsd:element name="Language" type="av:Language" minOccurs="1" maxOccurs="1"/>
+              </xsd:sequence>
+           </xsd:complexType>
+           <xsd:simpleType name="Language">
+              <xsd:restriction base="xsd:string">
+                 <xsd:enumeration value="EN"/>
+                 <xsd:enumeration value="FR"/>
+              </xsd:restriction>
+           </xsd:simpleType>
+           <xsd:simpleType name="OriginatingSystem">
+              <xsd:restriction base="xsd:string">
+                 <xsd:enumeration value="EBS_LOE"/>
+                 <xsd:enumeration value="GOLFSMITH_POS"/>
+                 <xsd:enumeration value="GOLFSMITH_WEB"/>
+                 <xsd:enumeration value="GOLFTOWN_WEB"/>
+              </xsd:restriction>
+           </xsd:simpleType>
+           <xsd:simpleType name="ValidFlag">
+              <xsd:restriction base="xsd:string">
+                 <xsd:enumeration value="VALID"/>
+                 <xsd:enumeration value="INVALID"/>
+                 <xsd:enumeration value="SUGGEST"/>
+                 <xsd:enumeration value="ERROR"/>
+              </xsd:restriction>
+           </xsd:simpleType>
+        </xsd:schema>
+   </wsdl:types>
+   <wsdl:message name="verifyRequestMessage">
+      <wsdl:part name="payload" element="ns1:AddressVerificationRequest"/>
+   </wsdl:message>
+   <wsdl:message name="verifyResponseMessage">
+      <wsdl:part name="payload" element="ns1:AddressVerificationResponse"/>
+   </wsdl:message>
+   <wsdl:portType name="verify">
+      <wsdl:operation name="process">
+         <wsdl:input message="client:verifyRequestMessage"/>
+         <wsdl:output message="client:verifyResponseMessage"/>
+      </wsdl:operation>
+   </wsdl:portType>
+   <wsdl:binding name="verifyBinding" type="client:verify">
+      <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+      <wsdl:operation name="process">
+         <soap:operation style="document" soapAction="process"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+   </wsdl:binding>
+   <wsdl:service name="verify_client_ep">
+      <wsdl:port name="verify_pt" binding="client:verifyBinding">
+         <soap:address location="http://prodsoacluster.gsicorp.com:7777/soa-infra/services/Common/AddressVerification/verify_client_ep"/>
+      </wsdl:port>
+   </wsdl:service>
+</wsdl:definitions>

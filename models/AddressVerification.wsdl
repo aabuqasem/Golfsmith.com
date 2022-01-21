@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="verify" targetNamespace="http://xmlns.oracle.com/WebPub/AddressVerification/verify" xmlns:ns1="http://www.golfsmith.com/xsd/Address/Verification" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:ns3="http://schemas.oracle.com/bpel/extension" xmlns:client="http://xmlns.oracle.com/WebPub/AddressVerification/verify" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <wsdl:documentation>
+        <abstractWSDL>http://prodsoa.gsicorp.com:7777/soa-infra/services/Common/AddressVerification!2.0.0/verify.wsdl</abstractWSDL>
+    </wsdl:documentation>
+    <plnk:partnerLinkType name="verify">
+        <plnk:role name="verifyProvider" portType="client:verify"/>
+    </plnk:partnerLinkType>
+    <wsdl:import namespace="http://schemas.oracle.com/bpel/extension" location="http://prodsoa.gsicorp.com:7777/soa-infra/services/Common/AddressVerification/verify_client_ep?WSDL=RuntimeFault.wsdl"/>
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://www.golfsmith.com/xsd/Address/Verification" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:client="http://xmlns.oracle.com/WebPub/AddressVerification/verify" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+            <import namespace="http://www.golfsmith.com/xsd/Address/Verification" schemaLocation="http://prodsoa.gsicorp.com:7777/soa-infra/services/Common/AddressVerification/verify_client_ep?XSD=xsd/AddressVerification.xsd"/>
+        </schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://www.golfsmith.com/xsd/Address/Verification" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:client="http://xmlns.oracle.com/WebPub/AddressVerification/verify" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"/>
+    </wsdl:types>
+    <wsdl:message name="verifyRequestMessage">
+        <wsdl:part name="payload" element="ns1:AddressVerificationRequest"/>
+    </wsdl:message>
+    <wsdl:message name="verifyResponseMessage">
+        <wsdl:part name="payload" element="ns1:AddressVerificationResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="verify">
+        <wsdl:operation name="process">
+            <wsdl:input message="client:verifyRequestMessage"/>
+            <wsdl:output message="client:verifyResponseMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="verifyBinding" type="client:verify">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="process">
+            <soap:operation style="document" soapAction="process"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="verify_client_ep">
+        <wsdl:port name="verify_pt" binding="client:verifyBinding">
+            <soap:address location="http://prodsoa.gsicorp.com:7777/soa-infra/services/Common/AddressVerification/verify_client_ep"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

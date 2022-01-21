@@ -1,0 +1,67 @@
+<wsdl:definitions name="DecrementBPELComponent" targetNamespace="http://xmlns.oracle.com/GolfSmithWebPubProjects/GetDecrementQty/DecrementBPELComponent" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:client="http://xmlns.oracle.com/GolfSmithWebPubProjects/GetDecrementQty/DecrementBPELComponent" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+   <plnk:partnerLinkType name="DecrementBPELComponent">
+      <plnk:role name="DecrementBPELComponentProvider" portType="client:DecrementBPELComponent"/>
+   </plnk:partnerLinkType>
+   <wsdl:types>
+        <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/GolfSmithWebPubProjects/GetDecrementQty/DecrementBPELComponent" xmlns="http://xmlns.oracle.com/GolfSmithWebPubProjects/GetDecrementQty/DecrementBPELComponent" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+           <xs:element name="DecrementReq" type="DecrementReqCollection"/>
+           <xs:complexType name="DecrementReqCollection">
+              <xs:sequence>
+                 <xs:element name="DecrementReqInput" type="DecrementReqInput" minOccurs="0" maxOccurs="unbounded"/>
+              </xs:sequence>
+           </xs:complexType>
+           <xs:complexType name="DecrementReqInput">
+              <xs:sequence>
+                 <xs:element name="Inventory_Item_Id" type="xs:integer" minOccurs="1" nillable="false"/>
+                 <xs:element name="Organization_Id" type="xs:integer" minOccurs="1" nillable="false"/>
+                 <xs:element name="Quantity" type="xs:decimal" minOccurs="1" nillable="true"/>
+                 <xs:element name="Sales_Channel_Code" type="xs:string" minOccurs="0" nillable="true"/>
+                 <xs:element name="GUID" type="xs:string" minOccurs="0" nillable="true"/>
+              </xs:sequence>
+           </xs:complexType>
+           <xs:element name="DecrementResp" type="DecrementRespCollection"/>
+           <xs:complexType name="DecrementRespCollection">
+              <xs:sequence>
+                 <xs:element name="DecrementRespOutput" type="DecrementRespOutput" minOccurs="0" maxOccurs="unbounded"/>
+              </xs:sequence>
+           </xs:complexType>
+           <xs:complexType name="DecrementRespOutput">
+              <xs:sequence>
+                 <xs:element name="INVENTORY_ITEM_ID" type="xs:int" nillable="false" minOccurs="1"/>
+                 <xs:element name="ORGANIZATION_ID" type="xs:int" nillable="false" minOccurs="1"/>
+                 <xs:element name="OVER_ORDER_QUANTITY" type="xs:string" nillable="true" minOccurs="0"/>
+                 <xs:element name="DTS" type="xs:string" nillable="true" minOccurs="1"/>
+              </xs:sequence>
+           </xs:complexType>
+        </xs:schema>
+   </wsdl:types>
+   <wsdl:message name="DecrementBPELComponentRequestMessage">
+      <wsdl:part name="payload" element="client:DecrementReq"/>
+   </wsdl:message>
+   <wsdl:message name="DecrementBPELComponentResponseMessage">
+      <wsdl:part name="payload" element="client:DecrementResp"/>
+   </wsdl:message>
+   <wsdl:portType name="DecrementBPELComponent">
+      <wsdl:operation name="process">
+         <wsdl:input message="client:DecrementBPELComponentRequestMessage"/>
+         <wsdl:output message="client:DecrementBPELComponentResponseMessage"/>
+      </wsdl:operation>
+   </wsdl:portType>
+   <wsdl:binding name="DecrementBPELComponentBinding" type="client:DecrementBPELComponent">
+      <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+      <wsdl:operation name="process">
+         <soap:operation style="document" soapAction="process"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+   </wsdl:binding>
+   <wsdl:service name="decrementbpelcomponent_client_ep">
+      <wsdl:port name="DecrementBPELComponent_pt" binding="client:DecrementBPELComponentBinding">
+         <soap:address location="http://prodsoacluster.gsicorp.com:7777/soa-infra/services/Common/GetDecrementQty/decrementbpelcomponent_client_ep"/>
+      </wsdl:port>
+   </wsdl:service>
+</wsdl:definitions>
