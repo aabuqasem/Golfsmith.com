@@ -1,0 +1,168 @@
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*
+
+		Brady Starr's.css
+		for Golfsmith.com
+		
+		* search_results_ie.css				- All special styling, hacks, and work-arounds for IE should be included here.
+		
+		== Table of Contents ==
+
+		* Highlight the following flag and use "Find Next" under "Edit" to locate the following sections:
+	=>CLASSES
+	=>STYLING
+	
+	
+*/
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+
+/*
+	=>CLASSES
+----------------*/
+
+a.searchnav_sm:link, a.searchnav_sm:active, a.searchnav_sm:hover, a.searchnav_sm:visited {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 0.916667em;
+	line-height: 1.5;
+	padding: 0 0 0 4px;
+	}
+	
+.search_name
+{
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.search_pricing
+{
+	padding: 6px 0 6px 0;
+}
+
+.search_was
+{
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.search_now
+{
+	color: #000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1.166667em;
+	font-weight: bold;
+	line-height: 1.333333;
+}
+
+.search_save
+{
+	color: #c00;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1.166667em;
+	font-weight: bold;
+	line-height: 1.333333;
+}
+	
+.searchheads {
+	background: #EEE;
+	border: 1px solid #CCC;
+	margin: 0 0 0 0;
+	padding: 2px 0 2px 5px;
+	font-weight: bold;
+}
+
+.searchheads2 {
+	margin: 0 0 0 0;
+	padding: 2px 0 2px 5px;
+	font-weight: bold;
+	
+}
+
+.searchleftnav {
+	background: #faf8f0;
+}
+
+.searchlefttopheader {
+    background: url(/_site_images/_site_searchresults/searchtopleft_03.gif) no-repeat top left;
+	background-color: #f3efe0;
+
+}
+	
+.searchlefttopheader2 {
+    background: url(/_site_images/_site_searchresults/searchtopleft_05.gif) no-repeat top right;
+	background-color: #f3efe1;
+	
+}
+	
+.searchlefttopheader3 {
+   	background:  url(/_site_images/_site_searchresults/searchtopleft_11.gif);
+	background-repeat: repeat-x 0% 0%;
+	color: #333333;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 20px;
+	line-height: 30pt;
+	font-weight: bold;
+	
+}
+
+
+
+.searchlefttopheader4 {
+   	background:  url(/_site_images/_site_searchresults/searchtopleft_10.gif) repeat-x 0% 0%;
+	font-size: 12px;
+	line-height: 14pt;
+	
+}
+.searchlefttopheader5 {
+   	background:  url(/_site_images/_site_searchresults/searchtopleft_11.gif);
+	background-repeat: repeat-x 0% 0%;
+	color: #333333;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 14pt;
+	font-weight: bold;
+	
+}
+	
+.tabproductresults {
+   	background:  url(/_site_images/_site_searchresults/tabs_01.gif);
+	font-size: 11px;
+	font-weight: bold;
+	line-height: 16pt; 
+	color: #333;
+	text-align: center;
+	
+}
+	
+.tabarticleresults {
+   	background:  url(/_site_images/_site_searchresults/tabs_03.gif); 
+	font-size: 11px;
+	font-weight: bold;
+	line-height: 16pt; 
+	color: #333;
+	text-align: center;
+
+}	
+
+.searchlefttopheadertext {
+    background: #f3efe1;
+	font-size: 1.166667em;
+	font-weight: bold;
+	line-height: 1.333333; 
+	color: #333;
+	padding-top: 0.5em;
+	text-align: center;
+}
+
+
+/*
+	=>STYLING
+----------------*/
+
+body#search_result ul.checkmarks
+{
+	margin-top: 1em;
+}
+
+body#search_result ul.checkmarks li
+{
+	margin-top: 0;
+}

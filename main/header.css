@@ -1,0 +1,781 @@
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*
+
+		Brady Starr's.css
+		for Golfsmith.com
+		
+		* header.css				- All CSS controlling the header should be included here.
+
+*/
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+ 
+
+ /*
+			=>HEADER
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
+ 
+#header-search {
+	position: relative;
+	padding-top: 45px;
+}
+
+
+/* styles for the header navigation of the menu */
+#header-nav {
+	width: 100%;
+	height:45px;
+	border-bottom: 1px solid #ccc;
+	background-color:#eee;
+	display: block;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 999999;
+	text-align: center;
+}
+
+/* font size has been set to 0 to remove the line breaks being caused by the inline display */
+#header-nav ul {
+	text-align: left;
+	display: inline;
+	list-style: none;
+	/* -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.15); */
+	/* -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.15); */
+	/* box-shadow: 0 0 5px rgba(0, 0, 0, 0.15); */
+	z-index:9999;
+	font-size:0;
+	width: auto;
+	position: relative;
+	margin: 0 auto;
+}
+
+#header-nav ul li {
+  	display: inline-block;
+	vertical-align: top;
+  	position: relative;
+  	cursor: pointer;
+	margin:0px 0 0 1px;
+	padding: 0px;
+	background-color:#d9d9d9;
+  	-webkit-transition: all 0.2s;
+  	-moz-transition: all 0.2s;
+  	-ms-transition: all 0.2s;
+  	-o-transition: all 0.2s;
+  	transition: all 0.2s;
+	font-size:12px;
+}
+
+#header-nav ul li:first-child {
+	margin:0px;
+}
+
+#header-nav ul li:hover {
+	background: #23303d;
+	color: #fff;
+}
+
+#header-nav ul li ul {
+	padding: 0;
+  	position: absolute;
+  	top: 48px;
+  	left: 0;
+  	width: 150px;
+  	display: none;
+  	opacity: 0;
+  	visibility: hidden;
+  	-webkit-transiton: opacity 0.2s;
+  	-moz-transition: opacity 0.2s;
+  	-ms-transition: opacity 0.2s;
+  	-o-transition: opacity 0.2s;
+  	-transition: opacity 0.2s;	
+	
+}
+
+#header-nav ul li ul.gs-help {
+  	top: 46px;
+  	left: 0;
+  	width: 250px;
+	border:5px solid #23303d;
+	background-color:#fff;
+}
+
+#header-nav ul li ul li {
+	background: #fff; 
+	display: block; 
+	color: #333;
+	width: 100%;
+	margin-left: 0px;
+}
+
+#header-nav ul li ul li:hover {
+	background: #fff;
+	color:#333;
+	cursor:default;
+	
+}
+
+#header-nav ul li:hover ul {
+	display: block;
+  	opacity: 1;
+  	visibility: visible;
+}
+
+/* styles for the help portion of the header nav */
+.help-header {
+	width: 80px;
+	height:31px;
+	text-align:center;
+	margin:0px;
+	display:block;
+	text-transform:uppercase;
+	font-size:1.3em;
+	font-weight:bold;
+	padding-top:15px;
+}
+
+.cs-menu-item a {
+	color: #555;
+	-webkit-font-smoothing: subpixel-antialiased;
+}
+
+.cs-menu-item:hover a {
+	color: #fff;
+}
+
+#header-nav ul>li:hover span.cs-menu-item a {
+	color: #fff;
+}
+
+.cs-menu-item a:hover {
+	text-decoration: none;
+}
+
+h3.help-icons {
+	font-size:5.5em;
+	padding:0;
+	float: left;
+}
+
+h3.call {
+	margin: 5px 0 0 27px;
+}
+
+h3.online {
+	margin: 5px 0 0 20px;
+}
+
+h3.faq {
+	margin: 5px 0 0 22px;
+}
+
+h3.fair-way {
+	margin: 5px 0 0 17px;
+}
+
+h3.help-icons .fa-envelope {
+	font-size:.65em;
+	margin-top:10px;
+}
+
+.gs-help-list {
+	float:right;
+	margin: 15px 5px 0 0;
+	text-align:left;
+}
+
+.gs-help-list p {
+	font-size: 1em;
+	line-height:1.4em;
+	width:170px;
+}
+
+.gs-help-info p, .gs-help-intl p {
+	text-align:center;
+	margin: 0 auto;
+}
+
+.gs-help-list a, .gs-help-info a, .gs-help-intl a, .fairway-text a {
+	color: #23303d;
+}
+
+.gs-help-list h5 {
+	padding: 0 0 5px 0;
+	width:170px;
+}
+
+.gs-help hr {
+	width: 220px;
+	color: #23303d;
+	background-color: #23303d;
+	text-align:center;
+	margin: 20px auto 10px;
+}
+
+.gs-help-info hr, .gs-help-intl hr {
+	width: 220px;
+	color: #23303d;
+	background-color: #23303d;
+	text-align:center;
+	margin: 10px auto 10px;
+}
+
+.account-header, .cards-header, .stores-header {
+	height:31px;
+	text-align:center;
+	margin:0px;
+	display:block;
+	font-size:1.3em;
+	padding-top:15px;
+}
+
+.account-header {
+	width: 100px;
+}
+
+.cards-header {
+	width: 94px;
+}
+
+.stores-header {
+	width: 108px;
+}
+
+.fairway-text {
+	float:right;
+	margin: 5px 0 20px 10px;
+	text-align:left;
+}
+
+.fairway-text p {
+	font-size: 1em;
+	line-height:1.4em;
+	width:170px;
+}
+
+.fairway-text h5 {
+	padding: 0 0 5px 0;
+	width:170px;
+}
+
+
+/* sets the width of the sitewide promo */
+.sitewide-promo { width:438px; }
+
+#header-nav ul li.sitewide-promo { 
+	display:inline-block; 
+	transition:none; 
+	width:438px; 
+	background-color:#eee; 
+	text-align:center; 
+	padding: 3px 0 2px; 
+}
+
+/*store styles */
+#header-nav ul li ul.gs-stores {
+  	top: 46px;
+  	left: 0px;
+  	min-width: 179px;
+	border:5px solid #23303d;
+	background-color:#fff;
+}
+
+#header-nav ul li ul.gs-stores li {
+	border-top: 1px solid #23303d;
+}
+
+#header-nav ul li ul.gs-stores li:first-child {
+	border-top: 1px solid #23303d;
+}
+
+#header-nav ul li ul.gs-stores li a {
+ 	display:block;
+	padding: 10px 0 10px 5px;
+	font-size:14px;
+	color: #23303d;
+}
+
+#header-nav ul li ul.gs-stores li a:hover {
+ 	background-color: #eee;
+	text-decoration: underline;
+}
+
+/*gift card styles */
+#header-nav ul li ul.gs-gift {
+  	top: 46px;
+  	left: -86px;
+  	width: 170px;
+	border:5px solid #23303d;
+	background-color:#fff;
+}
+
+#header-nav ul li ul.gs-gift li {
+	border-top: 1px solid #23303d;
+}
+
+#header-nav ul li ul.gs-gift li:first-child {
+	border-top: 1px solid #23303d;
+}
+
+#header-nav ul li ul.gs-gift li a {
+ 	display:block;
+	padding: 10px 0 10px 5px;
+	font-size:14px;
+	color: #23303d;
+}
+
+#header-nav ul li ul.gs-stores li i.fa{
+	display:none;
+}
+
+#header-nav ul li ul.gs-stores li i.fa:focus{
+	display:inline-block;
+}
+
+#header-nav ul li ul.gs-gift li a:hover {
+ 	background-color: #eee;
+	text-decoration:underline;
+}
+
+/*account styles */
+#header-nav ul li ul.gs-account {
+  	top: 46px;
+  	left: 0px;
+  	width: 170px;
+	border:5px solid #23303d;
+	background-color:#fff;
+}
+
+#header-nav ul li ul.gs-account li {
+	border-top: 1px solid #23303d;
+}
+
+#header-nav ul li ul.gs-account li:first-child {
+	border-top: 1px solid #23303d;
+}
+
+#header-nav ul li ul.gs-account li a {
+ 	display:block;
+	padding: 10px 0 10px 5px;
+	font-size:14px;
+	color: #23303d;
+}
+
+#header-nav ul li ul.gs-account a i.fa-caret-right {
+	text-indent: -9999px;
+}
+
+#header-nav ul li ul.gs-account a i.fa-caret-right:hover {
+	text-indent: 0px;
+}
+
+#header-nav ul li ul.gs-account li a:hover {
+ 	background-color: #eee;
+	text-decoration: underline;
+}
+
+#header-nav ul li.cart-menu {
+	overflow: visible;
+	height: 45px;
+	width: 75px;
+	position: relative;
+}
+
+/* new header code */
+
+#gs-logo {
+	float:left;
+	margin: 10px 0 0 20px;	
+	max-height: 75px;
+}
+
+#gs-logo:after {
+	clear:both;
+}
+
+#gs-search {
+	float:left;
+	margin: 25px 0 0 40px;
+	width:380px;
+}
+
+#gs-search form#search
+	{
+		height: 35px;
+		margin: 0;
+		padding: 0;
+		position: absolute;
+		/*width: 380px;*/
+	}
+	
+	#gs-search form div#nav1-search_text
+	{
+		background-color: #fff;
+		border: 3px solid #999;
+		height: 35px;
+		float: left;
+		width: 372px;
+	}
+	
+		#gs-search form div:hover#search_text
+		{
+			background-color: #eee;
+		}
+	
+			#gs-search form div label
+			{
+				display: none;
+			}
+			
+			#gs-search form div input#site_search  /* Text Field */
+			{
+				background: none;
+				border: 0;
+				display: block;
+				float: left;
+				left: 5px;
+				top: 10px;
+				position: absolute;
+				width: 268px;
+				font-size:1.2em;
+				color:#999;
+			}
+			
+			.dimSearchSuggContainer {
+				position: absolute;
+				display: block;
+				left: 268px;
+			}
+			
+			#gs-search form div input#submitSearch_btn /* Search "GO" Button */
+			{
+				background-color:#be1e24;
+				/*background: url(/_site_images/_site_navigation/go_btn.gif) top left no-repeat; */
+				border: none;
+				cursor: pointer;
+				float: right;
+				height: 35px;
+				/* margin: 1px; */
+				width: 100px;
+				color: #fff;
+				font-size:1.2em;
+				font-weight:bold;
+				border-left: 3px solid #999;
+			}
+		
+		#gs-search form div#nav1-search_brand
+		{
+			float: left;
+			padding-left: 5px;
+			width: 150px;
+		}
+	
+			#gs-search form select#brand_search
+			{
+				border-color: #000;
+				height: 24px;
+				padding: 3px 3px 3px 0;
+				width: 150px;
+			}
+			
+			#gs-search_brand .jqf1Sel .jqf1SelList
+			{
+				left: 187px;
+			}
+
+			.selectBox-dropdown .selectBox-label {
+				color:#999;
+				font-size:1.2em;
+				overflow:visible;
+			}
+
+/* END US Search */
+
+#gs-brand {
+	float:left;
+	margin: 25px 0 0 40px;
+}
+
+#gs-brand form#search
+	{
+		height: 35px;
+		margin: 0;
+		padding: 0;
+		position: absolute;
+		width: 195px;
+	}
+	
+	#gs-brand form div#nav1-search_brand
+	{
+		background-color: #fff;
+		border: 3px solid #999;
+		height: 35px;
+		float: left;
+		width: 190px;
+	}
+
+#header
+{
+background:none;
+/* background: url(/_site_images/_site_header/header_bg.jpg) top left no-repeat; */
+height: 135px;
+}
+
+div.tennis_header#header
+{
+background: url(/_site_images/_site_header/ts_header_bg.jpg) top left no-repeat;
+}
+
+div.canada_header#header
+{
+background: url(/_site_images/_site_header/ca_header_bg.jpg) top left no-repeat;
+}
+
+/* Golfsmith Logo Placement & Styling */
+
+	#header_logo
+	{
+	position: relative;
+	top: 20px;
+	left: 10px;
+	padding: 0;
+	margin: 0;
+	}
+
+	#header_logo span
+	{
+	display: block;
+	position: absolute;
+	left: -999em;
+	}
+	
+/* Everything on the right side of the Header */
+
+	#liveHelp
+	{
+	position: absolute;
+	right: 230px;
+	top:0;
+	}
+	
+		#smartbutton,
+		#smartbutton img
+		{
+			width: 100px;
+			height: 29px;
+		}
+	
+			div.chat_help
+			{
+			background: url(/_site_images/_site_header/liveHelp_btn.png) top left no-repeat;
+			}
+			
+			div.chat_help:hover
+			{
+			background: url(/_site_images/_site_header/liveHelp_H_btn.png) top left no-repeat;
+			}
+			
+			div.email_help
+			{
+			background: url(/_site_images/_site_header/emailUs_btn.png) top left no-repeat;
+			}
+			
+			div.email_help:hover
+			{
+			background: url(/_site_images/_site_header/emailUs_H_btn.png) top left no-repeat;
+			}
+	
+
+	
+	#cart
+	{
+	/* background: url(/_site_images/_site_header/shoppingCart_btn.png) top left no-repeat; */
+	position: absolute;
+	left: 0px;
+	top:0px;
+	/* width: 190px; */
+	/* height: 29px; */
+	height: 45px;
+	width:75px;
+	background: #d9d9d9;
+	}
+	
+	#cart:hover
+	{
+	background: #be1e24;
+	/* background: url(/_site_images/_site_header/shoppingCart_H_btn.png) top left no-repeat; */
+	}
+	
+		#cart p
+		{
+		float: right;
+		line-height:1em;
+		}
+		
+		#cart a
+		{
+		color: #333;
+		float: right;
+		font-size: 14px;
+		height: 35px;
+		padding: 5px 0 0 0; /* The padding here has been subtracted from the width and height to make the correct selectable area */
+		text-align: center;
+		width: 75px;
+		background:none;
+		}
+		
+		/* this is for the new shopping cart icon */
+		#cart i
+		{
+		font-size: 22px;
+		}
+		
+		#cart a, #cart a:link, #cart a:visited, #cart a:hover, #cart a:active
+		{
+		text-decoration: none;
+		}
+		
+		#cart a:hover {
+			color: #fff;
+		}
+		
+		#cart img
+		{
+		float: right;
+		margin: 4px;
+		}
+	
+	#siteHelp
+	{
+	position: absolute;
+	right:10px;
+	top: 35px;
+	width: 350px;
+	}
+	
+	#siteHelp a, #siteHelp a:link, #siteHelp a:visited, #siteHelp a:active
+	{
+	color: #eee;
+	}
+	
+	#siteHelp a:hover
+	{
+	color: #fff;
+	}
+	
+	#siteHelp ul
+	{
+	text-align: right;
+	}	
+	
+	#siteHelp ul li
+	{
+	display: inline;
+	color: #ddd;
+	font-size: 12px;
+	letter-spacing: 0.015em;
+	margin: 0;
+	padding: 0;
+	}
+	
+	#siteHelp ul li.phone
+	{
+	color: #bc7;
+	display: block;
+	position: absolute;
+	left: 30px;
+	top: 0;
+	}
+
+	#siteHelp form ul li span
+	{
+	position: relative;
+	top: 3px;
+	}
+	
+	#siteHelp form
+	{
+	margin-top: 15px;
+	}
+	
+	#siteHelp form ul
+	{
+	float: right;
+	}
+	
+	#siteHelp form ul li
+	{
+	position: relative;
+	float: left;
+	}
+	
+	#siteHelp form ul li label
+	{
+	position: relative;
+	top: 4px;
+	float: left;
+	}
+	
+	#siteHelp form ul li label a
+	{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	}
+		
+	
+	#siteHelp form ul li #zipCode_input
+	{
+		background-color: #fff;
+		border: 1px solid #000;
+		height: 18px;
+		position: relative;
+		width: 70px;
+	}
+		
+		#zipCode_input input#storeLocator /*Zip Code Text Field */
+		{
+			background: none;
+			border: none;
+			padding: 2px 0 0 3px;
+			width: 70px;
+		}
+		
+		#zipCode_input input#submitZipCode_btn/*Zip Code Text Field Button */
+		{
+			background-color:none;
+			background: url(/_site_images/_sitewide/submit_arrow_whtBG.gif) center left no-repeat;
+			border: none;
+			width: 14px;
+			height: 16px;
+			cursor: pointer;
+			position: absolute;
+			right: 1px;
+			top: 1px;
+		}
+		
+	#siteHelp form ul li label span
+	{
+	color: #fff;
+	}
+	
+		a#international
+		{
+			background: url(/_site_images/_site_header/globe.png) top left no-repeat;
+			padding-left: 20px;
+		}
+		
+		#ie6 a#international
+		{
+			background: url(/_site_images/_site_header/globe.gif) top left no-repeat;
+		}
+
+/* CSS Code for the new top bar of the header */
+
+#gs-assets-tab {
+	width:900px;
+	height:45px;
+	background-color: #eee;
+}
+
+

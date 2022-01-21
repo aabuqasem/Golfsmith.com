@@ -1,0 +1,301 @@
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*
+
+		Brady Starr's.css
+		for Golfsmith.com
+		
+		* form.css			- Sitewide form styles ONLY!
+							These styles control the basic look and feel of all form elements. Custom styles should be included in that specific pages "layout.css"
+
+		
+	== Table of Contents ==
+		
+		* Highlight the following flag and use "Find Next" under "Edit" to locate the following sections:
+			=>RESET		- Reset old form element styling with a single class
+			=>STYLING
+*/
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+
+
+/*
+	=>RESET
+----------------*/
+
+
+form
+{
+position: relative;
+}
+
+form ol
+{
+padding: 5px 0 0;
+}
+
+form li
+{
+margin-bottom: 5px;
+position: relative;
+}
+
+label, legend
+{
+font-size: 10px;
+text-transform: uppercase;
+letter-spacing: 0.02em;
+font-family: Tahoma, Geneva, Arial, sans-serif;
+font-weight: bold;
+display: block;
+padding-bottom: 2px;
+}
+
+label a, legend a
+{
+font-weight: normal;
+text-transform: none;
+}
+
+input[type="button"],
+input[type="file"],
+input[type="password"],
+input[type="submit"],
+input[type="text"],
+select,
+textarea
+{
+	background-color: #fff;
+	border: 1px solid #ccc;
+}
+	
+	input[type="button"],
+	input[type="submit"],
+	select
+	{
+		cursor: pointer;
+	}
+
+	input[type="file"],
+	input[type="password"],
+	input[type="text"]
+	{
+		padding: 3px 0 2px 3px;
+	}
+	
+	textarea
+	{
+		padding: 3px;
+	}
+
+	select
+	{
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 12px;
+	}
+
+/* Begin Options and Option Groups */
+
+		optgroup
+		{
+			color: #666;
+			font-style: normal;
+			font-weight: normal;
+			padding: 5px 5px 10px;			
+		}
+		
+		option
+		{
+			color: #222;
+			padding: 2px 0 0;
+			text-indent: 10px;
+		}
+		
+		option.option_cta
+		{
+			color: #666;
+			font-size: 11px;
+			letter-spacing: 2px;
+			margin: 5px;
+			text-align: center;
+			text-indent: 0;
+			text-transform: uppercase;
+		}
+		
+/* End Options and Option Groups */
+
+form select:hover,
+form input:hover[type="text"],
+input:hover[type="password"],
+form textarea:hover
+{
+	background-color: #f5f0e3;
+}
+
+
+
+
+/*
+	=>STYLING
+----------------*/
+
+
+/* Styling old form elements in bulk */
+
+/*
+Using the class="formElements" on any
+parent element to a form will change the look and feel
+of the form to match the new look
+*/
+.formElements label, .formElements legend
+{
+font-size: 10px;
+text-transform: uppercase;
+letter-spacing: 0.02em;
+font-family: Tahoma, Geneva, Arial, sans-serif;
+font-weight: bold;
+display: block;
+padding-bottom: 2px;
+}
+
+.formElements label a, .formElements legend a
+{
+font-weight: normal;
+text-transform: none;
+}
+
+.formElements form input[type="button"]
+{
+border: 1px solid #ccc;
+cursor: pointer;
+}
+
+.formElements form select
+{
+border: 1px solid #ccc;
+background-color: #fff;
+cursor: pointer;
+}
+
+.formElements form select:hover,
+.formElements form input:hover[type="text"],
+.formElements form textarea:hover
+{
+background-color: #f5f0e3;
+}
+
+.formElements form input[type="text"]
+{
+border: 1px solid #ccc;
+padding: 3px 0 2px 3px;
+}
+
+.formElements form textarea
+{
+border: 1px solid #ccc;
+}
+
+.formElements form input[type="submit"]
+{
+border: 1px solid #ccc;
+cursor: pointer;
+}
+
+label.inlineLabel,
+label.inlineLabel_check
+{
+	display: inline;
+}
+
+label.inlineLabel_radio
+{
+	display: inline;
+	margin-left: 10px;
+	font-weight: normal;
+	font-size: 1em;
+	text-transform: capitalize;
+}
+
+/* New Styling rules for Form Elements from June 2009 forward */
+
+form .checkBoxes label
+{
+	display: inline;
+}
+
+form .radioButtons label
+{
+	display: inline;
+	margin-left: 10px;
+	font-weight: normal;
+	font-size: 1em;
+	text-transform: capitalize;
+}
+
+/*
+	=>UL FORM STYLING
+----------------*/
+
+/* Contact Information Form - 425px Wide, 2 Column */
+
+
+ul.form_contactInfo li
+{
+	float: left;
+	width: 425px;
+}
+
+ul.form_contactInfo li.column_2x1
+{
+	margin-right: 15px;
+	width: 205px;
+}
+
+	#ie6 ul.form_contactInfo li.column_2x1
+	{
+		margin-right: 5px;
+	}
+
+ul.form_contactInfo li.column_2x2
+{
+	width: 205px;
+}
+
+ul.form_contactInfo li.textInput input
+{
+	width: 420px;
+}
+ul.form_contactInfo li.select select
+{
+	width: 425px;
+}
+
+ul.form_contactInfo li.textInput.column_2x1 input,
+ul.form_contactInfo li.textInput.column_2x2 input
+{
+	width: 200px;
+}
+
+ul.form_contactInfo li.checkBoxes
+{
+	padding-top: 10px;
+}
+
+ul.form_contactInfo li.submit
+{
+	padding-top: 6px;
+}
+
+ul.form_contactInfo li.select.column_2x1 select,
+ul.form_contactInfo li.select.column_2x2 select
+{
+	width: 205px;
+}
+
+#ie6 ul.form_contactInfo li.checkboxes.column_2x1 input.checkBox,
+#ie6 ul.form_contactInfo li.checkboxes.column_2x2 input.checkBox,
+#ie6 ul.form_contactInfo li.submit input.buttonImage,
+#ie6 ul.form_contactInfo li.submit input.buttonImage
+{
+	border: none;
+	width: auto;
+}

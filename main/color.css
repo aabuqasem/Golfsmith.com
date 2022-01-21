@@ -1,0 +1,99 @@
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*
+
+		Brady Starr's.css
+		for Golfsmith.com
+		
+		* color.css			- Sitewide coloration should be styled here. Border-color, and background-color can be customized on other style sheets.
+							These styles control:
+											background-color
+											color
+											border-color
+
+
+	== Table of Colors (from Top to Bottom = Light to Dark) ==
+	
+		* Whites
+			- #ffffff (#fff)
+		
+		* Greys
+			- #999999 (#999)	Light
+			- #555555 (#555)	Medium
+			- #111111 (#111)	Dark
+		
+		* Browns /Tans
+			- #f5f0e3			Light
+			- #f5edd5			Light to Medium
+			- #f5e8c1			Medium
+			- #bbaa88	(#ba8)	Dark
+			
+		* Golds
+			- #ff9900 (#f90)
+		
+		* Reds
+			- #cc0000 (#c00)	Medium
+			- #880000 (#800)	Dark
+		
+		*Greens
+			- #ddeebb (#deb)	Light
+			- #bbcc77 (#bc7)	Medium
+			- #335533 (#353)	Dark
+
+			- #a0bf43			Button green
+			- #779922 (#792)	Text Link Green
+		
+		* Blues
+			- #ccddee (#cde)	Light
+			- #88bbff (#8bf)	Medium
+			- #445588 (#458)	Dark
+
+*/
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+
+body
+{
+	color: #555;
+	background-color: #fff; /* Was  #eee8d3 */
+}
+
+h1, h2, h3, h4, h5, h6
+{
+	color: #111;
+}
+
+a, a:link,
+a:visited,
+a:hover,
+a:active
+{
+	color: rgb(10,89,158);	/* Was #460 */
+}
+
+hr
+{
+	/*color: #bc7;  IE <hr> color */
+	/*background-color: #bc7;  Mozilla <hr> color, b/c the border was dropped this is the color that will be visible (default is transparent) */
+	border: 0;
+    height: 1px;
+    margin: 0 auto;
+    width: 100%;
+    background-color: transparent;
+    background-image: linear-gradient(to right, rgba(88, 88, 88, 0), rgba(88, 88, 88, 0.55), rgba(88, 88, 88, 0));
+}
+
+
+.save
+{
+color: #c00;
+}
+
+.save a, .save a:link, a:link.save, a.save
+{
+color: #800;
+}
+
+.new
+{
+color: #f90;
+}

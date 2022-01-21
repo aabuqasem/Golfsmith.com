@@ -1,0 +1,2874 @@
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*
+
+		Brady Starr.css
+		for Golfsmith.com
+		
+		* new_shopping_cart.css			- Styles for the NEW Shopping Cart!
+
+*/
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+
+.displayNone
+{
+	display: none;
+}
+
+.no_border
+{
+	border: none;
+}
+
+/*
+	Item Added to Cart Page
+---------------------------------------------- */
+
+#added_table thead td
+{
+	border-bottom: 3px double #ba8;
+}
+
+td.added_product
+{
+	width: 450px;
+}
+
+	td.added_product cite
+	{
+		font-size: 0.85em;
+	}
+
+td.added_price
+{
+	text-align: center;
+	width: 200px;
+}
+
+td.added_qty
+{
+	text-align: center;
+	width: 50px;
+}
+
+td.added_total
+{
+	text-align: right;
+	width: 200px;
+}
+
+#item_added #alsoBought
+{
+	padding-bottom: 2em;
+}
+
+#item_added #alsoBought ul
+{
+	text-align: center;
+}
+
+#item_added #alsoBought p + p
+{
+	margin-top: 0;
+}
+
+
+/*
+	Shopping Cart - Global
+---------------------------------------------- */
+
+#form_shoppingCart
+{
+	display: block;
+	min-height: 450px;
+	z-index: 1;
+	padding-top: 10px;
+}
+
+#shopping_cart
+{
+	padding-top: 100px;	/* Adjusts the vertical spacing between the Heading area and the SC */
+	position: relative;
+}
+
+
+
+/* Error Messages Look & Feel */
+.validate_instructions
+{
+	font-size: 1.166667em;
+	color: #c00;
+}
+
+/*	Can be un-commented when IS changes include functionality to insert <p> tags as well
+.validate_instructions p
+{
+	padding: 1em 0 0.5em;	
+}
+*/
+
+/* Empty Cart DIV */
+#empty_cart
+{
+	padding: 0 20px;
+}
+
+/* BEGIN Shopping Cart HEADING AREA */
+
+#cart_steps
+{
+	position: absolute;
+	right: 0;
+	top: 0px;
+	width: 600px;
+}
+
+#ie7 #cart_steps,
+#ie6 #cart_steps		/* Required so that IE doesn't incorrectly clip the background images */
+{
+	height: 30px;
+	padding-top: 0px;
+	top: 0;
+}
+
+	#cart_steps h5
+	{
+		background: url(/_site_images/_shopping_cart/step_next.gif) left bottom no-repeat;
+		display: inline;
+		margin-left: 30px;
+		padding: 1.5em 0 0 30px;
+		text-align: right;
+	}
+	
+	#cart_steps h5.step_active
+	{
+		background: url(/_site_images/_shopping_cart/step_active.gif) left bottom no-repeat;
+	}
+	
+	#cart_steps h5.step_done
+	{
+		background: url(/_site_images/_shopping_cart/step_done.gif) left bottom no-repeat;
+	}
+	
+#cart_pageTitle
+{
+	position: absolute;
+	left: 0;
+	top: 15px;
+	width: 300px;
+}
+
+#ie6 #cart_pageTitle,
+#ie7 #cart_pageTitle
+{
+	top: 0;
+}
+
+	h1.pageTitle_cart a
+	{
+		background: url(/_site_images/_shopping_cart/cart_icon_A.jpg) top left no-repeat;
+		color: #222;
+		font-size: 0.8em;
+		padding: 25px 0 20px 60px;
+	}
+	
+	h1.pageTitle_cart a:hover
+	{
+		text-decoration: none;
+	}
+	
+	#ie6 h1.pageTitle_cart a,
+	#ie7 h1.pageTitle_cart a
+	{
+		line-height: 45px;
+		padding: 25px 0 15px 60px;
+	}
+	
+	h1.pageTitle_link a
+	{
+		background: url(/_site_images/_shopping_cart/cart_icon_L.jpg) top left no-repeat;
+		color: #222;
+		font-size: 0.8em;
+		padding: 25px 0 20px 60px;
+		text-decoration: underline;
+	}
+	
+	h1.pageTitle_link a:hover
+	{
+		background: url(/_site_images/_shopping_cart/cart_icon_H.jpg) top left no-repeat;
+	}
+	
+	#ie6 h1.pageTitle_link a,
+	#ie7 h1.pageTitle_link a
+	{
+		line-height: 45px;
+		padding: 25px 0 15px 60px;
+	}
+
+#cart_checkout
+{
+	position: absolute;
+	right: 0;
+	top: 55px;
+	width: 150px;
+}
+	
+	#currencyConverter
+	{
+		display: block;
+		float: right;
+		line-height: 25px;	/* This has to be the height of the BG image */
+		padding-left: 25px;
+	}
+
+	a.euro
+	{
+		background: url(/_site_images/_shopping_cart/euro_symbol.jpg) left center no-repeat;
+	}
+	
+	a.dollar
+	{
+		background: url(/_site_images/_shopping_cart/dollar_symbol_20px.jpg) left center no-repeat;
+	}
+	
+/* END Shopping Cart HEADING AREA */
+
+
+/* BEGIN Shopping Cart Body Area */
+
+#cart_header
+{
+	position: absolute;
+	right: 0px;
+	top: 60px;
+	width: 440px;
+}
+
+	#ie7 #cart_header,
+	#ie6 #cart_header
+	{
+	/*	height: 1%;	/* Required to tell IE that this element "has Layout" */
+	}
+	
+		#cart_media
+		{
+			width: 440px;
+		}
+
+		#ie6 #cart_media
+		{
+			position: relative;
+			width: 440px;
+		}
+
+			#cart_media li,
+			#cart_media li p
+			{
+				display: inline;
+			}
+			
+			#cart_media li
+			{
+				margin-left: 25px;
+			}
+			
+	/*		#ie6 #cart_media li
+			{
+				display: block;
+				float: left;
+				margin-right: 0;
+				position: relative;
+				top: 0;
+				width: 110px;
+			}
+
+				#ie6 #cart_media li p
+				{
+					margin: 0;
+					padding: 0;
+				}
+
+					#ie6 #cart_media li a
+					{
+						display: inline;
+						margin: 0;
+					}
+*/
+	#cart_top
+	{
+		background: #bc7 url(/_site_images/_shopping_cart/headings_bg_L.jpg) left top no-repeat;
+		clear: both;
+		height: 35px;
+		width: 900px;
+	}
+	
+		#cart_top h5
+		{
+			font-weight: bold;
+			padding-left: 10px;
+		}
+	
+		.heading_product
+		{
+			border-right: 1px solid #fff;
+			width: 329px;
+		}
+		
+		.heading_delivery
+		{
+			border-right: 1px solid #fff;
+			width: 219px;
+		}
+		
+		.heading_price
+		{
+			border-right: 1px solid #fff;
+			width: 179px;
+		}
+			
+			#cart_top .heading_price h5
+			{
+				padding-left: 0;
+				text-align: center;
+			}
+		
+		.heading_quantity
+		{
+			border-right: 1px solid #fff;
+			width: 59px;
+		}
+			
+			#cart_top .heading_quantity h5
+			{
+				padding-left: 0;
+				text-align: center;
+			}
+		
+		.heading_total
+		{
+			background: url(/_site_images/_shopping_cart/headings_bg_R.jpg) right top no-repeat;
+			width: 110px;
+		}
+		
+			#cart_top .heading_total h5
+			{
+				padding-left: 0;
+				text-align: center;
+			}
+			
+		.heading_right
+		{
+			background: url(/_site_images/_shopping_cart/headings_bg_R.jpg) right top no-repeat;
+			width: 900px;
+		}
+
+/* Validation Messaging */
+
+.validate input,
+.validate select,
+#ie7 form li.validate input
+{
+	border-color: #c00;
+}
+
+	.validate_message
+	{
+		color: #c00;
+		display: none;
+		font-family: Arial, Helvetica, sans-serif;
+		font-weight: normal;
+		text-transform: capitalize;
+	}
+
+	.validate span.validate_message
+	{
+		display: inline;
+	}
+	
+		/* BEGIN Input and Select ID's */
+		#country_ship_select, #country_bill_select,
+		#terms_select
+		{
+			width: 384px;
+		}
+		
+		#ie7 #terms_select,
+		#ie6 #terms_select
+		{
+			width: auto;
+		}
+
+		#add1_ship_input, #add1_bill_input,
+		#add2_ship_input, #add2_bill_input
+		{
+			width: 378px;
+		}
+
+		#account_email_input, #account_password_input,
+		#fname_ship_input, #fname_bill_input,
+		#lname_ship_input, #lname_bill_input,
+		#city_ship_input, #city_bill_input,
+		#state_ship_input, #state_bill_input,
+		#pcode_ship_input, #pcode_bill_input,
+		#phone_ship_input, #phone_bill_input,
+		#email_address_input, #email_address_confirm_input,
+		#giftCard_number_input, #cc_number_input,
+		#createAccount_password_input, #createAccount_passwordConfirm_input,
+		#caddie_badge_input
+		{
+			width: 179px;
+		}
+
+		#state_ship_select, #state_bill_select,
+		#state_ship_ca_select, #state_bill_ca_select,
+		#caddie_store_select
+		{
+			margin-bottom: 2px;
+			width: 184px;
+		}
+
+		#payment_expiration_MM,
+		#payment_expiration_YY
+		{
+			width: 70px;
+		}
+
+		#giftCard_pin_input
+		{
+			width: 100px;
+		}
+		
+		#state_ship_input,
+		#state_bill_input
+		{
+			display: block;
+		}
+
+		#state_ship_select,
+		#state_bill_select
+		{
+			display: none;
+		}
+
+			.country_us #state_ship_input,
+			.country_us #state_bill_input
+			{
+				display: none;
+			}
+			
+			.country_us #state_ship_select,
+			.country_us #state_bill_select
+			{
+				display: block;
+			}
+		/* END Input and Select ID's */
+
+/* PreLoader and PopUps */
+
+#preloader
+{
+	display: none;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 10000;
+}
+
+#preloader img
+{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+}
+		
+#popUp_box
+{
+	background-color: #fff;
+	border: 1px solid #800;
+	display: none;
+	position: absolute;
+	top: 15px;
+	left: 150px;
+	width: 598px;
+	z-index: 300;
+}
+
+div#popUp_box.address_change
+{
+	background: rgba(153, 153, 153, 0.5);
+	border: none;
+	padding: 10px;
+/*	opacity: .50;
+	-moz-opacity: 0.50;
+	filter: alpha(opacity=50); /*for Internet Explorer 6/7
+	filter: “alpha(opacity=50)”; /*for Internet Explorer 8*/
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+
+#ie6 div#popUp_box.address_change,
+#ie7 div#popUp_box.address_change
+{
+	background: url() transparent;
+	background-color: #ccc;
+}
+
+/* BEGIN Required for fixing <select> issue */
+#ie6 #popUp_box	
+{
+	overflow: hidden;
+}
+
+	#ie6 #popUp_box iframe
+	{
+				display:none;/*sorry for IE5*/
+				display/**/:block;/*sorry for IE5*/
+				position:absolute;/*must have*/
+				top:0;/*must have*/
+				left:0;/*must have*/
+				z-index:-1;/*must have*/
+				filter:mask();/*must have*/
+				width:3000px;/*must have for any big value*/
+				height:3000px/*must have for any big value*/;
+	}
+/* END Required for fixing <select> issue */
+
+	#popUp_border
+	{
+		border: 4px solid #c00;
+		padding: 20px;
+		position: relative;
+	}
+	
+	div#popUp_box.address_change #popUp_border
+	{
+		background: rgba(255, 255, 255, 1.0);
+		border: 4px solid #562;
+/*		position: relative;
+		-moz-opacity: 1.0;
+		opacity: 1.0;
+		filter: alpha(opacity=100); /*for Internet Explorer 6/7
+		filter: “alpha(opacity=100)”; /*for Internet Explorer 8*/ 
+	}
+	
+	#ie6 div#popUp_box.address_change #popUp_border,
+	#ie7 div#popUp_box.address_change #popUp_border
+	{
+		background: url() transparent;
+		background-color: #fff;
+	}
+	
+		#popUp_close
+		{
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
+	
+		/* BEGIN FedEx Verification */
+		
+		#ship_address_compare,
+		#bill_address_compare
+		{
+			border-top: 3px double #ba8;
+			margin-top: 20px;
+		}
+			
+			#ship_address_compare td,
+			#bill_address_compare td
+			{
+				vertical-align: top;
+			}
+		
+			.entered_address,
+			.fedex_address,
+			.fedex_messages
+			{
+				float: left;
+				width: 275px;
+			}
+			
+			.entered_address
+			{
+				margin-right: 10px;
+			}
+			
+			.section_complete .entered_address,
+			.section_complete .fedex_address,
+			.section_complete .fedex_messages
+			{
+				color: #ccc;
+			}
+			
+			.entered_address p,
+			.fedex_address p,
+			.fedex_messages p
+			{
+				padding: 10px 0 0 10px;
+			}
+			
+			.entered_address .chosen_address,
+			.fedex_address .chosen_address
+			{
+				background-color: #deb;
+				border-bottom: 1px solid #bc7;
+				margin-right: 10px;
+				padding: 10px;
+				width: 245px;
+			}
+			
+			.entered_address p.fedex_select_address,
+			.fedex_address p.fedex_select_address
+			{
+				margin: 0;
+				padding: 0 0 0 10px;
+			}
+				
+				.section_complete .chosen_address,
+				.section_complete .fedex_select_address
+				{
+					color: #555;
+				}
+				
+		.fedex_messages ol
+		{
+			margin:0;
+			padding:0;
+		}
+	
+			.fedex_messages ol li
+			{
+				line-height: 1.5;
+				margin-bottom: 0;
+				margin-top: 0;
+			}
+			
+	.fedex_select_address
+	{
+		background-color: #f5e8c1;
+		border-bottom: 1px solid #ba8;
+		margin-top: 5px;
+		padding: 8px 5px 5px;
+		width: 255px;
+	}
+	
+	#ie6 #fedex_continue_input
+	{
+		float: none;
+		margin-left: 450px;
+	}
+			
+		/* END FedEx Verification */
+
+		
+/* BEGIN Dialog */
+
+#GE_disclosure
+{
+	padding: 0 20px 20px;
+	text-align: left;
+}
+
+#GE_disclosure li.checkBoxes input,
+#GE_disclosure li.checkBoxes label
+{
+	float: left;
+}
+
+#GE_disclosure li.checkBoxes label
+{
+	padding: 2px 0 0 5px;
+}
+
+	ul#dialog_actions li.float_R
+	{
+		margin-left: 50px;
+	}
+	
+		#actions_print
+		{
+			padding-top: 2px;
+		}
+
+/* END Dialog */
+
+ img.float_R
+ {
+	 cursor:pointer;
+ }
+/*
+	Shopping Cart - Page 1 (The Cart)
+---------------------------------------------- */
+
+
+#cart_items
+{
+	background-color: #deb;
+	padding: 0 1px;
+	z-index: 2;	/* Was included inline */
+}
+
+	#items_list
+	{
+		background-color: #fff;
+	}
+	
+	#items_list li
+	{
+/*		background: url(/_site_images/_shopping_cart/item_bg_B.jpg) left bottom no-repeat;	*/
+		border-top: 1px solid #deb;
+		margin: 0;
+		padding: 20px 0 5px;
+	}
+	
+	#items_list li.item_qbd table.delivery_qbd
+	{
+		width: 220px;
+	}
+	
+	#items_list li.item_qbd table.delivery_qbd td
+	{
+		padding-left: 20px;
+	}
+	
+	#items_list li.item_qbd  table.delivery_qbd h6
+	{
+		background: url(/_site_images/_shopping_cart/qbd_msg_redTab.gif) top left no-repeat;
+		height: 27px;
+		padding: 0;
+		text-indent: -9999px;
+		width: 175px;
+	}
+	
+	#items_list li.item_qbd table.delivery_qbd p.help
+	{
+		float: right;
+		position: static;
+	}
+	
+	#items_list li.item_qbd .qbd_cart p.help span.help_content
+	{
+		font-size: 11px;
+		line-height: 1.25;
+		text-align: left;
+		width: 400px;
+	}
+	
+	#items_list li.item_qbd table.delivery_qbd p.qbd_msg
+	{
+		color: #c00;
+		font-size: 12px;
+		font-weight: bold;
+		padding-top: 8px;
+		width: 175px;
+	}
+	
+	table.item_table
+	{
+		
+		width: 898px;
+	}
+	
+		td.item_image
+		{
+			text-align: center;
+			width: 110px;
+		}
+			
+/*			td.item_image img
+			{
+				background-color: #fff;
+				border: 1px solid #deb;
+				padding: 4px;
+			}
+			
+				td.item_image a:hover img
+				{
+					border-color: #bc7;
+				}
+*/
+		td.item_description
+		{
+			width: 219px;
+		}
+		
+			td.item_description h6
+			{
+				line-height: 1.25em;
+				padding: 0;
+			}
+		
+			#ie6 td.item_description cite,
+			#ie7 td.item_description cite
+			{
+				position: static;
+			}
+		
+			.custom_specs
+			{
+				background-color: #f5f0e3;
+				border: 1px solid #ba8;
+				display: none;
+				padding: 20px;
+				position: absolute;
+				top: 0;
+				width: 350px;
+				z-index: 200;
+			}
+			
+				#items_list li .custom_specs li,
+				#confirm_list li .custom_specs li
+				{
+					border: none;
+					margin: 0 0 0.75em;
+					padding: 0 0 0 10px;
+				}
+				
+				#ie8up li .custom_specs li,
+				#ie7 li .custom_specs li,
+				#ie6 li .custom_specs li
+				{
+					padding: 6px 0 4px 10px;
+				}
+				
+			p.delete_item
+			{
+				
+				font-size: 0.916667em;
+				font-weight: normal;
+			}
+			
+			p.delete_item a
+			{
+				color: #900;
+			}
+		
+		td.item_delivery
+		{
+			width: 220px;
+		}
+		
+			td.item_delivery p
+			{
+				font-size:1.16667em;
+				text-align: center;
+			}
+				td.item_delivery .crt-ship-home {
+					padding-bottom: 12px;
+				}
+			
+				td.item_delivery label .crt-ship-stock, td.item_delivery label .crt-address, td.item_delivery label .crt-ship-date {
+					text-transform: none;
+					font-weight: 500;
+				}
+				
+				td.item_delivery label .crt-ship-stock, td.item_delivery label .crt-ship-date, td.item_delivery label .crt-store-chg {
+					padding-top: 5px;
+				}
+				
+				td.item_delivery label .crt-ship-stock, td.item_delivery label .crt-address, td.item_delivery label .crt-ship-date, td.item_delivery label .crt-store-chg {
+					padding-left: 15px;
+				}
+				
+				td.item_delivery p.item_delivery_date span
+				{
+					display:block;
+					font-size:11px;
+				}
+			
+			.delivery_table
+			{
+				width: 220px;
+			}
+		
+			.delivery_table td
+			{
+				background: url(/_site_images/_shopping_cart/delivery_L.jpg) left top no-repeat;
+				height: 25px;
+				padding-left: 3px;
+				vertical-align: middle;
+				width: 115px;
+			}
+			
+			.delivery_table td.delivery_isp
+			{
+				width: 105px;
+			}
+			
+			.delivery_table td.delivery_selected
+			{
+				background: url(/_site_images/_shopping_cart/delivery_A.jpg) left top no-repeat;
+			}
+			
+				.delivery_table td p
+				{
+					line-height: 1.0;
+					text-align: left;
+				}
+			
+			.delivery_table td input,
+			 .delivery_table td label
+			 {
+				float: left;
+			}
+			
+			.delivery_table td label
+			{
+				padding: 2px 0 0 4px;
+			}
+			
+			#ie6 td.item_delivery input
+			{
+				background: transparent;
+				border: none;
+			}
+		
+		td.item_price
+		{
+			text-align: center;
+			width: 180px;
+		}
+		
+			.item_price h6
+			{
+				line-height: 1.25em;
+				padding: 0;
+			}
+		
+			.item_price p
+			{
+				padding-top: 1em;
+			}
+			
+				.item_price p span
+				{
+					font-weight: bold;
+				}
+		
+		td.item_qty
+		{
+			text-align: center;
+			width: 60px;
+		}
+		
+		td.item_total
+		{
+			width: 109px;
+		}
+		
+			.item_total h6
+			{
+				line-height: 1.25em;
+				padding: 0 9px 0 0;
+				text-align: right;
+			}
+			
+		td.item_promo p
+		{
+			color: #c00;
+			font-size: 0.916667em;
+			font-weight: bold;
+			text-align: center;
+			text-transform: uppercase;
+			
+		}
+		
+			td.item_promo p a,
+			td.item_promo p a:link
+			{
+				color: #222;
+			}
+		
+	#items_list li.item_pureing
+	{
+		background: url(/_site_images/_shopping_cart/puringItem_bg.gif) top left repeat-x;
+		height: 30px;
+		padding: 0;
+	}
+	
+		.item_pureing .item_table td
+		{
+			padding: 7px 0 0;
+		}
+		
+			.item_pureing td h6
+			{
+				padding: 0;
+			}
+			
+				.item_pureing td.item_description
+				{
+					width: 540px;
+				}
+				
+					.item_pureing td.item_description p
+					{
+						padding-left: 9px;
+					}
+					
+					.item_pureing td.item_description input
+					{
+						margin: 0;
+						padding: 0;
+					}
+				
+					.item_pureing td.item_description label
+					{
+						font-size: 1.090909em;
+						margin: 0;
+						padding: 0;
+					}
+					
+						.item_pureing td.item_description label span.puring_product
+						{
+							font-weight: normal;
+							text-transform: none;
+						}
+		
+				.item_pureing td.item_price p
+				{
+					padding-top: 0;
+				}
+			
+				.item_pureing td.item_total h6
+				{
+					padding-right: 9px;
+				}
+			
+	.shipping_isp
+	{
+		position: relative;
+	}
+	
+	#ie7 .shipping_isp
+	{
+		position: static;
+	}
+	
+		.item_isp	/* DIV for the isp flyout */
+		{
+			display: none;
+			position: absolute;
+			right: 0;
+			top: 5px;
+			width: 450px;
+			z-index: 1000;
+		}
+		
+		#ie8up .item_shipping td.shipping_isp
+		{
+			width: 105px;
+		}
+		
+			.isp_locator	/* DIV for the form elements */
+			{
+				background-color: #deb;
+				border-top: 1px solid #353;
+				border-left: 1px solid #353;
+				border-right: 1px solid #353;
+				padding: 10px;
+				z-index:10000;
+			}
+			
+				.isp_locator table
+				{
+					
+					width: 420px;
+				}
+				
+				.isp_locator table td,
+				.isp_stores table td
+				{
+					background: transparent;
+					padding: 0;
+					width: auto;
+				}
+				
+				.isp_locator table td.locator_label
+				{
+					padding-right: 5px;
+				}
+				
+			.delivery_table td .isp_locator table td.locator_label p
+			{
+				font-size: 1.0em;
+				margin-top: 1em;
+				text-align: center;
+			}
+					
+				.isp_locator table td.locator_zip
+				{
+					text-align: left;
+					width: 100px;
+				}
+				
+					.locator_zip input
+					{
+						text-align: left;
+						width: 50px;
+					}
+					
+						#ie6 .locator_zip input#isp_zipcode,
+						#ie6 .locator_city input#isp_city
+						{
+							background-color: #fff;
+							border: 1px solid #ccc;
+						}
+					
+					#isp_zipcode_submit
+					{
+						cursor: pointer;
+						padding:12px 0 0;
+					}
+					
+						#ie7 #isp_zipcode_submit
+						{
+							padding: 0 0 0 3px;
+						}
+						
+						#ie6 #isp_zipcode_submit
+						{
+							padding: 0 0 0 3px;
+							width: auto;
+						}
+					
+				.isp_locator table td.locator_city
+				{
+					text-align: left;
+					width: 140px;
+				}
+				
+					.locator_city input
+					{
+						text-align: left;
+						width: 120px;
+					}
+				
+				.isp_locator table td.locator_state
+				{
+					text-align: left;
+					width: 50px;
+				}
+				
+				
+/*				#ie8up .item_shipping .locator_zip
+				{
+					width: 75px;
+				}
+				
+				#ie8up .item_shipping .locator_city
+				{
+					width: 105px;
+				}
+				
+				#ie8up .item_shipping .locator_state
+				{
+					width: 47px;
+				}
+*/				
+				
+						
+				
+			.isp_stores
+			{
+				background-color: #fff;
+				border-bottom: 1px solid #353;
+				border-left: 1px solid #353;
+				border-right: 1px solid #353;
+				padding: 0 10px 20px;
+				z-index:10000;
+			}
+			
+			td.item_delivery .isp_stores p
+			{
+				font-size: 1.0em;
+			}
+			
+				#ie7 .isp_stores,
+				#ie6 .isp_stores
+				{
+					padding: 5px 10px 15px;
+				}
+			
+				.isp_stores table td
+				{
+					padding: 10px 0 0;
+				}
+				
+				#ie6 .isp_stores table td
+				{
+					padding: 5px 0;
+				}
+			
+				#items_list .isp_stores li
+				{
+					border: none;
+					padding: 0 0 5px;
+				}
+				
+				#items_list .isp_stores #isp_stores_validate_message
+				{
+					padding-top: 10px;
+				}
+				
+				#items_list .isp_stores #isp_stores_validate_message li
+				{
+					list-style-type: disc;
+					margin-left: 15px;
+				}
+				
+				.isp_stores .store_miles
+				{
+					text-align: left;
+					vertical-align: top;
+					width: 70px;
+				}
+				
+				.isp_stores .store_address
+				{
+					width: 230px;
+				}
+				
+				#ie6 .isp_stores .store_miles p cite,
+				#ie6 .isp_stores .store_address p cite
+				{
+					position: static;
+				}
+				
+				.isp_stores .store_status
+				{
+					width: 120px;
+				}
+		
+		.cart_qty
+		{
+			text-align: center;
+			width: 25px;
+		}
+		
+
+#cart_footer
+{
+	padding-top: 20px;
+	z-index: 1;	/* Was included inline */
+}
+	
+	.footer_TR
+	{
+		background: #bc7 url(/_site_images/_shopping_cart/corner_tr.gif) right top no-repeat;
+		height: 5px;
+		width: 430px;
+	}
+
+	.footer_TL
+	{
+		background: url(/_site_images/_shopping_cart/corner_tl.gif) left top no-repeat;
+		height: 5px;
+	}
+	
+	.footer_BR
+	{
+		background: #bc7 url(/_site_images/_shopping_cart/corner_br.gif) right bottom no-repeat;
+		height: 5px;
+		width: 430px;
+	}
+
+	.footer_BL
+	{
+		background: url(/_site_images/_shopping_cart/corner_bl.gif) left bottom no-repeat;
+		height: 5px;
+	}
+	
+	#ie6  .footer_TR,
+	#ie6  .footer_BR
+	{
+		display: none;
+	}
+	
+	
+/* Promo Code */
+
+#footer_promoCode
+{
+	float: left;
+	position: relative;
+	width: 450px;
+}
+
+	#promoCode_frame
+	{
+		margin-right: 20px;
+	}
+	
+#cart_promoCode
+{
+	border-left: 1px solid #bc7;
+	border-right: 1px solid #bc7;
+	width: 428px;
+}
+
+#ie6 #cart_promoCode
+{
+	border: 1px solid #bc7;
+}
+
+	#cart_promoCode h5
+	{
+		background-color: #bc7;
+		padding: 7px 10px 5px;
+	}
+
+	#promoCode_input
+	{
+		border-color: #444;
+		width: 100px;
+	}
+	
+	#cart_promoCode .apply_btn
+	{
+		position: relative;
+		top: 6px;
+	}
+
+	#ie7 #cart_promoCode .apply_btn,
+	#ie6 #cart_promoCode .apply_btn
+	{
+		margin-top: 6px;
+		position: static;
+	}
+	
+	#current-promotions
+	{
+		background: url(/_site_images/_sitewide/carrot_555.gif) center right no-repeat;
+		color: #000;
+		display: inline-block;
+		font-size: 12px;
+		margin-top:5px;
+		padding: 0 17px 0 0;
+	}
+	
+	#promoCode_message
+	{
+		padding: 15px 10px;
+	}
+		
+		#promoCode_message p strong
+		{
+			text-transform: uppercase;
+		}
+
+
+/* Charges Summary */
+		
+#footer_summary
+{
+	float: right;
+	position: relative;
+	width: 450px;
+}
+
+	#summary_charges
+	{
+		margin-left: 20px;
+	}
+	
+		#summary_charges table
+		{
+			border-left: 1px solid #bc7;
+			border-right: 1px solid #bc7;
+			width: 430px;
+		}
+		
+		#ie6 #summary_charges table
+		{
+			border: 1px solid #bc7;
+		}
+	
+			#summary_charges table td
+			{
+				border-bottom: 1px solid #deb;
+				height: 40px;
+				padding: 12px 0 8px 9px;
+			}
+			
+			#ie8up #summary_charges table td
+			{
+				height: 20px;	/* IE adds 10px to the top and bottom of the table cell which means we need to reduce the height to 20px */
+			}
+
+			#ie6 #summary_charges table td
+			{
+				height: 20px;	/* IE adds 10px to the top and bottom of the table cell which means we need to reduce the height to 20px */
+				padding: 10px 0 5px 9px;	/* IE6 also factors in an extra 5px of height that is not specified. The overall height here displays as 40px but the 20px plus 10px top and 5px bottom padding only add up to 35px. */
+			}
+			
+			#ie7 #summary_charges table td
+			{
+				height: 20px;	/* IE adds 10px to the top and bottom of the table cell which means we need to reduce the height to 20px */
+			}
+			
+			#charges_taxes td
+			{
+				border-bottom: none;
+			}
+			
+			#charges_estTotal td
+			{
+				background-color: #bc7;
+			}
+			
+			#summary_charges td h6
+			{
+				padding: 2px 9px 0 0;
+				text-align: right;
+				text-transform: uppercase;
+			}
+			
+			#charges_promoSavings td table
+			{
+				border: none;
+				width: 412px;
+			}
+			
+			#ie6 #summary_charges #charges_promoSavings td table
+			{
+				border: none;
+				width: 412px;
+			}
+			
+			#ie6 #summary_charges #charges_promoSavings td table td,
+			#charges_promoSavings td table td
+			{
+				border: none;
+				height: auto;
+				padding: 0;
+			}
+			
+			#summary_charges #charges_promoSavings td table h6
+			{
+				color: #c00;
+				padding: 0;
+				text-transform: capitalize;
+			}
+			
+			#summary_charges #charges_estTotal td
+			{
+				border-bottom: none;
+			}
+			
+			#summary_charges #charges_estTotal td h6
+			{
+				text-align: left;
+			}
+			
+			#summary_charges #charges_estTotal td.align_R h6
+			{
+				text-align: right;
+			}
+				
+				#charges_taxes .taxes_zip
+				{
+					text-align: center;
+					width: 50px;
+				}
+				
+				#charges_taxes .zip_submit
+				{
+					position: relative;
+					top: 2px;
+				}
+				
+				#ie6 #charges_taxes input.zip_submit,
+				#ie7 #charges_taxes input.zip_submit
+				{
+					border: none;
+					position: static;
+				}
+
+#cart_checkoutOptions
+{
+	clear: both;
+	padding-top: 15px;
+}
+
+	#cart_checkoutOptions ul li
+	{
+		float: right;
+		margin-left: 50px;
+	}
+
+	#ie6 #cart_checkoutOptions ul,
+	#ie6 #cart_checkoutOptions ul li
+	{
+		position: relative;
+	}
+
+/*
+	Shopping Cart - Page 2 (Sign In)
+---------------------------------------------- */
+
+#items_bg
+{
+	background-color: #fff;
+	padding: 30px 0;
+}
+
+	#items_bg table
+	{
+		width: 100%;
+	}
+
+		td.cart_left
+		{
+			border-right: 1px solid #bc7;
+			width: 448px;
+		}
+		
+		td.cart_right
+		{
+			width: 449px;
+		}
+		
+			.cart_padding
+			{
+				padding: 0 30px;
+			}
+				
+				ul.sc_form
+				{
+					clear: both;
+				}
+				
+				ul.sc_form li
+				{
+					float: left;
+					margin-right: 15px;
+				}
+				
+				#ie7 ul.sc_form li,
+				#ie6 ul.sc_form li
+				{
+					margin-right: 0px;
+					margin-left: 0;
+					padding-right: 15px;
+					position: static;
+				}
+				
+				ul.sc_form li.end_listItem
+				{
+					margin-right: 0;
+				}
+				
+				#ie7 .sc_form li.end_listItem,
+				#ie6 .sc_form li.end_listItem
+				{
+					padding-right: 0;
+				}
+				
+#cart_bottom
+{
+	background: #bc7 url(/_site_images/_shopping_cart/corner_br.gif) right bottom no-repeat;
+	height: 5px;
+	width: 900px;
+}
+
+	#bottom_left
+	{
+		background: url(/_site_images/_shopping_cart/corner_bl.gif) left bottom no-repeat;
+		height: 5px;
+	}
+	
+/*
+	Shopping Cart - Page 3 (Shipping)
+---------------------------------------------- */
+
+#cart_content
+{
+	position: relative;
+}
+
+#billing_same
+{
+	margin-top: 9px;
+}
+
+	#items_rewards
+	{
+		background-color: #f5edd5;
+		border-bottom: 1px solid #ba8;
+		border-right: 1px solid #ba8;
+		border-top: 1px solid #ecd7ac;
+		margin-top: 30px;
+		padding: 0 0 30px 30px;
+		width: 385px;
+	}
+	
+		#items_rewards cite
+		{
+			padding-right: 15px;
+		}
+		
+		#items_rewards ul li,
+		#items_rewards p cite
+		{
+			position: static;
+		}
+	
+#items_email
+{
+	margin-top: 15px;
+}
+
+	#cart_continue
+	{
+		width: 179px;
+	}
+	
+		#cart_continue_input
+		{
+			margin-top: 10px;
+		}
+
+
+/*
+	Shopping Cart - Page 4(Payment)
+---------------------------------------------- */
+
+#cc_type li.radioButtons
+{
+	display: inline;
+	height: 30px;
+	margin-right: 0;
+	width: 76px;
+}
+
+#ie7 #cc_type li.radioButtons,
+#ie6 #cc_type li.radioButtons
+{
+	width: 65px;
+}
+
+	#cc_type li.radioButtons input
+	{
+		margin-right: 3px;
+		vertical-align: middle;
+	}
+	
+	#cc_type li.radioButtons label
+	{
+		margin-left: 0;
+	}
+	
+	#cc_type li.radioButtons img
+	{
+		vertical-align: middle;
+	}
+	
+#cc_MM_input,
+#cc_YY_input
+{
+	width: 76px;
+}
+
+/*CVV Input */
+
+#cc_cvv_input
+{
+	width: 85px;
+}
+
+#cc_cvv_help
+{
+	padding-top: 15px;
+	width: 270px;
+}
+
+#ie6 #cc_cvv_help,
+#ie7 #cc_cvv_help
+{
+	padding-top: 12px;
+}
+
+#cc_cvv_help a.question
+{
+	font-size: 11px;
+}
+
+	#cc_cvv_help .answer
+	{
+		background-color: #fff;
+		border: 1px solid #353;
+		display: none;
+		left: 100px;
+		padding: 9px;
+		position: absolute;
+		top: -150px;
+		width: 370px;
+		z-index: 500;
+		/* For IE 8 */
+		-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=120, Color='#333333')";
+		/* For IE 5.5 - 7 */
+		filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=120, Color='#333333');
+		/* CSS3 */
+		box-shadow: 0px 0px 5px #333;
+		/* For Safari & Chrome */
+		-webkit-box-shadow: 0px 0px 5px #333;
+		/* For FireFox	*/
+		-moz-box-shadow: 0px 0px 5px #333; 
+	}
+	
+	#ie6 #cc_cvv_help .answer,
+	#ie7 #cc_cvv_help .answer
+	{
+		left: 250px;
+		top: 40px;
+	}
+	
+	#cc_cvv_help .answer span
+	{
+		cursor: pointer;
+		text-decoration: underline;
+	}
+	
+	#cc_cvv_help .answer p
+	{
+		float: left;
+	}
+	
+	#cc_cvv_help .answer img
+	{
+		float: left;
+		padding-right: 10px;
+	}
+	
+/*End CVV Input */
+	
+	#cc_expiration h3
+	{
+		display: inline;
+		line-height: 0.9;
+		margin: 0 5px;
+		padding: 0;
+	}
+	
+#cashCard_message p
+{
+	width: 179px;
+}
+		
+#items_cashCard,
+#items_giftCard,
+#giftCard_applied
+{
+	margin-top: 10px;
+}
+	
+	#cashCard_number_input
+	{
+		margin-right: 25px;
+		width: 100px;
+	}
+	
+	#cashCard_apply_input
+	{
+		float: right;
+	}
+	
+	#ie7 #cashCard_number_input,
+	#ie6 #cashCard_number_input
+	{
+		float: left;
+		margin-right: 5px;
+	}
+	
+	#ie7 #cashCard_apply_input,
+	#ie6 #cashCard_apply_input
+	{
+		float: none;
+		padding: 0;
+	}
+		
+		#cashCard_apply
+		{
+			width: auto;
+		}
+		
+		#giftCard_pin
+		{
+			width: 183px;
+		}
+		
+		#giftCard_apply_input
+		{
+			float: right;
+		}
+		
+		#ie7 #giftCard_pin_input,
+		#ie6 #giftCard_pin_input
+		{
+			float: left;
+			margin-right: 5px;
+		}		
+		
+		#ie7 #giftCard_apply_input,
+		#ie6 #giftCard_apply_input
+		{
+			float: none;
+			padding: 0;
+		}
+		
+			#giftCard_applied_table thead th
+			{
+				background-color: #f5edd5;
+				border-bottom: 2px solid #ba8;
+				font-weight: bold;
+				padding: 17px 10px 4px;
+			}
+			
+			#giftCard_applied_table tbody td
+			{
+				border-bottom: 1px solid #f5e8c1;
+				padding: 7px 10px 4px;
+			}
+		
+		#ie6 #items_giftCard p cite,
+		#ie7 #items_giftCard p cite
+		{
+			position: static;
+		}
+		
+#payment_summary table
+{
+	border-bottom: 2px solid #ba8;
+
+	border-top: 2px solid #ba8;
+}
+
+	#payment_summary table td
+	{
+		border-bottom: 1px solid #f5f0e3;
+		padding: 7px 10px 5px;
+	}
+	
+		#payment_summary table #summary_due td
+		{
+			background-color: #f5edd5;
+		}
+	
+		#payment_summary table td h6
+		{
+			padding: 0;
+		}
+	
+		#payment_summary td.summary_price
+		{
+			text-align: right;
+		}
+		
+		#payment_summary td.summary_name span
+		{
+			font-size: 0.916667em;
+		}
+		
+			#summary_gift .summary_price h6,
+			#summary_promo .summary_price h6
+			{
+				color: #c00;
+			}
+
+#items_addresses cite
+{
+	position: static;
+}
+
+#shipping_method
+{
+	background-color: #f5edd5;
+	border-top: 2px solid #ba8;
+	padding: 15px 10px;
+}
+
+	#shipping_method h4
+	{
+		display: inline;
+	}
+	
+	#shipping_method #method_select
+	{
+		margin-left: 10px;
+		width: 210px;
+	}
+/*
+	Shopping Cart - Page 5(Confirm)
+---------------------------------------------- */
+
+
+	#confirm_list
+	{
+		background-color: #fff;
+	}
+	
+	#confirm_list h6
+	{
+		padding-top: 3px;
+	}
+	
+	#confirm_list li
+	{
+		border-bottom: 1px solid #deb;
+		margin: 0;
+		padding: 10px 0 5px;
+	}
+	
+	#confirm_list li.list_heading
+	{
+		border-bottom: 0;
+		border-top: 1px solid #bc7;
+		padding: 20px 0 10px;
+	}
+	
+		#confirm_list .item_table .item_description
+		{
+			padding-left: 9px;
+			width: 320px;
+		}
+		
+		#confirm_list li .item_table .item_description p.qbd_msg
+		{
+			color: #900;
+		}
+		
+		#confirm_list li .item_table .item_description p.qbd_msg strong
+		{
+			color: #c00;
+		}
+	
+		table.group_heading td.item_delivery
+		{
+			padding-left: 15px;
+			width: auto;
+		}
+		
+			table.group_heading td.item_delivery p
+			{
+				text-align: left;
+			}
+		
+		#ie6 table.group_heading cite,
+		#ie7 table.group_heading cite
+		{
+			position: static;
+		}
+	
+	#ie7 #confirm_list li .item_table td
+	{
+		padding-bottom: 10px;
+	}
+
+	#confirm_list li.item_pureing
+	{
+		background: url(/_site_images/_shopping_cart/puringItem_bg.gif) top left repeat-x;
+		height: 30px;
+		padding: 0;
+	}
+		
+		#confirm_list li.item_pureing  .item_table .item_description
+		{
+			width: 540px;
+		}
+		
+		#confirm_list li.item_pureing td.item_description p
+					{
+						padding-left: 0;
+						padding-top: 3px;
+					}
+		
+		#ie6 #confirm_list td.item_description cite,
+		#ie7 #confirm_list td.item_description cite
+		{
+			position: static;
+		}
+		
+				
+		#confirm_list td.item_price span.save,
+		#confirm_list td.item_price del
+		{
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 0.857143em;
+		}
+		
+		#confirm_list td.item_qty
+		{
+			text-align: center;
+		}
+			
+		#footer_left
+		{
+			float: left;
+			width: 450px;
+		}
+		
+		div#footer_left.isp_only
+		{
+			background: transparent;
+		}
+		
+			.change
+			{
+				font-size: 0.916667em;
+				padding-top: 1px;
+			}
+			
+			.address_name
+			{
+				display: block;
+				font-weight: bold;
+			}
+			
+			.address_street1,
+			.address_street2,
+			.address_address1,
+			.address_address2,
+			.address_location,
+			.address_region,
+			.address_country,
+			.address_phone
+			{
+				display: block;
+			}
+			
+			#confirm_wire
+			{
+				border-left: 25px solid #ffdd88;	/* There should be a fadeout of this background color to white */
+				margin-top: 10px;
+				padding: 0 20px;
+			}
+			
+				#confirm_wire h6
+				{
+					padding-top: 0;
+				}
+			
+			#ie7 #footer_confirm ul.no_listStyle li
+			{
+				position: static;
+			}
+			
+			#confirm_payment h4,
+			#confirm_payment .change
+			{
+				display: inline;
+			}
+			
+			#confirm_payment .change
+			{
+				margin-left: 20px;
+			}
+		
+			.payment_type
+			{
+				display: block;
+				float: left;
+				width: 75px;
+			}
+			
+			.payment_number
+			{
+				display: block;
+				float: left;
+				text-transform: uppercase;
+				width: 150px;
+			}
+			
+			#ie6 span.payment_exp,
+			#ie6 span.payment_amount
+			{
+				display: block;
+				float: left;
+				width: 100px;
+			}
+			
+			.charges_merch h6,
+			.charges_taxes h6
+			{
+				padding: 2px 0 0;
+				text-align: right;
+			}
+			
+				.charges_shipping td
+				{
+					background-color: #f5e8c1;
+				}
+			
+				.charges_taxes .taxes_zip
+				{
+					text-align: center;
+					width: 50px;
+				}
+				
+				.charges_taxes .zip_submit
+				{
+					position: relative;
+					top: 2px;
+				}
+				
+				#ie6 .charges_taxes input.zip_submit,
+				#ie7 .charges_taxes input.zip_submit
+				{
+					border: none;
+					position: static;
+				}
+				
+				#submit_order
+				{
+					clear: right;
+					float: right;
+					margin-top: 15px;
+					width: 430px;
+				}
+				
+				a#submit_order_button
+				{
+					background-image: url(/_site_images/_sitewide/cta-warm_sprite.png);
+					background-position: -353px 0;
+					background-repeat:no-repeat;
+					display:block;
+					height:35px;
+					margin-left:50px;
+					width: 321px;
+				}
+				
+					a#submit_order_button:hover
+					{
+						background-position: -353px -35px;
+					}
+					
+					a#submit_order_button:active
+					{
+						background-position: -353px -70px;
+					}
+					
+					#submit_order_button img
+					{
+						display:none;
+					}
+				
+					#golfsmith_caddie
+					{
+						background-color: #f5edd5;
+						margin-bottom: 15px;
+						width: 430px;
+					}
+					
+						#caddie_badge_box_top
+						{
+							background: url(/_site_images/_shopping_cart/badge_box_top.gif) top left no-repeat;
+							height: 5px;
+						}
+						
+						#caddie_badge_box_btm
+						{
+							background: url(/_site_images/_shopping_cart/badge_box_btm.gif) top left no-repeat;
+							height: 5px;
+						}
+					
+						#golfsmith_caddie h6,
+						#golfsmith_caddie ul
+						{
+							margin: 10px 20px;
+							padding: 0;
+						}
+						
+						#caddie_name h6
+						{
+							margin: 0;
+							width: 265px;
+						}
+		
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* 						In Store PickUp Version							   */
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+#instore_pickup
+{
+	clear: both;
+}
+
+
+/*
+	In Store Pickup Styles
+---------------------------------------------- */
+
+.isp_header,
+#cart_shippingTo_header
+{
+	padding-top: 10px;
+}
+
+.isp_header h2
+{
+/*	float: left;	*/
+	height: 26px;
+	line-height: 1.0;
+	padding: 8px 0 0;
+/*	width: 300px;	*/
+}
+
+.isp_header p
+{
+	display: none;
+	float: right;
+	margin: 10px 15px 0 0;
+}
+
+#ie7 .isp_header p,
+#ie6 .isp_header p
+{
+	float: none;
+	margin: 0;
+}
+
+	.isp_top
+	{
+		background: #bc7 url(/_site_images/_shopping_cart/isp_headings_bg_L.jpg) left top no-repeat;
+		clear: both;
+		height: 35px;
+		width: 900px;
+	}
+	
+		.isp_top h5
+		{
+			font-weight: bold;
+			padding-left: 10px;
+		}
+			
+			.isp_top .heading_price h5
+			{
+				padding-left: 0;
+				text-align: center;
+			}
+			
+			.isp_top .heading_quantity h5
+			{
+				padding-left: 0;
+				text-align: center;
+			}
+		
+		.isp_top .heading_total
+		{
+			background: url(/_site_images/_shopping_cart/isp_headings_bg_R.jpg) right top no-repeat;
+			width: 110px;
+		}
+		
+			.isp_top .heading_total h5
+			{
+				padding-left: 0;
+				text-align: center;
+			}
+
+.isp_content
+{
+	background-color: #f5e8c1;
+	padding: 0 1px;
+}
+
+	.isp_items
+	{
+		background-color: #fff;
+	}
+	
+	#ie7 .isp_list
+	{
+		width: 100%;
+	}
+	
+		.isp_list h6
+		{
+			padding-top: 3px;
+		}
+
+		.isp_list li
+		{
+			border-bottom: 1px solid #f5e8c1;
+			margin: 0;
+			padding: 15px 0 10px;
+		}
+
+			#ie7 .isp_list li .item_table td
+			{
+				padding-bottom: 10px;
+			}
+	
+	.isp_list li.item_puring
+	{
+		background: url(/_site_images/_shopping_cart/puringItem_bg.gif) top left repeat-x;
+		padding: 5px 10px 10px;
+	}
+		
+		.isp_list td.item_description
+		{
+			padding-left: 9px;
+			width: 320px;
+		}
+		
+		#ie7 .isp_list td.item_description cite,
+		#ie6 .isp_list td.item_description cite
+		{
+			position: static;
+		}
+	
+		.isp_list td.item_price span.save,
+		.isp_list td.item_price del
+		{
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 0.857143em;
+		}
+			
+		.isp_list li.item_puring td.item_description
+		{
+			padding-top: 0.25em;
+			width: 520px;
+		}
+		
+/* ISP Receipt Section */
+
+.isp_receipt
+{
+	border-top: 5px solid #ba8;
+}
+
+.isp .cart_left
+{
+	border-color: #ba8;
+}
+
+.isp_receipt .cart_left h4
+{
+	letter-spacing: 0.02em;
+	margin-left: 10px;
+	padding-top: 10px;
+}
+
+	.store_name
+	{
+		font-size: 0.777778em;
+		font-weight: bold;
+		margin-left: 15px;
+	}
+
+	.store_directions
+	{
+		font-size: 0.666667em;
+		margin-left: 15px;
+	}
+
+.store_contact,
+.store_hours
+{
+	padding: 5px 0 0 15px;
+	width: 137px;	/* Add 15px of padding to make an even width of 152px */
+}
+
+	.store_phone,
+	.store_address
+	{
+		display: block;
+	}
+	
+	.store_phone
+	{
+		font-weight: bold;
+	}
+	
+	.store_address
+	{
+		font-size: 0.916667em;
+	}
+	
+	.store_hours table
+	{
+		font-size: 0.916667em;
+		line-height: 1.5em;
+	}
+	
+		.store_hours th
+		{
+			font-weight: bold;
+			width: 60px;
+		}
+
+.isp .cart_right
+{
+	background: url(/_site_images/_shopping_cart/charges_summary_bg.jpg) top left repeat-y;
+	padding-top: 10px;
+}
+
+	.isp .cart_right .charges_table
+	{
+		width: 449px;
+	}
+	
+	.isp .cart_right .charges_table td
+	{
+		height: 40px;
+		padding: 12px 9px 8px 15px;
+	}
+	
+	#ie6 .isp .cart_right .charges_table td
+	{
+		height: 20px;	/* IE adds 10px to the top and bottom of the table cell which means we need to reduce the height to 20px */
+		padding: 10px 9px 5px;	/* IE6 also factors in an extra 5px of height that is not specified. The overall height here displays as 40px but the 20px plus 10px top and 5px bottom padding only add up to 35px. */
+	}
+	
+	#ie7 .isp .cart_right .charges_table td
+	{
+		height: 20px;	/* IE adds 10px to the top and bottom of the table cell which means we need to reduce the height to 20px */
+	}
+		
+		.isp .cart_right .charges_table td h6
+		{
+			padding: 2px 0 0;
+			text-align: right;
+		}
+
+.isp_footer
+{
+	background: #ba8 url(/_site_images/_shopping_cart/corner_ba8_bl.gif) left bottom no-repeat;
+	height: 40px;
+	margin-bottom: 20px;
+	width: 900px;
+}
+
+	.isp_footer table
+	{
+		background: #ba8 url(/_site_images/_shopping_cart/corner_ba8_br.gif) right bottom no-repeat;
+		float: right;
+		height: 40px;
+		width: 450px;
+	}
+	
+		.isp_footer table td
+		{
+			padding: 5px 0 0 15px;
+			text-transform: uppercase;
+		}
+		
+		.isp_footer table td.align_R
+		{
+			padding: 5px 9px 0 0;
+		}
+
+		
+/*
+	Cart Restyling when there is ISP
+---------------------------------------------- */
+
+.isp #cart_header
+{
+	position: absolute;
+	left: 0;
+	top: 85px;
+	width: 300px;
+}
+
+.isp #cart_shippingTo_header h2
+{
+/*	float: left;	*/
+	height: 27px;
+	line-height: 1.0;
+	padding: 8px 0 0;
+/*	width: 300px;	*/
+}
+
+#ie7 .isp #cart_shippingTo_header h2,
+#ie6 .isp #cart_shippingTo_header h2
+{
+	padding: 6px 0 2px;
+}
+
+.isp #cart_shippingTo_header p
+{
+	display: none;
+	float: right;
+	margin: 10px 15px 0 0;
+}
+
+#ie7 .isp #cart_shippingTo_header p,
+#ie6 .isp #cart_shippingTo_header p
+{
+	float: none;
+}
+
+
+/*
+	Shopping Cart - Page 6(Address Book)
+---------------------------------------------- */
+	
+	#popUp_border.address_book_scroll
+	{
+		padding: 20px 0 0;
+	}
+	
+#change_address
+{
+	margin: 0 78px;
+}
+
+#ie7 #change_address,
+#ie6 #change_address
+{
+	width: 394px;
+}
+
+#address_book h2,
+#address_book p
+{
+	padding: 0 20px;
+}
+
+#book_list
+{
+	height: 350px;
+	overflow-y: scroll;
+	padding: 0 20px 20px;
+	position: relative;
+}
+
+#book_list li
+{
+	clear: left;
+	float: left;
+	margin: 25px 20px 0 0;
+	width: 255px;
+}
+
+#book_list li.end_listItem
+{
+	clear: none;
+	margin-right: 0;
+}
+
+#address_book #book_list p
+{
+	padding: 0;
+}
+
+.address_tools
+{
+	float: right;
+	font-size: 11px;
+	text-align: right;
+	width: 140px;
+}
+
+.address_select_input
+{
+	margin-top: 5px;
+}
+
+.address_default
+{
+	border: 1px solid #f90;
+	bottom: 0;
+	display: inline;
+	padding: 2px 3px;
+	position: absolute;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+/*
+	Shopping Cart - Page 8(Order Confirmation)
+---------------------------------------------- */
+
+div#shopping_cart.thank_you
+{
+	padding-top: 0;
+}
+
+#createAccount
+{
+	background-color: #deb;
+	padding: 20px;
+}
+	
+	#createAccount_form
+	{
+		float: left;
+		margin-right: 10px;
+		width: 600px;
+	}
+		
+	#ie6 #createAccount_form
+	{
+		float: none;
+	}
+	
+		#ie6 #createAccount_form .textInput input
+		{
+			background-color: #fff;
+			border: 1px solid #ccc;
+			padding: 3px 0 2px 3px;
+		}
+	
+	#createAccount_why
+	{
+		background-color: #fff;
+		border: 1px solid #ba8;
+		border-bottom: 5px solid #ba8;
+		border-top: 5px solid #ba8;
+		float: right;
+		width: 248px;	/* 2px shy of 250px to account for the border */
+	}
+	
+	#ie6 #createAccount_why
+	{
+		float: none;
+		margin-top: 20px;
+		width: 600px;
+	}
+	
+		.why_question
+		{
+			background-color: #f5f0e3;
+			border-bottom: 1px solid #ba8;
+			border-top: 1px solid #ba8;
+			padding: 10px;
+			position: relative;
+		}
+		
+			.why_question img
+			{
+				position: absolute;
+				top: 7px;
+			}
+		
+		.why_answer
+		{
+			display: none;
+			padding: 10px;
+		}
+		
+		p#why_a2.why_answer
+		{
+			display: block;
+		}
+	
+	#createAccount h3
+	{
+	padding-top: 0;
+	}
+	
+	#createAccount ul.sc_form
+	{
+		clear: none;
+	}
+
+#createAccount_submit_input
+{
+	margin-top: 11px;
+}
+
+/*
+	Checkout by Amazon - Page
+---------------------------------------------- */
+
+/* Amazon Widgets */
+#cba-shipping-widget,
+#cba-payment-widget
+{
+	width: 400px;
+}
+
+#cart-summary-heading
+{
+	border-bottom: 1px solid #bc7;
+	height: 20px;
+	width: 389px;
+}
+
+#cart-summary-heading li
+{
+	float:left;
+}
+
+#cba-cart-summary #items_bg table,
+#cba-cart-summary td p,
+#cba-cart-summary td.item_delivery p
+{
+	font-size: 11px;
+	padding-top: 0;
+}
+
+#cba-cart-summary #confirm_list .item_table .item_description,
+#cart-summary-heading li.item_description
+{
+	padding-left: 0;
+	width: 174px;
+}
+
+#cba-cart-summary td.item_delivery,
+#cart-summary-heading li.item_delivery
+{
+	width: 75px;
+}
+
+#cba-cart-summary td.item_price,
+#cart-summary-heading li.item_price
+{
+	text-align: right;
+	width: 55px;
+}
+
+#cba-cart-summary #confirm_list td.item_qty,
+#cart-summary-heading li.item_qty
+{
+	padding-left: 5px;
+	text-align: right;
+	width: 30px;
+}
+
+#cba-cart-summary td.item_total,
+#cart-summary-heading li.item_total
+{
+	text-align: right;
+	width: 50px;
+}
+
+#confirm_list li:last-child
+{
+border-bottom: none;
+}
+
+#cba-charges-summary
+{
+padding-top: 5px;
+}
+
+#cba-charges-summary #footer_summary
+{
+	float: none;
+}
+
+#cba-charges-summary #footer_summary,
+#cba-charges-summary #footer_summary #summary_charges,
+#cba-charges-summary .footer_TR,
+#cba-charges-summary .footer_TL,
+#cba-charges-summary .footer_BR,
+#cba-charges-summary .footer_BL
+{
+	margin: 0;
+	width: 389px;
+}
+
+#cba-charges-summary #charges_promoSavings table
+{
+	width: 378px;
+}
+
+#cba-charges-summary #charges_promoSavings td table h6
+{
+	padding-right: 9px;
+}
+
+#cba-charges-summary a#cba-submit-order
+{
+	background-color: #fff;
+	background-image: url(/_site_images/_sitewide/cta-warm_sprite.png);
+	background-position: -354px 0;
+	background-repeat: no-repeat;
+	display: block;
+	height: 35px;
+	margin: 10px 0 0 34px;
+	text-indent: -9999px;
+	width: 320px;
+}
+
+#cba-charges-summary a#cba-submit-order:hover
+{
+	background-position: -354px -35px;
+}
+
+#cba-charges-summary a#cba-submit-order:active
+{
+	background-position: -354px -70px;
+}
+
+#cba-charges-summary a#cba-submit-order.disabled
+{
+	background-position: -354px -105px;
+	cursor: auto;
+}
+
+/*
+	Order Confirm Page
+---------------------------------------------- */
+
+#confirm-primary
+{
+	float: right;
+	width: 650px;
+}
+
+	#order-info h2
+	{
+		font-size: 21px;
+		padding-top: 30px;
+	}
+	
+	#order-info h4
+	{
+		font-family: Georgia, serfi;
+		font-style: italic;
+		padding: 0;
+	}
+	
+	#order-help h3
+	{
+		font-size: 16px
+	}
+
+	#customer-assistance
+	{
+		background: url(/_site_images/_sitewide/customer-service-rep.jpg) 0 0 no-repeat;
+		height: 85px;
+		padding: 15px 25px 0 125px;
+		width: 500px;
+	}
+	
+		#customer-assistance cite
+		{
+			line-height: 2em;
+		}
+
+#confirm-secondary
+{
+	float: left;
+	height: 700px;
+	width: 200px;
+}
+
+#confirm-tertiary
+{
+	height: 200px;
+	margin-top: 30px;
+	
+}
+
+button#btnSendEmail {
+	background-color: rgb(190, 30, 36);
+	background-image: none;
+	border: none;
+	cursor: pointer;
+	float: none;
+	height: 35px;
+	margin: 7px 10px;
+	width: 160px;
+	color: #fff;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-size: 12px;
+	vertical-align: top;
+}

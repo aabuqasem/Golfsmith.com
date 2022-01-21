@@ -1,0 +1,1564 @@
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*
+
+		Brady Starr's.css
+		Golfsmith.com
+		
+		* product_page.css	- All "Standard" or "Screen" view site layout CSS should be included here. Including Classes and ID's effecting "Text" positioning/spacing.
+		* Sections are flagged. See TOC for "finding" the section you need.
+		
+	== Table of Contents ==
+		
+		* Highlight the following flag and use "Find Next" under "Edit" to locate the following sections:
+			=>GLOBAL
+			=>CLASSES
+			=>CONTENT
+			=>RATINGS AND REVIEWS
+			=>R-NAV
+		
+
+*/
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+/*----------------------------------------------------------------
+			=>GLOBAL
+----------------------------------------------------------------*/
+
+
+/*
+			=>CLASSES
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
+ 
+
+
+
+.NoReviewsWriteImage {float: left}
+
+.ReviewProductButton {text-align: right;}
+ 
+.product_update
+{
+	background-color: #dee;
+	border: 1px solid #458;
+	margin: 20px auto;
+	padding: 20px;
+	width: 75%;
+}
+
+
+/*----------------------------------------------------------------
+			=>CONTENT
+----------------------------------------------------------------*/
+
+
+#pp_content
+{
+	background-color: #fff;
+	border: 1px solid #ccc; /* Was #d0cbb9 */
+	position: relative;
+}
+
+#print_page
+{
+	display: none;
+}
+
+	/* ADDED TO CART MODAL */
+	.ui-widget-content #modal_added2cart a
+	{
+		color: #792;
+	}
+	
+	#modal_added2cart
+	{
+		display: none;
+		padding-top: 10px;
+		text-align: left;
+	}
+	
+	#added2cart_image
+	{
+		float: left;
+		padding-top: 14px;
+		text-align: center;
+		width: 200px;
+	}
+	
+	#added2cart_details
+	{
+		float: left;
+		padding-left: 20px;
+		width: 400px;
+	}
+	
+		#added2cart_details h4
+		{
+			line-height: 1.2;
+			padding-bottom: 6px;
+			padding-top: 0;
+		}
+		
+			#added2cart_details h4 span,
+			#modal_added2cart p
+			{
+				font-size: 14px;
+			}
+	
+		#added2cart_details table
+		{
+			border-bottom: 1px solid #bc7;
+			border-left: 1px solid #deb;
+			border-right: 1px solid #deb;
+			border-top: 1px solid #bc7;
+			width: 400px;
+		}
+		
+			#added2cart_details table thead th
+			{
+				background-color: #deb;
+				padding: 10px 10px 6px;
+			}
+			
+			#added2cart_details table tbody td
+			{
+				background-color: #fff;
+				padding: 10px 10px 6px;
+			}
+			
+				#added2cart_details table tbody td h4
+				{
+					padding: 0;
+				}
+			
+			#added2cart_details table tfoot td
+			{
+				background-color: #deb;
+				height: 5px;
+			}
+	
+	#added2cart_upsells
+	{
+		border-top: 1px solid #bc7;
+		clear: left;
+		margin-top: 18px;
+	}
+	
+		#added2cart_upsells li
+		{
+			height: 220px;
+			text-align: center;
+		}
+		
+			#added2cart_upsells li p
+			{
+				font-size: 12px;
+			}
+		
+				#added2cart_upsells li .was
+				{
+					font-size:12px;
+				}
+				
+				#added2cart_upsells li .now
+				{
+					display:inline;
+					font-size:12px;
+				}
+	
+
+	/* MENU AREA
+	(Bread Crumbs & Bookmark/Share/Print/Email) */
+	#pp_menu
+	{
+		position: relative;
+	}
+
+	#pp_menu ul li
+	{
+		display: inline;
+		margin: 0;
+		padding: 0;
+	}
+
+	#pp_menu ul.breadCrumbs
+	{
+		float: left;
+		margin-left: 10px;
+		padding: 12px 0 3px;
+		width: 625px;
+	}
+	
+		#pp_menu ul.breadCrumbs li
+		{
+			display: inline-block;
+			margin: 0 0 3px;
+		}
+	
+	#pp_menu ul.pp_tools
+	{
+		float: right;
+		margin-right: 10px;
+		padding-top: 12px;
+	}
+	
+	#pp_menu ul.pp_tools li
+	{
+		margin-left: 10px;
+	}
+	
+	/* New AddThis Tools */
+	#pp_menu ul.pp_tools
+	{
+		padding-top: 0px;
+		margin-top:-8px; 
+		padding-bottom: 10px;
+	}
+	
+		#pp_menu ul.pp_tools li
+		{
+			line-height: 1.5;
+		}
+	/* END AddThis Tools */
+	
+	/* END MENU AREA */
+
+	#product_page
+	{
+		border-top: 1px solid #ccc;
+		clear: both;
+	}
+	
+	/* PRODUCT PAGE TOP AREA
+	(Buying Section & Visual Imagery Section) */
+	#pp_top
+	{
+		width: 100%;
+	}
+	
+		#pp_buying
+		{
+			float: right;
+			width: 430px;
+			margin-right: 20px;
+		}
+		
+		#ie7 #pp_buying
+		{
+			position:relative;
+			z-index:1;
+		}
+		
+			#product_header
+			{
+				padding: 30px 0 0;
+			}
+			
+				#product_header h1
+				{
+					font-family: Tahoma, Geneva, Arial, Helvetica, sans-serif;
+					font-size: 2.0em;
+					padding: 0;
+					margin: 0;
+					line-height: 1.0;
+				}
+				
+				
+				/* BazaarVoice Reviews Summary */
+				
+				#product_header .BVreviews_summary
+				{
+					padding-top: 10px;
+					
+				}
+				
+				#product_header .BVreviews_summary p
+				{
+					padding: 0;
+					margin: 0;
+					line-height: 1.4;
+				}
+				
+				#product_header .BVreviews_summary p a
+				{
+					position: relative;
+				}
+		
+			#product_price
+			{
+				clear: left;
+				border-top: 1px solid #ccc;
+			}
+			
+			#product_price h3
+			{
+				margin: 5px 0;
+				padding: 0;
+				line-height: 1.0;
+				letter-spacing: 0;
+				font-family: Helvetica, Arial, sans-serif;
+			}
+			
+				#product_price div
+				{
+					display: inline;
+				}
+			
+			#product_price h3 del
+			{
+				font-size: 0.75em;
+			}
+			
+				#product_price table
+				{
+					border: 1px solid #ccc;
+					border-top: none;
+					margin-bottom: 5px;
+					width: 100%;
+				}
+				
+					#product_price table thead th
+					{
+						background-color: #f5f0e3;
+						border-bottom: 3px double #bc7;
+						font-size: 1.333333em;
+						font-weight: bold;
+						padding: 10px 5px 5px;
+					}
+					
+					#product_price table tbody tr.alt_tr
+					{
+						background-color: #f9f6ef;
+					}
+					
+						#product_price table tbody tr:hover
+						{
+							background-color: #fcf6d7;
+							color: #000;
+						}
+						
+						#product_price table tbody tr.alt_tr:hover
+						{
+							background-color: #faf2c8;
+							color: #000;
+						}
+					
+					#product_price table td
+					{
+						padding: 5px;
+					}
+			
+			div#qbd.qbd_pp
+			{
+				margin-top: 10px;
+				position: relative;
+			}
+			
+			.qbd_pp p + p,
+			.qbd_pp p
+			{
+				margin: 0;
+			}
+			
+			.qbd_pp p.help
+			{
+				position: absolute;
+				right: 0px;
+				top: 0px;
+				z-index: 100;
+			}
+			
+			.qbd_pp p.help span.help_content
+			{
+				border-radius: 5px 5px 5px 5px;
+				-moz-border-radius: 5px 5px 5px 5px;
+				box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+				font-size: 11px;
+				line-height: 1.25;
+				right: 0;
+				top: -120px;
+				width: 350px;
+			}
+			
+			.qbd_pp #qbd_counter
+			{
+				background: url(/_site_images/_product_page/qbd_bg_redTab.jpg) top left no-repeat;
+				height: 50px;
+				width: 405px;
+			}
+			
+			.qbd_pp #qbd_heading h5
+			{
+				position: absolute;
+				text-indent: -9999px;
+			}
+			
+			.qbd_pp #qbd_heading_limit
+			{
+				top: 33px;
+				font-size: 10px;
+				left: 10px;
+				letter-spacing: 0.05em;
+				position: absolute;
+				text-transform: uppercase;
+			}
+			
+			.qbd_pp #qbd_timeQty
+			{
+				color: #222;
+				font-family: 'Courier New', Courier, mono;
+				font-size: 16px;
+				font-weight: bold;
+				padding-left: 135px;
+				padding-top: 27px;
+				text-align: center;
+			}
+			
+			.qbd_pp #qbd_timeQty_time
+			{
+				float: left;
+				width: 175px;
+			}
+			
+			.qbd_pp #qbd_timeQty_qty
+			{
+				float: left;
+				width: 95px;
+			}
+			
+			#product_offers
+			{
+				margin: 1em 0 0.5em;
+				position: relative;
+			}
+			
+			#product_offers p
+			{
+				position: relative;
+				display: block;
+			}
+			
+			#product_offers span.seeOffers_txt
+			{
+				display: block;
+				position: absolute;
+				top: 2px;
+				left: 23px; /* 20px is the width of the "Special Offers_icon.gif" so I've given an extra 3px of space between */
+			}
+			
+			/* "Hover Link" and "Hover Box" Classes */
+			
+			div.hoverBox
+			{
+				position: absolute;
+				top: 8px;
+				left: -1000px;
+				visibility: hidden;
+				background-color: #fff;
+				border: 2px solid #cc0000;
+				width: 315px;
+				padding: 10px;
+				-moz-box-shadow: 0 0 5px rgba(0,0,0,0.5);
+				-webkit-box-shadow: 0 0 5px rgba(0,0,0,0.5);
+				box-shadow: 0 0 5px rgba(0,0,0,0.5);
+			}
+			
+			div.hoverBox h5
+			{
+				margin: 0 0 0.5em;
+				padding: 0;
+			}
+
+			
+			#product_offers:hover div.hoverBox
+			{
+				visibility: visible;
+				top: 10px;
+				left: 20px;
+				z-index: 10000;
+			}
+			
+				#product_offers div ul li
+				{
+					line-height: 1.5;
+					margin-bottom: 10px;
+				}
+				
+				/* BEGIN IE6 POP-UP WINDOW ONLY */
+				div.hoverBox_popUp
+				{
+					background-color: #fff;
+					border: 2px solid #cc0000;
+					width: 300px;
+					padding: 10px;
+					text-align: left;
+				}
+				
+				div.hoverBox_popUp h5
+				{
+					margin: 0 0 0.5em;
+					padding: 0;
+				}
+				
+				div.hoverBox_popUp ul li
+				{
+					margin-bottom: 10px;
+				}
+				/* END IE6 POP-UP WINDOW ONLY */
+			
+			/* BEGIN PRODUCT OPTIONS */
+			
+			#product_options_myJoys
+			{
+				margin-top: 1.5em;
+			}
+			
+			#product_options
+			{
+				background: transparent;
+				margin-top: 1.5em;
+				position: relative;
+			}
+			
+				#product_selections
+				{
+					background: #fff;
+					border: none;
+					/*background: url(/_site_images/_product_page/formBG_bottom.gif) bottom left no-repeat;*/
+					padding-bottom: 5px;
+					position: relative;
+					float: right;
+				}
+					#style_choser {
+					    margin: 0;
+					    padding: 0;
+					    position: relative;
+					}
+				
+					span#style_choser
+					{
+						margin: 0;
+						padding: 0;
+						font-size: 10px;
+						display: inline;
+						position: relative;
+					}
+					span#gstyle_number {
+						letter-spacing: 1px;
+						font-weight: 700;
+						display:inline;
+						position: relative;
+						text-align:left;
+						top:0;
+					}
+					
+					#customFit
+					{
+						width: auto;
+						border-bottom: none;
+						float: left;
+						padding-bottom: 0px;
+						border: 1px solid #333;
+						margin-bottom: 12px;
+						padding-right: 12px;
+						
+					}
+					#customFit input[type=button] {
+						background: transparent;
+						padding: 6px 0px 6px 12px;
+						text-transform: uppercase;
+						letter-spacing: 1px;
+						border: 0px;
+						color: #333;
+						
+					}
+					
+					#product_custimze_style input[type=button] {
+						background: transparent;
+						padding: 6px 0px 6px 12px;
+						text-transform: uppercase;
+						letter-spacing: 1px;
+						border: 0px;
+						color: #333;
+					}
+					
+					strong#pz-policy a {
+						color: rgb(10,89,158);
+						text-transform: uppercase;
+					}
+					
+					#style_choser span /*This is positioning the "Style #" */
+					{
+						text-align: left;
+						/*z-index: 4000;*/
+					}
+				
+				#product_selections form
+				{
+					clear: both;
+					float: left;
+					width: 100%;
+					position: relative;
+				}
+				
+				#product_selections form ol
+				{
+/* ADDED */			float: left;
+					margin-left: 0;
+					padding: 0;
+					width: 225px;
+				}
+				
+					#product_selections form ol li
+					{
+						margin: 0;
+						margin-bottom: 12px;
+						padding: 0;
+					}
+				
+					#product_selections form select
+					{
+						width: 225px;
+					}
+				
+					#product_selections form textarea
+					{
+						overflow: scroll;
+						overflow-x: hidden;	/* Required to hide the horizontal scroll bar */
+						height: 5.5em;
+						width: 217px;
+					}
+					
+					#product_selections form input
+					{
+						width: 220px;
+					}
+					
+					#product_selections form div.checkBoxes input,
+					#product_selections form div.radioButtons input
+					{
+						width: auto;
+					}
+					
+					#product_selections form #quantity input
+					{
+						width: 60px;
+					}
+
+					#subTotal
+					{
+						width: 100px;
+						position: absolute;
+						top: 0;
+						right: 0;
+						text-align: right;
+					}
+					
+					#product_selections form #subTotal input
+					{
+						background: transparent;
+						border: none;
+						font-size: 14px;
+						text-align: right;
+						position: absolute;
+						right: 0;
+						width: 100px;
+					}
+					
+					#product_selections form #isp_options .ship-opts {
+						display: block;
+						position: relative;
+						margin: 12px 0 0;
+					}
+					#product_selections form #isp_options .ship-opts-sel {
+						display: inline-block;
+						width: 20px;
+						position: absolute;
+					}
+					#product_selections form #isp_options .ship-opts-sel input {
+						display: inline-block;
+						width: 20px;
+						vertical-align: middle;
+					}
+					
+					#product_selections form #isp_options .ship-opts-label {
+						display: inline-block;
+						width: 200px;
+						vertical-align: middle;
+						/*position: relative;*/
+						padding-left: 24px;
+					}
+					
+					#product_selections form #isp_options #shippingDate
+					{
+						float: none;
+						margin: 0;
+						font-size: 11px;
+						font-family: Arial, sans-serif;
+					}
+					
+					#product_selections form #isp_options #isp-opt-select
+					{
+						float: none;
+						margin: 0;
+						font-size: 11px;
+						font-family: Arial, sans-serif;
+					}
+				
+					/* BEGIN WHY SHOP GOLFSMITH */
+			
+/* CHANGED */		#product_whyBuy
+					{
+						float: right;
+						margin: 0;
+						right: 0;
+						top: 30px;
+						width: 165px;
+						padding: 12px;
+						background: #e8e8e8;
+						border-top: 1px solid #ccc;
+						border-bottom: 1px solid #ccc;
+					}
+					
+					#product_whyBuy a {
+						color: #333;
+					}
+
+					#product_whyBuy h6
+					{
+						padding: 0;
+						text-transform: uppercase;
+						font-size: 13px;
+						text-align: center;
+					}
+					#product_whyBuy .fa-ul {
+						margin-left: 0;
+					}
+					#product_whyBuy .fa-ul .fa-li {
+						top: 0;
+					}
+					
+					#product_whyBuy .fa-ul .fa-check {
+						color: rgb(190,30,36);
+					}
+					#product_whyBuy ul li {
+						padding-left: 0;
+					}
+				
+				#add2cart
+				{
+					background-color: #e8e8e8;
+					clear: both;
+					width: 426px;
+					height: 50px;
+					border-top: 1px solid #ccc;
+					border-bottom: 1px solid #ccc;
+				}
+				
+				#product_selections form #add2cart input#add2cart_btn
+				{
+				/*	background: #bc7 url(/_site_images/_product_page/add2cart_btn.gif) top left no-repeat;	*/
+					background-color: rgb(190,30,36);
+					background-image: none;
+					border: none;
+					cursor: pointer;
+					float: none;
+					height: 35px;
+				/*	margin: 5px 15px 5px 0;
+					width: 154px;	*/
+					margin: 7px 10px;
+					width: 160px;
+					color: #fff;
+					text-transform: uppercase;
+					letter-spacing: 2px;
+					font-size: 12px;
+					display: inline-block;
+					vertical-align: top;
+				}
+				
+				#product_selections form #add2cart input:hover#add2cart_btn
+				{
+					background-color: rgb(237,28,36);
+				}
+				
+				#product_selections form #add2cart input:active#add2cart_btn
+				{
+					background-position: 0 -70px;
+				}
+				
+				#ie6 #product_selections form #add2cart input#add2cart_btn
+				{
+					background: #bc7 url(/_site_images/_product_page/add2cart_btn.gif) top left no-repeat;
+				}
+				
+				#add2cart #wishlist {
+					display: inline-block;
+					width: 100px;
+					height: 35px;
+					text-align: center;
+					text-transform: uppercase;
+					background: #fff;
+					border: 1px solid #ccc;
+					font-size: 10px;
+					margin: 7px 10px;
+					vertical-align: top;
+					letter-spacing: 2px;
+					position: absolute;
+				}
+				#add2cart #wishlist li {
+					margin: 7px auto;
+					padding: 0;
+				}
+				#add2cart #wishlist li a {
+					color: #666;
+				}
+				#add2cart #wishlist span.lg-wishlist {
+					display: block;
+					font-size: 1.2em;
+					font-weight: 700;
+				}
+				
+
+
+			/* BEGIN PRODUCT AVAILABILITY */
+			
+			#product_availability
+			{
+				clear: both;
+				padding: 10px 0 0 0;
+			}
+			
+				#product_availability p
+				{
+					float: left;
+					margin-top: 2px;
+					width: 428px;
+				}
+				
+				/* BEGIN IN STORE PICK UP */
+								
+				
+				#product_instore
+				{
+					float: right;
+					width: 175px;
+				}
+				
+				#product_selections #product_instore ol
+				{
+					float: none;
+					margin-left: 0;
+					width: 165px;
+				}
+				
+				#product_instore ol li
+				{
+					float: left;
+					margin: 0;
+					padding: 0;
+				}
+				
+					#product_instore label
+					{
+						width: 80px;
+						text-align: right;
+					}
+				
+				#product_instore input#availability_zipcode /*Zip Code Text Field */
+				{
+					width: 50px;
+					margin-left: 10px;
+				}
+				
+				#product_instore input#checkZipcode_btn /*Zip Code Text Field */
+				{
+					background-color:none;
+					background: url(/_site_images/_sitewide/submit_arrow.gif) top left no-repeat;
+					border: none;
+					width: 14px;
+					height: 16px;
+					margin: 2px;
+					padding: 0;
+					cursor: pointer;
+				}
+			
+		
+		/* BEGIN PRODUCT IMAGERY */
+		
+		#pp_visuals
+		{
+		width: 395px;
+		margin-left: 20px;
+		}
+		
+		#ie7 #pp_visuals
+		{
+		position:relative;
+		z-index:2;
+		}
+		
+		#scene7_main,
+		#staticImg_main
+		{
+		border-bottom: 1px solid #335533;
+		height: 405px;
+		margin: 15px auto 0;
+		padding: 0;
+		text-align: center;
+		width: 395px;
+		}
+		
+		#staticImg_main
+		{
+		height: auto;
+		}
+		
+		#scene7_main img
+		{
+		border: none;
+		margin: 0;
+		padding: 0;
+		}
+		
+		/* PRE-OWNED EXCLUSIONS DISCLAIMER */
+		#preowned_exclusions
+		{
+			border-bottom: 1px solid #ccc;
+			padding: 5px 0 10px;
+		}
+		
+		/* BEGIN PRODUCT IMAGE VIEWING OPTIONS */
+		
+		#scene7_views
+		{
+			border-bottom: 1px solid #ccc;
+			text-align: center;
+			width: 395px;
+		}
+		
+		#scene7_views ul
+		{
+			display: block;
+			margin: 0 auto;
+			padding: 5px 0;
+			text-align: center;
+		}
+			
+			#scene7_views ul li
+			{
+				display: inline;
+				margin: 0;
+				padding: 0;
+			}
+		
+				#scene7_views ul li div
+				{
+					display: inline;
+					margin: 0 15px;
+				
+				}
+				
+				#scene7_views ul li div#zoom
+				{
+					width: 80px;
+				}
+				
+				#scene7_views ul li div#view360
+				{
+					width: 125px;
+				}
+				
+				#scene7_views ul li div#video
+				{
+					width: 125px;
+				}
+				
+				#scene7_views ul li div#video_tour
+				{
+					width: 125px;
+				}
+
+		/* BEGIN ALTERNATE PRODUCT IMAGES/SWATCHES */
+		
+		#scene7_alt
+		{
+		clear: left;
+		}
+		
+		#scene7_alt ul
+		{
+		border-bottom: 1px solid #335533;
+		padding: 5px 15px;
+		}
+		
+		#scene7_alt ul li
+		{
+		display: inline;
+		margin: 0;
+		padding: 0;
+		}
+		
+			#scene7_alt ul li img
+			{
+				padding: 5px 0 5px 8px;
+			}
+		
+		
+	/* END PRODUCT PAGE TOP AREA */
+
+	#gapDiv
+	{
+	height: 30px; /* Extra spacing will be applied to the "Tab Box" <div> to give it the appearance that it is below the "QandA" area */
+	}
+
+	/* PRODUCT PAGE BOTTOM AREA
+	(Tabbed Box & Ask & Answer) */
+
+	#pp_bottom
+	{
+	position: relative;
+	}
+	
+		/* BEGIN TABBED BOX */
+		
+		#tabBox
+		{
+		border: 1px solid #353;
+		float: left;
+		margin-top: 28px; /* This pushes the tab box down to leave room for the tabs that are 28px tall */
+		margin-left: 20px;
+		position: relative;
+		width: 668px;
+		}
+		
+			#tabBox_nav
+			{
+			position: absolute;
+			top: -26px; /* 1em (14px) + 5px top padding + 5px bottom padding + 1px top border */
+			left: 0;
+			}
+			
+				#bookAndShare
+				{
+					position: absolute;
+					top: -15px;
+					right: 20px;
+				}
+			
+			
+				#tabBox_nav ul
+				{
+					left: -1px;
+					position: relative;
+					top: -1px;
+				}
+
+					#tabBox_nav ul li
+					{
+						display: block;
+						float:left;
+						height: 25px; /* Height of the tab */
+						margin: 0;
+						padding: 0;
+						position: relative;
+					}
+			
+			#tabBox_bottom
+			{
+			background: url(/_site_images/_product_page/tabBox_bottom_corners.gif) bottom left no-repeat;
+			bottom: -10px;
+			float: left;
+			left: -1px;
+			padding-bottom: 30px;
+			position: relative;
+			width: 670px;
+			}
+				
+			#productOverview
+			{
+			margin: 20px 0 0;
+			width: 668px;
+			background: transparent;
+			float: left;
+			position: relative;
+			}
+			
+				#productCopy
+				{
+				margin-left: 20px;
+				float: left;
+				line-height: 1.5em;
+				width: 410px;
+				padding:30px 18px 0 0;
+				margin-top: 0;
+				border-right: 1px solid #ccc;
+				}
+					
+					#productCopy img
+					{
+					padding: 0;
+					margin: 0;
+					}
+					
+					/*	PRODUCT COPY on PRODUCT PAGES	*/
+					#productCopy h5
+					{
+						font-family: Arial, Helvetica, sans-serif;
+						font-size: 1.0em;	/* Converts this heading back to 12px */
+						font-weight: bold;
+						line-height: 1.5;	
+						padding: 0.8em 0 0.366667em;
+					}
+					
+					#productCopy p	/* To correct the lack of proper styling in our PP copy files */
+					{
+						margin: 1em 0 0.5em;
+					}
+								
+					#productCopy strong	/* Styles here mimic the H5 element being used going forward */
+					{
+						display: block;
+					/*	font-family: Helvetica, Arial, sans-serif;
+						font-size: 1.333333em;
+						font-weight: normal;		*/
+						line-height: 1.5;	
+						padding: 0.8em 0 0.366667em;
+					}
+
+					#productCopy p strong,	/* To correct styling applied to the "heading" STRONG tag */
+					#productCopy li strong,
+					#productCopy div strong,
+					#productCopy strong + strong,
+					#productCopy p + strong,
+					#productCopy ul + strong,
+					#productCopy ol + strong,
+					#productCopy li + strong,
+					#productCopy div + strong
+					{
+						display: inline;
+						font-family: Arial, Helvetica, sans-serif; 
+						font-size: 1.0em;
+						font-weight: bold;
+						line-height: 1.5;	
+						padding: 0;
+					}
+					
+					#productCopy li
+					{
+						line-height: 1.2;
+					}
+					
+					#productCopy p + img
+					{
+					padding: 0;
+					margin: 1em 0;
+					}
+					
+						#productCopy div.img_caption.float_R
+						{
+							padding-left: 10px;
+						}
+						
+						#productCopy div.img_caption.float_L
+						{
+							padding-right: 10px;
+						}
+					
+					#productCopy div.img_caption p
+					{
+						font-size: 0.916667em;
+						padding: 0;
+						margin: 0 0 1em;
+						text-align: center;
+					}
+					
+					#productCopy p + div.img_caption img
+					{
+						font-size: 0.916667em;
+						padding: 0;
+						margin: 1em 0 0;
+					}
+				
+			#productSummary
+			{
+				float: right;
+				margin-right: 20px;
+				width: 178px;
+			}
+			
+				#productSummary h5
+				{
+					padding-top: 0;
+				}
+			
+					#productSummary .BVreviews_summary
+					{
+						padding-top: 10px;
+					}
+				
+				#QandA_summary
+				{
+					margin-top: 20px;
+				}
+			
+				#chat_summary
+				{
+					margin-top: 40px;	/* Image is 90px tall */
+				}
+						
+		#productCrossSell
+		{
+		float: right;
+		margin-right: 20px;
+		width: 170px;
+		text-align: center;
+		}
+		
+			#productCrossSell h5
+			{
+			padding-top: 0;
+			line-height: 1.0;
+			}
+			
+			#productCrossSell ul li
+			{
+			margin: 0 0 20px;
+			padding: 0;
+			}
+			
+			#productCrossSell ul li p
+			{
+				line-height:1.1;
+				margin:0 0 0.25em;
+				padding:0;
+			}
+		
+		/* =>RATINGS AND REVIEWS
+		--------------------------------------*/
+		#reviews
+		{
+			/*	border-bottom: 1px solid #bc7;	*/
+			margin: 40px 20px 0;
+			position: relative;
+		}
+		
+			#reviews h2
+			{
+				font-size: 1.5em;
+			}
+		
+			#reviews h2 span
+			{
+				font-size: 0.777778em; /* The em conversion needed to change the font size to 14px */
+			}
+			
+			#reviews a#reviews_writeReview_btn
+			{
+				background-image: url(/_site_images/_sitewide/cta-cool_sprite.png);
+				background-position: 0px 0px;
+				background-repeat:no-repeat;
+				display: block;
+				height: 35px;
+				position: absolute;
+				right: 0;
+				text-indent:-9999px;
+				top:0;
+				width: 210px;
+			}
+			
+			#reviews a:hover#reviews_writeReview_btn
+			{
+				background-position: 0 -35px;
+			}
+			
+			#reviews a:active#reviews_writeReview_btn
+			{
+				background-position: 0 -70px;
+			}
+			
+		/*	#writeReview_btn
+			{
+				position: absolute;
+				right: 0;
+				bottom: 0;
+			}
+		*/	
+			#ratingsHeader
+			{
+				
+				position: relative;
+			}
+			
+			#reviews #sort_rr
+			{
+				height: 30px;
+				width: 550px;
+				background-color: #f5f0e3;
+			}
+			
+				#sort_rr form
+				{
+					padding: 5px 5px 0 0;
+					float: right;
+				}
+			
+				#sort_rr form label
+				{
+					display: inline;
+				}
+				
+			#ratingsSummary
+			{
+				float: right;
+				width: 190px;
+			}
+			
+				#pros_rr
+				{
+					clear: left;
+					margin-top: 30px;
+				}
+		
+				#snapshot_rr ol
+				{
+					float: left;
+				}
+				
+				#snapshot_rr ol li
+				{
+					display: block;
+					margin: 0 0 0.25em;
+					padding: 0;
+					text-align: right;
+				}
+				
+				#pros_rr ol li, #cons_rr ol li
+				{
+					display: block;
+					margin: 0 0 0.25em;
+					padding: 0;
+				}
+				
+				#snapshot_rr ol li p
+				{
+					position: relative;
+				}
+				
+				#snapshot_rr ol li img
+				{
+					position: relative;
+					bottom: -2px;
+				}
+			
+			#reviewPosts
+			{
+				margin-top: 30px;
+				width: 550px;
+			}
+			
+				.BVratio_rating
+				{
+					font-weight: bold;
+				}
+				
+				#reviewPosts .post_rr
+				{
+					margin-bottom: 3em;
+				}
+				
+				#reviewPosts .post_rr h5
+				{
+					font-weight: bold;
+				}
+				
+				#reviewPosts .date
+				{
+					text-transform: uppercase;
+				}
+				
+				.reviewerInfo ul
+				{
+					margin: 0.5em 0 0 20px;
+				}
+				
+					.reviewerInfo ul li
+					{
+						line-height: 1.2em;
+					}
+				
+				#reviewPosts .tools_rr
+				{
+					margin-top: 0.75em;
+				}
+				
+				#reviewPosts .tools_rr ul
+				{
+					padding-bottom: 0.75em;
+					display: block;
+				}
+				
+				#reviewPosts .tools_rr ul li
+				{
+					display: inline;
+					margin: 0 20px 0 0;
+					line-height: 1.5;
+					padding: 0;
+					position: relative;
+				}
+				
+				#reviewPosts .tools_rr ul li img
+				{
+					bottom: -5px;
+					position: relative;
+				}
+				
+				#reviewPosts a.review_flag
+				{
+					background: url(/_site_images/_product_page/flag_icon.gif) bottom right no-repeat;
+					padding: 10px 25px 0 0;
+				}
+			
+		
+		
+		#reviewFooter
+		{
+			border-bottom: 1px solid #bc7;
+		}
+		
+			#reviewFooter ul
+			{
+				height: 30px;
+				width: 550px;
+				background-color: #f5f0e3;
+			}
+			
+			#reviewFooter ul li
+			{
+				margin: 0;
+				padding: 5px 0 0;
+				width: 183px;
+				float: left;
+				text-align: center;
+			}
+			
+		/* END RATINGS AND REVIEWS */
+		
+		#QandA_pp
+		{
+			margin: 1.5em 20px 0;
+			width: 858px;	
+		}
+	
+			#qaHeader_pp
+			{
+				position: relative;
+			}
+			
+			#qaHeader_pp h4 span
+			{
+				font-size: 0.777778em; /* The em conversion needed to change the font size to 14px */
+			}
+			
+			#qaHeader_pp p
+			{
+				margin: 0;
+			}
+	
+			#qaHeader_pp #askQuestion_btn
+			{
+				display: block;
+				position: absolute;
+				right: 0;
+				bottom: 0px;
+			}
+			
+		#productSeeMore
+		{
+			margin: 1.5em 20px 0;
+			padding-bottom: 15px;
+			position: relative;
+		}
+		
+			#alsoViewed
+			{
+				float: left;
+				width: 550px;
+			}
+			
+			#alsoViewed ul
+				{
+					padding: 15px 0 0;
+					text-align: center;
+				}
+				
+				#alsoViewed ul li
+				{
+					float: left;
+					margin: 0;
+					padding: 0;
+					width: 100px;
+				}
+				
+				#alsoViewed ul li + li
+				{
+					margin-left: 10px;
+				}
+				
+				#alsoViewed ul li p
+				{
+					margin: 0 0 0.25em;
+					padding: 0;
+					line-height: 1.1;
+				}
+				
+				#branchOut
+				{
+					float: right;
+					width: 190px;
+				}
+				
+				#branchOut ul li
+				{
+					margin:0 0 0.5em;
+				}
+				
+				
+		#recentlyViewed
+		{
+			margin: 0 0 0; /* When the New Channel Intelligence feed is ready to go LIVE - adjust the margin-top to 30px */  
+			width: 550px;
+		}
+		
+			#recentlyViewed ul
+			{
+				padding: 15px 0 0;
+				text-align: center;
+			}
+			
+			#recentlyViewed ul li
+			{
+				float: left;
+				margin: 0;
+				padding: 0;
+				width: 100px;
+			}
+			
+			#recentlyViewed ul li + li
+			{
+				margin-left: 10px;
+			}
+			
+			#recentlyViewed ul li p
+			{
+				margin: 0 0 0.25em;
+				padding: 0;
+				line-height: 1.1;
+			}
+		
+		
+		
+
+		
+#isp-opt-select a {color:#000; font-weight:800; text-decoration:underline;display:block;}
+.crt-store-chg a {color:#000 !important; font-weight:800; text-decoration:underline;display:block; font-size:1.2em;}
+#isp-opt-select strong {color:rgba(190,30,36,1.00);font-weight:800; font-size:1.1em;}
+.crt-address {color:rgba(190,30,36,1.00);font-weight:500 !important; font-size:1.2em;}

@@ -1,0 +1,101 @@
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*
+
+		Brady Starr's.css
+		Golfsmith.com
+		
+		* Reset.css	- Resets all global html elements to default values to create a consistent look and feel across all browsers. NO SITE STYLING.
+
+*/
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+
+html, body,
+/* Block Elements (not all) */
+address, blockquote, div, h1, h2, h3, h4, h5, h6, p, pre,
+/* Inline Elements (not all)*/
+a, abbr, acronym, br, cite, code, del, dfn, img, ins, kbd, q, span, sub, sup, tt, var,
+/* Text Styling Elements */
+b, big, em, i, small, strong,
+/* List Elements */
+dl, dt, dd, ol, ul, li,
+/* Table Elements (Still need to add 'cellspacing="0"' in the xHTML mark-up.)*/
+caption, col, colgroup, table, tbody, tfoot, thead, th, tr, td,
+/* Form Elements */
+button, input, fieldset, form, label, legend, textarea, 
+/* wmode amd other Elements */
+object, iframe, samp,
+/* Deprecated Elements */
+/* DO NOT USE THESE WITH "STRICT" XHTML docType */
+applet, basefont, center, dir, font, isindex, menu, s, strike, u
+{
+	border: 0;
+	font-family: inherit;
+	font-size: 100%;
+	font-style: inherit;
+	font-weight: inherit;
+	margin: 0;
+	outline: 0;
+	padding: 0;
+	vertical-align: baseline;
+}
+
+/* Correct older files from having mis-aligned Table Elements */
+caption, col, colgroup, table, tbody, tfoot, thead, th, tr, td
+{
+	vertical-align: top;
+}
+
+
+/* Reset Tables */
+table
+{
+	border-collapse: separate;
+	border-spacing: 0;
+}
+
+caption
+{
+	text-align: left;
+}
+
+
+/* Remove 'quote marks' from 'q' and 'blockquote' */
+blockquote, q
+{
+	quotes: "" "";
+}
+
+
+/* Remove border from linked images */
+a img
+{
+	border: none;
+}
+
+a:hover img
+{
+	text-decoration: none;
+}
+
+
+/* Standardize the look of Horizontal Rules */
+hr
+{
+	height: 1px; /* This determines the height of the <hr> element */
+	border: none; /* Mozilla renders the <hr> with a border (See Color.css for more details) */
+	margin: 0;
+	padding: 0;
+}
+
+/* Aligns the bullets or the numbers evenly across the site */
+ul li
+{
+margin-left: 22px;
+padding-left: 5px;
+}
+
+ol li
+{
+margin-left: 25px;
+}

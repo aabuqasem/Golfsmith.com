@@ -1,0 +1,607 @@
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*
+
+		Brady Starr.css
+		for Golfsmith.com
+		
+		* php_pages.css			- Styles for the NEW Shopping Cart!
+
+	== Table of Contents ==
+		
+		* Highlight the following flag and use "Find Next" under "Edit" to locate the following sections:
+			=>WISHLIST
+			=>EMAIL PRODUCT
+
+*/
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+/*----------------------------------------------------------------
+			=>WISHLIST
+----------------------------------------------------------------*/
+
+/* --------------------------------------------- 
+	BEGIN Added to Wish List Page 
+	--------------------------------------------- */
+
+#wishlist_added
+{
+	min-height: 300px;
+}
+
+#wishlist_added  #added_left
+{
+	padding-right: 25px;
+	width: 500px;
+}
+
+	#addedTo_wishlist .wishlist_img
+	{
+		padding-right: 15px;
+		width: 250px;
+	}
+	
+		#addedTo_wishlist .wishlist_img img
+		{
+			width: 250px;
+		}
+	
+	#addedTo_wishlist .wishlist_product h3,
+	#addedTo_wishlist .wishlist_product h5
+	{
+		line-height: 1.25em;
+		padding: 0;
+	}
+
+#wishlist_added  #added_right
+{
+	padding-left: 25px;
+	width: 350px;
+}
+
+#wishlist_message
+{
+	background-color: #f5edd5;
+	padding: 20px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+
+	#wishlist_message h6
+	{
+		line-height: 1.333333em;
+		padding-top: 0;
+	}
+	
+/* ------------------------------------------
+	END Added to Wish List Page
+	------------------------------------------ */
+
+/* ---------------------------------------------
+	BEGIN View Wish List Page
+	--------------------------------------------- */
+
+#wishlist_listHeader
+{
+	padding-top: 25px;
+}
+	
+#wishlist_listHeader table
+{
+	background: url(/_site_images/_sitewide/headings_bwn_bg_C.jpg) left top repeat-x;
+	width: 100%;
+}
+
+	#wishlist_listHeader table td.heading_product
+	{
+		background: url(/_site_images/_sitewide/headings_bwn_bg_L.jpg) left top no-repeat;
+		width: 274px;
+	}
+	
+		#wishlist_listHeader table td.heading_product h5
+		{
+			padding-left: 15px;
+		}
+		
+	#wishlist_listHeader table td.heading_availability
+	{
+		border-right: 1px solid #fff;
+		text-align: center;
+		width: 124px
+	}
+	
+	#wishlist_listHeader table td.heading_price
+	{
+		border-right: 1px solid #fff;
+		text-align: center;
+		width: 124px
+	}
+
+	#wishlist_listHeader table td.heading_quantity
+	{
+		text-align: center;
+		width: 49px
+	}
+	
+	#wishlist_listHeader table td.heading_total
+	{
+		text-align: center;
+		background: url(/_site_images/_sitewide/headings_bwn_bg_R.jpg) right top no-repeat;
+		width: 100px;
+	}
+	
+	.tableGap_25
+	{
+		background-color: #fff;
+		width: 25px;
+	}
+	
+	#wishlist_listHeader table td.heading_purchase
+	{
+		background: url(/_site_images/_sitewide/purchase_bg.jpg) left top no-repeat;
+		text-align: center;
+		width: 200px;
+	}
+
+#wishlist_listContent ul li.listContent_item
+{
+	margin: 0;
+	margin-top: 0;
+}
+
+#wishlist_listContent .listContent_left table
+{
+	border-bottom: 1px solid #f5edd5;
+	border-left: 1px solid #ba8;
+	border-right: 1px solid #ba8;
+	padding: 20px 0 5px;
+	width: 675px;
+}
+
+	#ie6 #wishlist_listContent .listContent_left table td,
+	#ie7 #wishlist_listContent .listContent_left table td
+	{
+		padding: 20px 0 5px;
+	}
+
+	.wishlist_img
+	{
+		width: 100px;
+	}
+	
+	#ie6 #wishlist_listContent .listContent_left table td.wishlist_product,
+	#ie7 #wishlist_listContent .listContent_left table td.wishlist_product,
+	.wishlist_product
+	{
+		padding-left: 10px;
+		width: 164px;
+	}
+	
+		#ie6 .wishlist_product cite,
+		#ie7 .wishlist_product cite
+		{
+			position: static;
+		}
+	
+	.wishlist_availability
+	{
+		text-align: center;
+		width: 125px;
+	}
+	
+	.wishlist_price
+	{
+		text-align: center;
+		width: 125px;
+	}
+	
+	.wishlist_quantity
+	{
+		padding-top: 5px;
+		text-align: center;
+		width: 50px;
+	}
+
+		.wishlist_quantity input
+		{
+			padding: 3px 3px 2px;
+			width: 23px;
+		}
+		
+	.wishlist_total
+	{
+		text-align: center;
+		width: 99px;
+	}
+	
+	#wishlist_listContent .listContent_right
+	{
+		border-bottom: 1px solid #deb;
+		border-left: 1px solid #bc7;
+		border-right: 1px solid #bc7;
+		padding: 20px 0 5px;
+		text-align: center;
+		width: 198px;
+	}
+	
+/* ---------------------------------------------
+	END View Wish List Page
+	--------------------------------------------- */
+	
+	
+/* ---------------------------------------------
+	BEGIN Find Wish List Page
+	--------------------------------------------- */
+	
+	#wishlist_search_firstName input,
+	#wishlist_search_lastName input,
+	#wishlist_search_email input
+	{
+		width: 173px;
+	}
+	
+	.wishlist_search_btn
+	{
+		padding-top: 11px;
+	}
+	
+/* ---------------------------------------------
+	END Find Wish List Page
+	--------------------------------------------- */
+	
+	
+/* ---------------------------------------------
+	BEGIN Share Wish List Page
+	--------------------------------------------- */
+	
+	#wishlist_send_to label,
+	#wishlist_send_from label,
+	#wishlist_send_subject label,
+	#wishlist_send_message label
+	{
+		display: inline-block;
+		width: 60px;
+	}
+	
+	#wishlist_send_to input,
+	#wishlist_send_from input,
+	#wishlist_send_subject input
+	{
+		width: 550px;
+	}
+	
+	#wishlist_send_message textarea
+	{
+		height: 150px;
+		width: 547px;
+	}
+	
+	#wishlist_send_submit input,
+	#send_wishlist_success
+	{
+		padding-left: 60px;
+	}
+
+	#send_wishlist_success
+	{
+		min-height: 100px;
+	}
+	
+	
+/* ---------------------------------------------
+	END Share Wish List Page
+	--------------------------------------------- */
+
+	
+	
+	
+	
+/*----------------------------------------------------------------
+			=>EMAIL PRODUCT
+----------------------------------------------------------------*/
+
+
+#emailProduct_product img.float_L
+{
+	margin-right: 10px;
+}
+
+#emailProduct_product h4,
+#emailProduct_product h6
+{
+	padding-top: 0;
+}
+
+#emailProduct_product h5 del
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 0.75em;
+}
+
+	#emailProduct_recipientName label,
+	#emailProduct_recipientEmail label,
+	#emailProduct_yourName label,
+	#emailProduct_yourEmail label,
+	#emailProduct_subject label,
+	#emailProduct_message label
+	{
+		display: inline-block;
+		width: 125px;
+	}
+	
+	#emailProduct_recipientName input,
+	#emailProduct_recipientEmail input,
+	#emailProduct_yourName input,
+	#emailProduct_yourEmail input,
+	#emailProduct_subject input
+	{
+		width: 450px;
+	}
+	
+	#emailProduct_message textarea
+	{
+		height: 100px;
+		width: 447px;
+	}
+	
+	#emailProduct_submit input
+	{
+		padding-left: 125px;
+	}
+	/* ---------------------------------------------
+		END Share Wish List Page
+		--------------------------------------------- */
+	
+	
+	
+/*----------------------------------------------------------------
+			=>IN-STORE PICKUP
+----------------------------------------------------------------*/
+
+	
+	#isp_checkout {
+		padding: 24px 0;
+	}
+	#isp_checkout h1, #isp_checkout h2, #isp_checkout h3, #isp_checkout h4, #isp_checkout h5, #isp_checkout h6 {
+		font-family: "Arial", "Helvetica", sans-serif;
+		text-transform: uppercase;
+		font-weight: 700;
+	}
+	#isp_checkout p, #isp_checkout li, #isp_checkout input, #isp_checkout td, #isp_checkout th {
+		font-family: "Arial", "Helvetica", sans-serif;
+	}
+	
+	/* TEMPLATE LAYOUT */
+	
+	#isp_checkout .isp-content {
+		display: inline-block;
+		width: 555px;
+		vertical-align: top;
+		padding-top: 12px;
+	}
+	#isp_checkout form {
+		position: relative;
+	}
+	#isp_checkout aside {
+		display: inline-block;
+		width: 315px;
+		padding: 12px 0 0 12px;
+		margin-left: 12px;
+		vertical-align: top;
+		border-left: 1px solid #aaa;
+		float: right;
+	}
+	
+	#isp_checkout h3 {
+		font-size: 13px;
+	}
+	#isp_checkout header {
+		position:relative;
+		border-bottom: 1px solid #aaa;
+		padding-bottom: 12px;
+	}
+	#isp_checkout header h1 {
+		display: inline;
+		text-align: left;
+		font-weight: 500;
+	}
+	
+	#isp_checkout header .cart-return {
+		display: inline;
+		position: absolute;
+		right: 0;
+		bottom: 12px;
+	}
+	/* CONTENT LAYOUT */
+	
+	#isp_checkout .isp-loc-name {
+		display: block;
+		width: 100%;
+		position: relative;
+	}
+	#isp_checkout .isp-loc {
+		display: inline-block;
+		width: 30%;
+		vertical-align: top;
+	}
+	#isp_checkout .isp-name {
+		display: inline-block;
+		width: 67%;
+		vertical-align: top;
+		padding-left: 12px;
+	}
+	#isp_checkout.isp_confirm .isp-name {
+		width: 30%;
+	}
+	#isp_checkout .isp-eta {
+		display:inline-block;
+		width: 30%;
+		vertical-align: top;
+		padding-left: 12px;
+	}
+	#isp_checkout .isp-cart-list {
+		padding-top: 24px;
+	}
+	#isp_checkout .isp-cart-list table {
+		width: 100%;
+	}
+	#isp_checkout .isp-cart-list th {
+		font-weight: 700;
+		background: #e8e8e8;
+		padding: 6px 12px;
+		border-top: 1px solid #ccc;
+		border-bottom: 1px solid #ccc;
+	}
+	#isp_checkout label.pu-phone {
+		display: inline;
+	}
+	
+	#isp_checkout .isp-confirm-intro {
+		padding-bottom: 12px;
+	}
+	
+	/* ASIDE LAYOUT */
+	#isp_checkout aside h2 {
+		background: #e8e8e8;
+		text-align: center;
+		padding: 6px 12px;
+		border-top: 1px solid #ccc;
+		border-bottom: 1px solid #ccc;
+	}
+	#isp_checkout.isp_confirm aside h2 {
+		border-top: none;
+		border-bottom: none;
+	}
+	#isp_checkout aside h3 {
+		padding: 0 0 6px;
+		font-size: 13px;
+	}
+	#isp_checkout aside .isp-store {
+		background: #e8e8e8;
+		padding: 12px;
+		margin: 24px 0;
+		border-top: 1px solid #ccc;
+		border-bottom: 1px solid #ccc;
+	}
+	#isp_checkout aside table {
+		text-align: right;
+		width: 100%;
+		padding-top: 12px;
+	}
+	#isp_checkout aside table tr.isp_total_due th, #isp_checkout aside table tr.isp_total_due td {
+		background: #e8e8e8;
+		border-top: 1px solid #ccc;
+		border-bottom: 1px solid #ccc;
+	}
+	#isp_checkout aside table th, #isp_checkout aside table td {
+		padding: 6px;
+	}
+	#isp_checkout.isp_confirm aside table {
+		margin-bottom: 12px;
+	}
+	#isp_checkout .isp-buttons {
+		margin: 12px 0;
+		background: #e8e8e8;
+		border-top: 1px solid #ccc;
+		border-bottom: 1px solid #ccc;
+		padding: 12px;
+	}
+	#isp_checkout.isp_confirm .isp-buttons {
+		text-align: center;
+		margin: 0;
+	}
+	#isp_checkout .isp-buttons input[type="submit"]{
+		padding: 6px 12px;
+		text-transform: uppercase;
+		background: rgb(190,30,36);
+		height: 28px;
+		border: 0;
+		color: #fff;
+		margin: 0 12px;
+		letter-spacing: 1px;
+	}
+	
+	#isp_checkout .isp-buttons a.isp-back-btn {
+		border: 1px solid #ccc;
+		color: #666;
+		background: #fff;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		padding: 6px 12px;
+	}
+	
+	#isp_checkout .isp-prod-info img {
+		float: left;
+		padding-right: 12px;
+	}
+	#isp_checkout .isp-prod-info h5 {
+		text-transform: none;
+		padding: 0 0 6px;
+		font-size: 13px;
+	}
+	#isp_checkout .isp-prod-info h6 {
+		text-transform: none;
+		padding: 0 0 6px;
+		font-weight: 500;
+		font-size: 12px;
+	}
+	#isp_checkout .isp-prod-qty, #isp_checkout .isp-prod-price {
+		text-align: center;
+	}
+	#isp_checkout .isp-cart-list td {
+		padding-top: 12px;
+		padding-bottom: 12px;
+		border-bottom: 1px solid #ccc;
+	}
+	
+	#isp_show_store_list table {
+		width: 100%;
+		border-spacing: 12px;
+		padding: 0 24px;
+	}
+	
+	#isp_show_store_list table td {
+		border-right: 1px solid #ccc;
+	}
+	#isp_show_store_list table td:last-child {
+		border-right: 0px;
+	}
+	
+	.isp_zip_search {
+		background: #e8e8e8;
+		border-top: 1px solid #ccc;
+		margin-top: 24px;
+	}
+	
+	.isp_zip_search button.zip_search-btn, .isp_add-to-cart button.isp_cart-btn {
+		text-transform: uppercase;
+		cursor: hand;
+		color: #fff;
+		background: rgb(190,30,36);
+		padding: 6px 12px;
+		margin: 6px 12px;
+		letter-spacing: 2px;
+	}
+	.isp_zip_search button.zip_search-btn:hover, .isp_add-to-cart button.isp_cart-btn:hover {
+		background: rgb(237,28,36);
+	}
+	.ui-dialog #modal_showisp.ui-dialog-content {
+		padding: 0;
+	}
+	#isp_prod-info {
+		display: block;
+		width: 602px;
+		padding: 24px;
+		text-align: left;
+		position: relative;
+	}
+	#isp_prod-info .isp_prod-img {
+		display: inline-block;
+		width: 100px;
+		vertical-align: top;
+		
+	}
+	#isp_prod-info .isp_prod-cont {
+		display: inline-block;
+		width: 450px;
+		vertical-align: top;
+	}

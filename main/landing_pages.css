@@ -1,0 +1,3291 @@
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*
+
+		Brady Starr's.css (in collaboration with Kirsten Fanker)
+		Golfsmith.com
+		
+		* landing_pages.css	- All "Standard" or "Screen" view site layout CSS should be included here. Including Classes and ID's effecting "Text" positioning/spacing.
+		* Sections are flagged. See TOC for "finding" the section you need.
+		
+	== Table of Contents ==
+		
+		* Highlight the following flag and use "Find Next" under "Edit" to locate the following sections:
+			=>CLASSES
+			=>LANDING PAGE
+				events.html
+				golf_brands.html
+				golfsmith_follow.html
+				giftcenter_fathersday.html
+				MyJoys.html
+				Collegiate LP's
+				Smart Tips
+				About Us
+				Promotions
+				stores/all-events.html
+				stores/store-finder.html
+				stores/store-detail.html
+				
+*/
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+
+
+/*----------------------------------------------------------------
+			=>CLASSES
+----------------------------------------------------------------*/
+
+
+
+/*----------------------------------------------------------------
+			=>LANDING PAGE
+----------------------------------------------------------------*/
+
+#lp_content
+{
+	
+}
+
+#lp_content u
+{
+	border-bottom: 1px solid #999;
+}
+
+
+/* BEGIN
+				events.html
+----------------------------------------------------------------- */
+
+.rta
+{
+	padding-top: 30px;
+}
+
+	h2.rta_heading
+	{
+		padding: 0;
+	}
+	
+	.rta_store_list
+	{
+		padding: 0 10px;
+	}
+	
+	.rta_store_list li
+	{
+		float: left;
+		padding-bottom: 5px;
+		padding-right: 10px;
+	}
+	
+		h2.rta_heading p a
+		{
+			color: #222;
+		}
+		
+		h2.rta_heading p a:hover
+		{
+			color: #000;
+		}
+	
+	.rta_store
+	{
+		border-bottom: 5px solid #ba8;
+		padding: 30px 0 5px;
+		width: 900px;
+	}
+	
+		.rta_store h3
+		{
+			float: left;
+			padding: 0 25px 0 0;
+		}
+		
+		.rta_store p
+		{
+			padding-top: 2px;
+		}
+		
+			.store_visit
+			{
+				float: left;
+			}
+			
+			.store_hours
+			{
+				float: right;
+			}
+		
+		.extreme
+		{
+			background: url(/_site_images/_sitewide/store_icon.gif) top left no-repeat;
+		}
+		
+		.rta_store h3.extreme
+		{
+			padding-left: 30px;
+		}
+
+	ul.rta_eventsList
+	{
+		padding: 0 10px 20px;
+	}
+	
+		li.rta_event
+		{
+			border-bottom: 1px dotted #ba8;
+			padding-bottom: 9px;
+		}
+		
+			li.rta_event table
+			{
+				margin-top: 15px;	/* IE7/8 Requires Margin instead of Padding */
+				width: 100%;
+			}
+		
+				td.rta_event_when
+				{
+					padding-right: 20px;
+					width: 200px;
+				}
+				
+				td.rta_event_what
+				{
+					width: 660px;
+				}
+					
+					td.rta_event_when h5,
+					td.rta_event_what h4
+					{
+						padding-top: 0;
+					}
+					
+					td.rta_event_when h6
+					{
+						line-height: 1.2em;
+					}
+					
+					td.rta_event_what h4
+					{
+						padding-bottom: 4px;
+					}
+					
+					.customEvent .customEvent_img
+					{
+						float: left;
+						padding-right: 25px
+					}
+					
+					.demoDay,
+					.tentSale,
+					.golfTec,
+					.ballFitting,
+					.playerAppearance,
+					.vipEvent
+					{
+						min-height: 76px;
+						padding-left: 100px;
+					}
+					
+					/* Default Images for Events */
+					
+					.demoDay
+					{
+						background: url(/_site_images/_landing_pages/events/demoDay_icon.jpg) top left no-repeat;
+					}
+					
+					.tentSale
+					{
+						background: url(/_site_images/_landing_pages/events/tentSale_icon.jpg) top left no-repeat;
+					}
+					
+					.golfTec
+					{
+						background: url(/_site_images/_landing_pages/events/golfTec_icon.jpg) top left no-repeat;
+					}
+					
+					.ballFitting
+					{
+						background: url(/_site_images/_landing_pages/events/ballFitting_icon.jpg) top left no-repeat;
+					}
+					
+					.playerAppearance
+					{
+						background: url(/_site_images/_landing_pages/events/playerAppearance_icon.jpg) top left no-repeat;
+					}
+					
+					.vipEvent
+					{
+						background: url(/_site_images/_landing_pages/events/vipEvent_icon.jpg) top left no-repeat;
+					}
+					
+					/* END Default Images for Events */
+
+
+/* -----------------------------------------------------------------
+				events.html
+END */
+
+
+
+/* BEGIN
+				golf_brands.html
+----------------------------------------------------------------- */
+
+.golf_brands #brand_all ul
+{
+	float: left;
+	width: 150px;
+}
+
+.golf_brands #brand_stores li
+{
+	height: 70px;
+	text-align: center;
+	width: 250px;
+}
+
+
+		
+.golf_brands #brand_categories
+{
+	width: 600px;
+}
+
+.golf_brands .corners_bbcc77 h3,
+.golf_brands .corners_ddeebb h3
+{
+	padding: 0;
+}
+		
+.golf_brands .brand_category
+{
+	padding-top: 20px;
+}
+	
+	.golf_brands .brand_category h5
+	{
+		background: url(/_site_images/_sitewide/button_roundWhite_shading.gif) left bottom repeat-x;
+		border-bottom: 1px dotted #ba8;
+		border-top: 1px solid #ba8;
+	}
+	
+	.golf_brands h3 a,
+	.golf_brands .brand_category h5 a
+	{
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 12px;
+		font-weight: bold;
+		float: right;
+		padding-top: 2px;
+	}
+	
+	.golf_brands .brand_category ul
+	{
+		float: left;
+		padding-top: 10px;
+		width: 150px;
+	}
+
+
+	
+/* -----------------------------------------------------------------
+				golf_brands.html
+END */
+
+
+/* BEGIN
+				golfsmith_follow.html
+----------------------------------------------------------------- */
+
+
+#socNet_list li
+{
+	float: left;
+	width: 49%;
+}
+
+.socNet_block
+{
+	margin: 0 auto;
+	text-align: center;
+	width: 298px;
+}
+
+#twitter .socNet_feed
+{
+	border: 1px solid #94A3C4;
+	text-align: left;
+}
+
+#twitter .socNet_feed .socNet_header
+{
+	background-color: #ECEFF5;
+	border-bottom: 1px solid #D8DFEA;
+	padding: 10px 10px 5px;
+}
+
+#twitter .socNet_feed h6
+{
+	padding: 0 0 5px;
+}
+
+#twitter .socNet_feed h6 span
+{
+	font-size: 0.857143em;
+}
+
+#twitter .socNet_feed img#twitter_GS
+{
+	float: left;
+	padding-right: 10px;
+}
+
+#twitter #twitter_update_list
+{
+	padding: 10px;
+}
+
+#twitter #twitter_update_list.carrots li
+{
+	background: url(/_site_images/_sitewide/carrot.gif) left top no-repeat;
+	float: none;
+	line-height: 1.2;
+	margin-bottom: 0.5em;
+	width: 90%;
+}
+
+/* -----------------------------------------------------------------
+				golfsmith_follow.html
+END */
+
+
+/* BEGIN
+				giftcenter_fathersday.html
+----------------------------------------------------------------- */
+#gameEnhancing a
+{
+	background: url(/_site_images/ps_lp/fathersday/fathersday_2010_ver2_08.jpg) left top no-repeat;
+	display:block;
+	width: 225px;
+	height: 232px;
+}
+
+#gameEnhancing a:hover
+{
+	background-image: url(/_site_images/ps_lp/fathersday/fathersday_2010_ver3_08.jpg);
+	
+}
+
+#apparelGifts a
+{
+	background: url(/_site_images/ps_lp/fathersday/fathersday_2010_ver2_09.jpg) left top no-repeat;
+	display:block;
+	width: 223px;
+	height: 232px;
+}
+
+#apparelGifts a:hover
+{
+	background-image: url(/_site_images/ps_lp/fathersday/fathersday_2010_ver3_09.jpg);
+	
+}
+
+#topClubs a
+{
+	background: url(/_site_images/ps_lp/fathersday/fathersday_2010_ver2_10.jpg) left top no-repeat;
+	display:block;
+	width: 227px;
+	height: 232px;
+}
+
+#topClubs a:hover
+{
+	background-image: url(/_site_images/ps_lp/fathersday/fathersday_2010_ver3_10.jpg);
+	
+}
+
+#courseEssentials a
+{
+	background: url(/_site_images/ps_lp/fathersday/fathersday_2010_ver2_11.jpg) left top no-repeat;
+	display:block;
+	width: 225px;
+	height: 232px;
+}
+
+#courseEssentials a:hover
+{
+	background-image: url(/_site_images/ps_lp/fathersday/fathersday_2010_ver3_11.jpg);
+
+}
+
+
+
+/* -----------------------------------------------------------------
+				giftcenter_fathersday.html
+END */
+
+
+/* BEGIN
+				MyJoys.html
+----------------------------------------------------------------- */
+
+#myJoys_configurator
+{
+	margin: 25px 55px 0;
+	width: 770px;
+}
+
+	#myJoys_configurator h1
+	{
+		background: url(/_site_images/_landing_pages/myJoys/myJoys_logo.gif) top left no-repeat;
+		background-position: 10px 0;	/* Positions the logo correctly over the iframe */
+		float: left;
+		height: 71px;
+		padding: 0;
+		text-indent: -9999px;
+		width: 212px;
+	}
+	
+	#myJoys_configurator #myJoys_intro
+	{
+		width: 555px;
+	}
+
+#myJoys
+{
+	margin: 25px 65px 200px;
+	width: 770px;
+}
+
+	#myJoys h1
+	{
+		background: url(/_site_images/_landing_pages/myJoys/myJoys_logo.gif) top left no-repeat;
+		float: left;
+		height: 71px;
+		padding: 0;
+		text-indent: -9999px;
+		width: 202px;
+	}
+	
+	#myJoys_intro
+	{
+		float: left;
+		padding-top: 10px;
+		width: 565px;
+	}
+	
+		#myJoys_intro p
+		{
+			font-size: 11px;
+			padding-left: 20px;
+		}
+	
+	#myJoys_nav li
+	{
+		float: left;
+		height: 30px;
+	}
+	
+		#myJoys_nav li a
+		{
+			display: block;
+			float: left;
+			height: 30px;
+			text-indent: -9999px;
+		}
+	
+		/* Original */
+		#myJoys_nav_original a,
+		#myJoys_nav_original a:link,
+		#myJoys_nav_original a:visited
+		{
+			background: url(/_site_images/_landing_pages/myJoys/nav_original_L.jpg) top left no-repeat;
+			width: 105px;
+		}
+		
+		#myJoys_nav_original a:hover,
+		#myJoys_nav_original a:active
+		{
+			background: url(/_site_images/_landing_pages/myJoys/nav_original_H.jpg) top left no-repeat;
+		}
+		
+		/* Collegiate */
+		#myJoys_nav_collegiate a,
+		#myJoys_nav_collegiate a:link,
+		#myJoys_nav_collegiate a:visited
+		{
+			background: url(/_site_images/_landing_pages/myJoys/nav_collegiate_L.jpg) top left no-repeat;
+			width: 121px;
+		}
+		
+		#myJoys_nav_collegiate a:hover,
+		#myJoys_nav_collegiate a:active
+		{
+			background: url(/_site_images/_landing_pages/myJoys/nav_collegiate_H.jpg) top left no-repeat;
+		}
+		
+		/* NFL */
+		#myJoys_nav_nfl a,
+		#myJoys_nav_nfl a:link,
+		#myJoys_nav_nfl a:visited
+		{
+			background: url(/_site_images/_landing_pages/myJoys/nav_nfl_L.jpg) top left no-repeat;
+			width: 78px;
+		}
+		
+		#myJoys_nav_nfl a:hover,
+		#myJoys_nav_nfl a:active
+		{
+			background: url(/_site_images/_landing_pages/myJoys/nav_nfl_H.jpg) top left no-repeat;
+		}
+		
+		/* MLB */
+		#myJoys_nav_mlb a,
+		#myJoys_nav_mlb a:link,
+		#myJoys_nav_mlb a:visited
+		{
+			background: url(/_site_images/_landing_pages/myJoys/nav_mlb_L.jpg) top left no-repeat;
+			width: 78px;
+		}
+		
+		#myJoys_nav_mlb a:hover,
+		#myJoys_nav_mlb a:active
+		{
+			background: url(/_site_images/_landing_pages/myJoys/nav_mlb_H.jpg) top left no-repeat;
+		}
+	
+	#myJoys_feature
+	{
+		padding-top: 10px;
+	}
+	
+	#myJoys_sub li
+	{
+		float: left;
+		margin-right: 10px;
+		width: 380px;
+	}
+	
+	#myJoys_sub li.last
+	{
+		margin-right: 0;
+	}
+		
+
+/* -----------------------------------------------------------------
+				MyJoys.html
+END */
+
+
+
+
+/* BEGIN
+				Collegiate LP's
+----------------------------------------------------------------- */
+
+#collegiate_main img
+	{
+		float:left;
+
+	}
+	
+	#collegiate_main li
+	{
+		display: inline;
+
+	}
+	
+	#collegiateProducts ul
+	{
+		text-align:center; 
+		float:left;
+	}
+	
+	#collegiateProducts li
+	{
+		text-align:center; 
+		float:left;
+		width:175px;
+	}
+	
+	#collegiateProducts img
+	{
+		border: 1px solid #ccc;
+
+	}
+
+
+/* -----------------------------------------------------------------
+				Collegiate LP's
+END */
+
+/* BEGIN
+				SMART TIPS LP
+----------------------------------------------------------------- */
+
+#smartTips_left
+	{
+		float:left; 
+		width:570px; 
+		padding-right: 30px; 
+		margin-top:20px;
+
+	}
+	
+	#smartTips_left h4
+	{
+		line-height: 20px;
+
+	}
+	
+	#smartTips_left span
+	{
+		color: #779922; 
+		font-weight: bold;
+
+	}
+	
+	#smartTips_right
+	{
+		float:right; 
+		width:300px; 
+		margin-top:30px;
+
+	}
+	
+	#smartTips_right h5
+	{
+		color:#336633;
+		background-color:#bc7; 
+		padding-left:10px;
+
+	}
+	
+	#smartTips_right ul
+	{
+		background-color:#f1f1f1; 
+		line-height: 30px; 
+		padding: 5px 0px 5px 10px;
+		display:block;
+
+	}
+	
+	#smartTips_right ul.smartTips_productList
+	{
+		background-color:#f1f1f1; 
+		float:left;
+		width:300px;
+		padding: 0;
+
+	}
+	#smartTips_right ul.smartTips_productList li
+	{
+		float:left;
+		width:150px; 
+		height:230px;
+
+	}
+	
+
+/* -----------------------------------------------------------------
+				SMART TIPS LP
+END */
+
+/* BEGIN
+				About Us
+----------------------------------------------------------------- */
+
+div.about_us h1
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	padding: 5px 0 3px;
+}
+
+#about_us_nav
+{
+	width: 200px;
+}
+
+	#about_us_nav div
+	{
+		background-color: #f5f0e3;
+		border-bottom: 1px solid #ba8;
+		border-top: 1px solid #ba8;
+		padding: 10px 10px 100px;
+		width: 180px;
+	}
+
+		#about_us_nav li
+		{
+			padding: 9px 0 6px;
+		}
+
+			#about_us_nav a
+			{
+				color: #333;
+			}
+			
+			#about_us_nav a:hover
+			{
+				color: #000;
+			}
+	
+#about_us_content
+{
+	width: 675px;
+}
+
+	#about_us_content h2
+	{
+		padding-top: 0;
+	}
+	
+#ie7 .space_25
+{
+	padding-right: 25px;
+}
+
+/* Core Values Page */
+	#content_core h2,
+	#content_core h3,
+	#content_core p
+	{
+		padding-left: 200px;
+	}
+	
+	#content_core h2,
+	#content_core h3,
+	#content_core h6
+	{
+		color: #c00;
+		padding-top: 0;
+	}
+	
+		#content_core h2,
+		#content_core h6
+		{
+			font-weight: bold;
+			line-height: 1.2;
+		}
+		
+			#content_core h2 span
+			{
+				font-size: 18px;
+			}
+			
+	#core_values ul
+	{
+		display: block;
+		float: left;
+		padding-left: 20px;
+		width: 225px;
+	}
+	
+	#content_core #core_values p
+	{
+		padding-left: 0;
+	}
+	
+		#core_values ul li
+		{
+			padding-top: 10px;
+		}
+		
+/* History Page */
+	#content_history li
+	{
+		padding-bottom: 25px;
+	}
+	
+		#content_history li div
+		{
+			float: left;
+			padding-right: 25px;
+			text-align: center;
+			width: 75px;
+		}
+		
+			#content_history li div p
+			{
+				padding-left: 0;
+			}
+			
+		#content_history li h3,
+		#content_history li p
+		{
+			padding-left: 100px;
+		}
+		
+		#content_history li h3
+		{
+			padding-top: 0;
+		}
+
+/* -----------------------------------------------------------------
+				About Us
+END */
+
+
+
+/* BEGIN
+				coupons-promotions.html
+----------------------------------------------------------------- */
+
+#promotions-social
+{
+	padding: 10px 0;
+}
+
+#promotions-list
+{
+	float:left;
+	width: 525px;
+}
+
+	#promotions-list h6
+	{
+		line-height: 1.5em;
+		padding-top: 0;
+	}
+	
+	#promotions-list #list-key
+	{
+		clear: both;
+		display: none;
+		padding-bottom: 2em;
+	}
+	
+	#promotions-list #list-key li
+	{
+		display: block;
+		float: left;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	
+	#promotions-list #list-key li a
+	{
+		background-color: #eee;
+		border: 1px solid #ccc;
+		border-radius: 5px 5px 5px 5px;
+		-moz-border-radius: 5px 5px 5px 5px;
+		box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+		color: #333;
+		display: block;
+		float: left;
+		list-style: none;
+		margin: 0 5px 5px 0;
+		padding: 9px 10px 6px 10px;
+	}
+	
+		#promotions-list #list-key li a:hover
+		{
+			background-color: #ddd;
+			border: 1px solid #ccc;
+			box-shadow: 0 1px 2px rgba(0,0,0,0);
+			color: #111;
+			text-decoration: none;
+		}
+		
+		#promotions-list #list-key li a:active
+		{
+			background-color: #fff;
+			border: 1px solid #ccc;
+			color: #666;
+		}
+
+	#promotions-list .category
+	{
+		clear: left;
+		padding-top: 18px;
+	}
+	
+		#promotions-list #promo-1
+		{
+			border-top: 1px solid #ccc;
+		}
+	
+		#promotions-list .category .promo
+		{
+			border: 2px dashed #999;
+			list-style: none;
+			display: block;
+			margin: 10px 0 0;
+			padding: 20px 20px 30px;
+			position: relative;
+		}
+		
+		#promotions-list .category .promo h3
+		{
+			color: #c00;
+			padding: 0 0 9px;
+		}
+		
+		#promotions-list .category .promo .promo-description
+		{
+			font-size: 14px;
+		}
+		
+		#promotions-list .category .promo .promo-code,
+		#promotions-list .category .promo .promo-expires
+		{
+			float: left;
+			margin: 0;
+		}
+		
+		#promotions-list .category .promo .promo-expires
+		{
+			margin-left: 15px;
+		}
+		
+		#promotions-list .category .promo .promo-exclusions
+		{
+			display: none;
+		}
+		
+		#promotions-list .category .promo .carrot_link
+		{
+			font-size: 14px;
+			display: block;
+			position: absolute;
+			right: 20px;
+			bottom: 15px;
+		}
+	
+.content-box
+{
+	border-radius: 10px 10px 0 0;
+	-moz-border-radius: 10px 10px 0 0;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+}
+
+.content-box .box-heading
+{
+	background-color: #deb;
+	border: 1px solid #bc7;
+	border-radius: 10px 10px 0 0;
+	-moz-border-radius: 10px 10px 0 0;
+	text-align: center;
+}
+
+	.content-box .box-heading h4
+	{
+		color: #333;
+		font-weight: bold;
+	}
+
+.content-box .box-body
+{
+	border: 1px solid #ccc;
+	padding: 10px;
+}
+
+.content-box .box-body h6
+{
+	line-height: 1.5em;
+}
+
+#promotions-emails
+{
+	float: right;
+	margin-top: 20px;
+	width: 340px;
+}
+
+#promotions-emails #email,
+#promotions-emails #zipcode
+{
+	background-color: #eee;
+	border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+	font-size: 14px;
+	height: 30px;
+	width: 315px;
+}
+
+#ie7 #promotions-emails #email,
+#ie7 #promotions-emails #zipcode,
+#ie8up #promotions-emails #email,
+#ie8up #promotions-emails #zipcode
+{
+	line-height: 2em;
+}
+
+#promotions-emails #zipcode
+{
+	width: 155px;
+}
+
+	#promotions-emails input:focus#email,
+	#promotions-emails input:focus#zipcode
+	{
+		background-color: #fff;
+	}
+
+#promotions-emails #submitAddress_footer
+{
+	background-image: url(/_site_images/_sitewide/cta-cool_sprite.png);
+	background-repeat: no-repeat;
+	background-position: -560px 0;
+	border: 0;
+	height: 35px;
+	width:115px;
+}
+
+#promotions-emails #submitAddress_footer:hover
+{
+	background-position: -560px -35px;
+}
+
+#promotions-emails #submitAddress_footer:active
+{
+	background-position: -560px -70px;
+}
+
+.promotion-exclusions .promo
+{
+	border: 2px dashed #999;
+	list-style: none;
+	display: block;
+	margin: 10px 0 0;
+	padding: 20px 20px 30px;
+	position: relative;
+}
+
+.promotion-exclusions .promo h3
+{
+	color: #c00;
+	padding: 0 0 9px;
+}
+
+.promotion-exclusions .promo .promo-description
+{
+	font-size: 14px;
+}
+
+.promotion-exclusions .promo .promo-code,
+.promotion-exclusions .promo .promo-expires
+{
+	float: left;
+	margin: 0;
+}
+
+.promotion-exclusions .promo .promo-expires
+{
+	margin-left: 15px;
+}
+
+.promotion-exclusions .promo .promo-exclusions
+{
+	display: none;
+}
+
+.promotion-exclusions .promo .carrot_link
+{
+	font-size: 14px;
+	display: block;
+	position: absolute;
+	right: 20px;
+	bottom: 15px;
+}
+
+/* -----------------------------------------------------------------
+				coupons-promotions.html
+END */
+
+/* BEGIN
+				stores/all-events.html
+----------------------------------------------------------------- */
+
+
+#events-intro ul li
+{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#events-heading,
+#finder-heading
+{
+	float: left;
+	padding-bottom:20px;
+	width: 275px;
+}
+
+#events-marketing,
+#finder-marketing
+{
+	float: right;
+	margin-top: 20px;
+	min-height: 100px;
+	width: 600px;
+}
+
+/* Default Event Search */
+#event-search
+{
+	clear:left;
+	float: left;
+	position:relative;
+	width: 275px;
+}
+
+	.search-new
+	{
+		cursor: pointer;
+		display: none;
+		font-size: 14px;
+	}
+	
+	#event-search h2 .search-new,
+	#store-search h2 .search-new
+	{
+		background-color:#f6f6f6;
+		background-image: url(/_site_images/_sitewide/carrot.gif);
+		background-position: 78px center;
+		background-repeat:no-repeat;
+		border:1px solid #ddd;
+		border-radius:3px;
+		-moz-border-radius:3px;
+		box-shadow:0 1px 0px rgba(0,0,0,0.25); 
+		cursor: pointer;
+		display: none;
+		float: right;
+		font-size: 12px;
+		font-weight:bold;
+		margin:-2px 10px 0 0;
+		padding: 6px 14px 4px 8px;
+		width:70px;
+	}
+	
+	#event-search h2 a:hover.search-new,
+	#store-search h2 a:hover.search-new
+	{
+		background-color:#fff;
+		box-shadow:none;
+		text-decoration:none;
+	}
+	
+	#event-search h2 a:active.search-new,
+	#store-search h2 a:active.search-new
+	{
+		background-color:#eee;
+	}
+	
+	#ie7 #event-search h2 .search-new,
+	#ie7 #store-search h2 .search-new
+	{
+		display: none; /* inline-block */
+		float: none;
+		margin-left: 50px;
+	}
+	
+	/* BEGIN Spinner Styles and Positioning */
+	#preview {border-left:1px solid #ccc;border-right:1px solid #ccc;height:171px;padding: 15px 9px 10px;}
+	.spinner {height:25px;margin:0 auto;position:absolute !important;text-align:center;width:25px;} 
+	#preview .spinner{left:135px !important;top:100px !important;}
+	#events-loading {position:absolute;width:100%;height:100%;background-color:rgba(255,255,255,0.75);top:0;left:0;}
+	#ie7 #events-loading, #ie8up #events-loading {background-color:transparent;background-image:url(/_site_images/_sitewide/bg_wht_75.png);}
+	#events-loading .spinner {left:380px !important;top:50px !important;}
+	#events-loading h5 {font-size:24px;left:400px;position:absolute;text-align:center;top:20px;}
+	/*  END Spinner Styles and Positioning */
+	
+	#search-form
+	{
+		border-left:1px solid #ccc;
+		border-right:1px solid #ccc;
+		padding: 15px 9px 10px;
+	}
+	
+	#store-search #search-form
+	{
+		border-left:0;
+		border-right:0;
+		padding:15px 0 10px;
+	}
+	
+	#search-form p.error
+	{
+		background-color: #ffd;
+		border: 1px solid #900;
+		border-radius: 5px;
+		-moz-border-radius: 5px;
+		color: #c00;
+		display: none;
+		margin-bottom: 10px;
+		padding:5px 5px 3px;
+	}
+	
+		#search-form ul li
+		{
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+		
+		input.help-text
+		{
+			font-style:italic;
+			color:#999;
+		}
+		
+		#search-form input,
+		#events-email input,
+		#search-form select,
+		#search-alternative select
+		{
+			font-size: 14px;
+			height: 25px;
+			padding: 3px;
+		}
+		
+		#ie7 #search-form input,
+		#ie7 #events-email input,
+		#ie7 #search-form select,
+		#ie7 #search-alternative select,
+		#ie8up #search-form input,
+		#ie8up #events-email input
+		{
+			height: 21px;
+			padding-top: 7px;
+		}
+		
+		#search-form select,
+		#search-alternative select
+		{
+			height: 33px;
+			padding: 6px 3px;
+		}
+
+			#search-city,
+			#search-state
+			{
+				float: left;
+				width: 210px;
+			}
+			
+			#event-search #search-city
+			{
+				width:190px;
+			}
+			
+			#search-state
+			{
+				width: 65px;
+			}
+			
+				#city
+				{
+					width: 190px;
+				}
+				
+				#event-search #city
+				{
+					width:170px;
+				}
+				
+				#state
+				{
+					width: 65px;
+				}
+
+			#search-form #search-zip
+			{
+				clear: left;
+				float: left;
+				padding-top: 10px;
+				width: 115px;
+			}
+			
+			#event-search #search-form #search-zip
+			{
+				width: 95px;
+			}
+			
+				#zip
+				{
+					width: 80px;
+				}
+				
+				#event-search #zip
+				{
+					width: 75px;
+				}
+				
+			#search-form #search-submit
+			{
+				float: left;
+				padding-top: 22px;
+				width: 160px;
+			}
+				
+				a.search-events
+				{
+					background-image: url(/_site_images/_sitewide/cta-cool_sprite.png);
+					background-position: -675px 0;
+					background-repeat: no-repeat;
+					display: block;
+					height: 35px;
+					padding: 0;
+					text-indent: -9999px;
+					width: 160px;
+				}
+				
+				a:hover.search-events
+				{
+					background-position: -675px -35px;
+				}
+				
+				a:active.search-events
+				{
+					background-position: -675px -70px;
+				}
+
+			#search-alternative
+			{
+				clear: left;
+			}
+			
+				#search-alternative h4
+				{
+					font-size: 16px;
+				}
+				
+				#search-alternative select#select-store-events
+				{
+					width: 255px;
+				}
+				
+		p.error,
+		li.error input,
+		li.error select,
+		li.error label
+		{
+			color:#c00;
+			border-color:#c00;
+		}
+		
+		#search-success
+		{
+			border-left: 1px solid #ccc;
+			border-right: 1px solid #ccc;
+			display: none;
+			padding: 15px 9px 10px;
+		}
+		
+		#search-error
+		{
+			border-left: 1px solid #ccc;
+			border-right: 1px solid #ccc;
+			display: none;
+			padding: 15px 9px 10px;
+		}
+		
+		#search-error h3
+		{
+			color: #900;
+			font-size: 14px;
+			line-height: 18px;
+			padding: 0;
+		}
+		
+		#search_term, #search-criteria {font-weight:bold;}
+		#search-error #search_term:before, #search-error #search-criteria:before {	content: '"';}
+		#search-error #search_term:after, #search-error #search-criteria:after {content: '"'}
+		
+		#search-error h4
+		{
+			font-size: 14px;
+			line-height: 18px;
+			padding: 1em 0 0;
+		}
+		
+		#search-error h4 .search-new
+		{
+			display: inline;
+			float: none;
+			padding-left: 5px;
+		}
+		
+		#ie7 #search-error h4 .search-new
+		{
+			display: inline-block;
+			float: none;
+		}
+		
+		#other-stores li
+		{
+			position: relative;
+			margin-top: 8px;
+		}
+		
+		#other-stores li a
+		{
+			background-color: #fff;
+		}
+		
+		#other-stores li span
+		{
+			color: #999;
+			position:absolute;
+			right: 0;
+			top:6px;
+			z-index: -1;
+		}
+		
+		#other-stores li span:before
+		{
+			content: " . . . . . . . . . . . . . . . . . . . . . . . ";
+		}
+		
+		#search-error #search-form,
+		#search-error #search-alternative
+		{
+			display: none;
+		}
+
+#results-header,
+#events-header
+{
+	background-color:#ccc;
+	background-image: url(/_site_images/_sitewide/heading_sprite.png);
+	background-position: left top;
+	background-repeat: repeat-x;
+	border: 1px solid #ccc;
+	border-radius: 5px 5px 0 0;
+	-moz-border-radius: 5px 5px 0 0;
+	clear:both;
+}
+
+
+#search_events_list #results-header
+{
+	border-radius: 0 5px 0 0;
+	-moz-border-radius: 0 5px 0 0;
+}
+
+#events-email h2
+{
+	float: left;
+	font-size: 21px;
+	padding-top: 4px;
+}
+
+#events-email
+{
+	padding: 10px 10px 40px;
+	position:relative;
+}
+
+#ie7 #events-email
+{
+	z-index:1000;
+}
+
+#events-email form
+{
+	position:absolute;
+	right:10px;
+}
+
+#events-email p.error {
+	background-color: #FFFFDD;
+	border: 1px solid #990000;
+    border-radius: 5px 5px 5px 5px;
+	color: #CC0000;
+	display: none;
+	left:330px;
+	max-width:600px;
+	padding: 5px 5px 3px;
+	position:absolute;
+	top:-20px;
+}
+
+#events-email span.help
+{
+	background-image: url(/_site_images/_sitewide/icon_sprite.png);
+	background-position: -240px -120px;
+	background-repeat: no-repeat;
+	color: #333;
+	display:inline-block;
+	font-weight:normal;
+	height: 20px;
+	margin-left:3px;
+	position: relative;
+	text-indent: -9999px;
+	top:-5px;
+	width: 20px;
+}
+	
+#events-email span:hover.help
+{
+	background-position: -240px -160px;
+}
+	
+#events-email span.help span.help_content
+{
+	background-color: #fff;
+	border: 1px solid #458;
+	border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+	display: none;
+	line-height: 1.5em;
+	padding: 14px;
+	position: absolute;
+	right: 10px;
+	text-indent: 0;
+	text-transform:none;
+	top: 10px;
+	width:250px;
+	z-index:1000;
+}
+
+#events-email span:hover.help span.help_content
+{
+	display: block;
+}
+
+#events-email ul,
+#successful-signup
+{
+	float: right;
+	display: block;
+}
+
+#successful-signup {display:none;text-align:center;width:500px;}
+
+#successful-signup p {font-size:14px;padding-top:5px;}
+
+#events-email li
+{
+	display: block;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	float: left;
+}
+#email-email
+{
+	width: 380px;
+}
+
+#email-email label
+{
+	display: inline;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	padding-right: 10px;
+	text-transform: capitalize;
+}
+
+#ie7 #email-email label
+{
+	display: inline-block;
+	padding-bottom: 8px;
+}
+
+#email-email #email
+{
+	width: 175px;
+}
+
+#email-zip
+{
+	width: 75px;
+}
+
+#events-email #e-zip
+{
+	width: 60px;
+}
+
+#events-email #email-submit
+{
+	padding-top: 1px;
+	width:115px;
+}
+
+a#sign-up
+{
+	background-image: url(/_site_images/_sitewide/cta-cool_sprite.png);
+	background-position: -835px 0;
+	background-repeat: no-repeat;
+	display: block;
+	height: 35px;
+	padding: 0;
+	text-indent: -9999px;
+	width: 115px;
+}
+
+a:hover#sign-up
+{
+	background-position: -835px -35px;
+}
+
+a:active#sign-up
+{
+	background-position: -835px -70px;
+}
+
+#event-filters
+{
+	background-color:#eee;
+	clear: left;
+	height: 35px;
+	padding: 0 10px 10px;
+}
+
+#event-filters h4
+{
+	float: left;
+	width:75px;
+}
+
+#event-filters ul
+{
+	padding: 20px 0 0 80px;
+}
+
+#ie7 #event-filters ul
+{
+	padding-top: 15px;
+}
+
+#event-filters li
+{
+	display: block;
+	float: left;
+	list-style: none;
+	margin: 0;
+	padding: 0 0 0 15px;
+}
+
+#event-filters li:first-child
+{
+	padding-left: 0;
+}
+
+#ie7 #event-filters li
+{
+	display: inline-block;
+	max-width: 130px;
+}
+
+#ie7 #event-filters li:first-child
+{
+	padding-left:15px;
+}
+
+#event-filters li label
+{
+	float: right;
+	margin-left:5px;
+}
+
+#ie7 #event-filters li label
+{
+	float: left;
+	margin-left: 0;
+	padding-top: 5px;
+}
+
+#ie7 #event-filters li input
+{
+	display:inline;
+	/* float:left; */
+}
+
+#all-events
+{
+	border: 1px solid #ccc;
+	border-top: 0;
+	clear: left;
+	padding: 20px 10px;
+	position:relative;
+}
+
+a.jump-to-top
+{
+	background-color: #ccc;
+	border: 1px solid #666;
+	border-radius: 0 0 5px 5px;
+	-moz-border-radius: 0 0 5px 5px;
+	border-top: 0;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.25);
+	-moz-box-shadow: 0 2px 5px rgba(0,0,0,0.25);
+	color: #333;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 15px 10px 10px;
+	position: fixed;
+	top: 0;
+	right: 10px;
+	z-index: 9000;
+}
+
+a.jump-to-top:before
+{
+	content: "";
+	background-image: url(/_site_images/_sitewide/icon_sprite.png);
+	background-position: -340px -120px;
+	background-repeat: no-repeat;
+	height:20px;
+	left: 50%;
+	margin-left:-10px;
+	position:absolute;
+	top:-5px;
+	width:20px;
+}
+
+#all-events .state
+{
+	padding-top: 15px;
+}
+
+#all-events #state-Alabama
+{
+	padding-top: 0;
+}
+
+#all-events .state-heading
+{
+	background-color: #deb;
+	border: 1px solid #bc7;
+	border-radius: 5px 5px 0 0;
+	-moz-border-radius: 5px 5px 0 0;
+	padding: 0 10px;
+}
+
+#ie7 #all-events .state-heading,
+#ie7 #all-events .store-heading,
+#ie7 .events-list .event-info
+{
+	zoom:1;
+}
+
+#all-events .state-heading h2
+{
+	float: left;
+}
+
+#ie7 #all-events .state-heading h2
+{
+	width:230px;
+}
+
+#all-events .state-heading .state-store-list
+{
+	cursor:pointer;
+	display: block;
+	padding: 10px 0 0 175px;
+	position: relative;
+	width: 665px;
+}
+
+#ie7 #all-events .state-heading .state-store-list
+{
+	float:left;
+	padding-left:0;
+	width:auto;
+}
+
+#all-events .state-heading li
+{
+	float: left;
+	list-style: none;
+	margin: 0;
+	padding: 7px 0 3px 10px;
+}
+
+#all-events .store
+{
+	padding: 0 10px;
+}
+
+#all-events .store-heading
+{
+	border-bottom: 3px solid #ba8;
+	padding-top: 15px;
+}
+
+#all-events .store-heading h3
+{
+	float: left;
+}
+
+#all-events .store-heading .create-custom-event,
+#all-events .store-heading p
+{
+	display: block;
+	float: right;
+	padding-top: 20px;
+}
+
+#all-events .store-heading a
+{
+	margin-left: 10px;
+}
+
+#all-events .store-heading .create-custom-event
+{
+	display: none;
+	line-height: 1.5em;
+}
+
+.events-list .event-info
+{
+	border-bottom: 1px solid #ccc;
+	list-style: none;
+	margin: 0;
+	padding: 10px 0;
+}
+
+.events-list .no-events
+{
+	list-style: none;
+	margin: 0;
+	padding: 10px 0;
+}
+
+.events-list li:last-child
+{
+	border-bottom: 0;
+}
+
+.events-list li:after
+{
+	content: " ";
+	clear: both;
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+
+#ie7 .events-list li.event-info
+{
+	zoom: 1;
+}
+
+.events-list .no-events
+{
+	border-bottom: 0;
+}
+
+.events-list .event-info .event-active
+{
+	display: none;
+}
+
+.events-list .event-info .event-what
+{
+	float: right;
+	min-height: 100px;
+	width: 500px;
+}
+
+.events-list .event-info .event-vendors
+{
+	display: block;
+	padding-top: 5px;
+}
+
+.events-list .event-info .event-vendors li
+{
+	clear: none;
+	display: block;
+	float: left;
+	list-style: none;
+	margin: 0;
+	padding: 0 10px 0 0;
+	text-indent: -9999px;
+}
+
+/*  BEGIN Vendor/Brand Logo Rules */
+
+.event-vendors .adams {background-image:url(/_site_images/_sitewide/brands/grey/adams_s.gif);background-position:left top;background-repeat:no-repeat;height:35px;width:106px;}
+.event-vendors .adidas-golf {background-image:url(/_site_images/_sitewide/brands/grey/adidasGolf_s.gif);background-position:left top;background-repeat:no-repeat;height:35px;width:76px;}
+.event-vendors .bridgestone {background-image:url(/_site_images/_sitewide/brands/grey/bridgestone_s.gif);background-position:left top;background-repeat:no-repeat;height:35px;width:86px;}
+.event-vendors .bushnell {background-image:url(/_site_images/_sitewide/brands/grey/bushnell_s.gif);background-position:left top;background-repeat:no-repeat;height:35px;width:76px;}
+.event-vendors .callaway {background-image:url(/_site_images/_sitewide/brands/grey/callaway_s.gif);background-position:left top;background-repeat:no-repeat;height:35px;width:76px;}
+.event-vendors .cleveland {background-image:url(/_site_images/_sitewide/brands/grey/cleveland_s.gif);background-position:left top;background-repeat:no-repeat;height:35px;width:76px;}
+.event-vendors .cobra {background-image:url(/_site_images/_sitewide/brands/grey/cobra_s.gif);background-position:left top;background-repeat:no-repeat;height:35px;width:96px;}
+.event-vendors .ecco {background-image:url(/_site_images/_sitewide/brands/grey/ecco_s.gif);background-position:left top;background-repeat:no-repeat;height:35px;width:76px;}
+.event-vendors .footjoy {background-image:url(/_site_images/_sitewide/brands/grey/footJoy_s.gif);background-position:left top;background-repeat:no-repeat;height:35px;width:46px;}
+.event-vendors .golf-pride {background-image:url(/_site_images/_sitewide/brands/grey/golfPride_s.gif);background-position:left top;background-repeat:no-repeat;height:35px;width:76px;}
+.event-vendors .golfsmith {background-image:url(/_site_images/_sitewide/brands/grey/golfsmith_s.gif);background-position:left top;background-repeat:no-repeat;height:35px;width:86px;}
+.event-vendors .golftec {background-image:url(/_site_images/_sitewide/brands/grey/golftec_s.gif);background-position:left top;background-repeat:no-repeat;height:35px;width:86px;}
+.event-vendors .heavy-putter {background-image:url(/_site_images/_sitewide/brands/grey/heavyPutter_s.gif);background-position:left top;background-repeat:no-repeat;height:35px;width:106px;}
+.event-vendors .lynx {background-image:url(/_site_images/_sitewide/brands/grey/lynx_s.gif);background-position:left top;background-repeat:no-repeat;height:35px;width:76px;}
+.event-vendors .macgregor {background-image:url(/_site_images/_sitewide/brands/grey/macGregor_s.gif);background-position:left top;background-repeat:no-repeat;height:35px;width:86px;}
+.event-vendors .mizuno {background-image:url(/_site_images/_sitewide/brands/grey/mizuno_s.gif);background-position:left top;background-repeat:no-repeat;height:35px;width:76px;}
+.event-vendors .nike-golf {background-image:url(/_site_images/_sitewide/brands/grey/nikeGolf_s.gif);background-position:left top;background-repeat:no-repeat;height:35px;width:106px;}
+.event-vendors .ping {background-image:url(/_site_images/_sitewide/brands/grey/ping_s.gif);background-position:left top;background-repeat:no-repeat;height:35px;width:62px;}
+.event-vendors .sky-golf {background-image:url(/_site_images/_sitewide/brands/grey/skyGolf_s.gif);background-position:left top;background-repeat:no-repeat;height:35px;width:86px;}
+.event-vendors .stx {background-image:url(/_site_images/_sitewide/brands/grey/stx_s.gif);background-position:left top;background-repeat:no-repeat;height:35px;width:45px;}
+.event-vendors .taylormade {background-image:url(/_site_images/_sitewide/brands/grey/taylorMade_s.gif);background-position:left top;background-repeat:no-repeat;height:35px;width:86px;}
+.event-vendors .titleist {background-image:url(/_site_images/_sitewide/brands/grey/titleist_s.gif);background-position:left top;background-repeat:no-repeat;height:35px;width:76px;}
+.event-vendors .tour-edge {background-image:url(/_site_images/_sitewide/brands/grey/tourEdge_s.gif);background-position:left top;background-repeat:no-repeat;height:35px;width:96px;}
+.event-vendors .ust-mamiya {background-image:url(/_site_images/_sitewide/brands/grey/ust_s.gif);background-position:left top;background-repeat:no-repeat;height:35px;width:76px;}
+.event-vendors .wilson-staff {background-image:url(/_site_images/_sitewide/brands/grey/WilsonStaff1_s.gif);background-position:left top;background-repeat:no-repeat;height:35px;width:150px;}
+
+/*  END Vendor/Brand Logo Rules */
+
+.events-list .event-info .event-when
+{
+	background-image:url(/_site_images/_retail_pages/store-event-icons.png);background-repeat:no-repeat;
+	float: left;
+	height:120px;
+	padding-right: 130px;
+	width: 220px;
+}
+
+/* BEGIN Event Type Logos
+	You must decrease the normal background position by the width of the event-when DIV
+ */
+
+.events-list .ball-fitting .event-when {background-position: -140px -360px;}
+.events-list .club-fitting .event-when {background-position: 220px 0;}
+.events-list .club-van .event-when {background-position: -620px -840px;}
+.events-list .demo-day .event-when {background-position: -20px -240px;}
+.events-list .golf-clinic .event-when {background-position: -740px -960px;}
+.events-list .offsite-demo-day .event-when {background-position: -500px -720px;}
+.events-list .player-appearance .event-when {background-position: -860px -1080px;}
+.events-list .shoe-fitting .event-when {background-position: 100px -120px;}
+.events-list .sidewalk-sale .event-when {background-position: -380px -600px;}
+.events-list .tent-sale .event-when {background-position: -1100px -1320px;}
+.events-list .vip-event .event-when {background-position: -260px -480px;}
+.events-list .womens-night .event-when {background-position: -980px -1200px;}
+.events-list .store-contest .event-when {background-position: -1225px -1445px;}
+.events-list .championship-saturday .event-when {background-position: -1345px -1574px;}
+.events-list .launch-event .event-when {background-position: -1478px -1696px;}
+.events-list .store-remodel .event-when {background-position: -1609px -1827px;}
+.events-list .store-moving .event-when {background-position: -1748px -1957px;}
+.events-list .grand-opening .event-when {background-position: -1876px -2083px;}
+
+/* END Event Type Logos */
+
+.events-list .event-info .event-when h5,
+.events-list .event-info .event-when h6,
+.events-list .event-info .event-when p
+{
+	font-size: 14px;
+}
+
+.events-list .custom .event-what
+{
+	padding-left: 0;
+	width: 630px;
+}
+
+.events-list .custom .event-title,
+.events-list .custom .event-description,
+.events-list .custom .event-where,
+.events-list .custom .event-vendors
+{
+	padding-left: 100px;
+}
+
+.events-list .custom .event-what .custom-event-img
+{
+	float: left;
+	padding-top: 10px;
+}
+
+/* -----------------------------------------------------------------
+				stores/all-events.html
+END */
+
+/* BEGIN
+				stores/store-finder.html
+----------------------------------------------------------------- */
+/*
+#finder-heading
+{
+	background-image: url(/_site_images/_retail_pages/interior-hero.jpg);
+	background-position:left top;
+	background-repeat:no-repeat;
+	border:1px solid #999;
+	border-radius: 5px;
+	-moz-border-radius:5px;
+	box-shadow:0 0 1px rgba(0,0,0,0.5);
+	height:150px;
+	padding:0 15px;
+	position:relative;
+	width:245px;
+}
+
+#finder-heading h1
+{
+	bottom: 10px;
+	color:#fff;
+	font-weight:bold;
+	margin:0 auto;
+	position:absolute;
+	text-shadow: 0 1px 3px rgba(0,0,0,0.75);
+}
+
+#finder-marketing
+{
+	margin-top:0;
+}
+	*/
+#store-seo {position:absolute;left:-99999px;}
+#store-seo li {list-style:none;}
+#store-search
+{
+	float: left;
+	padding-top: 20px;
+	width: 275px;
+}
+
+	#store-search h2,
+	#store-map h2,
+	#event-search h2
+	{
+		background-color: #ccc;
+		background-image: url(/_site_images/_sitewide/heading_sprite.png);
+		background-position: left top;
+		background-repeat: repeat-x;
+		border: 1px solid #ccc;
+		border-radius: 5px 5px 0 0;
+		font-size: 18px;
+		padding: 12px 0 9px 10px;
+	}
+	
+	#storeSearch .spinner
+	{
+		min-height: 171px;
+		padding: 15px 9px 10px;
+	}
+	
+	#storeSearch .spinner{left:135px !important;top:100px !important;}
+
+	a.locate-stores
+	{
+		background-image: url(/_site_images/_sitewide/cta-cool_sprite.png);
+		background-position: -951px 0;
+		background-repeat: no-repeat;
+		display: block;
+		height: 35px;
+		padding: 0;
+		text-indent: -9999px;
+		width: 160px;
+	}
+	
+	a:hover.locate-stores
+	{
+		background-position: -951px -35px;
+	}
+	
+	a:active.locate-stores
+	{
+		background-position: -951px -70px;
+	}
+	
+		
+#store-search #search-error
+{
+	border: none;
+	padding: 15px 0 10px;
+}
+
+#search-results
+{
+	display: none;
+	padding-top: 10px;
+}
+
+#results-filters ul	/* Functionality works; hide for now */
+{
+	display:none;
+	padding-top: 10px;
+}
+
+#results-filters li
+{
+	float: left;
+	list-style: none;
+	margin: 0;
+	padding: 0 20px 0 0;
+}
+
+	#results-filters li input
+	{
+		float: left;
+		margin-top: 3px;
+	}
+	
+	#results-filters li label
+	{
+		float: left;
+		margin-left: 3px;
+		text-indent:-9999px;
+	}
+	
+	.golftec-attr
+	{
+		background-image: url(/_site_images/_sitewide/cta-cool_sprite.png);
+		background-position: -109px -280px;
+		background-repeat: no-repeat;
+		display: block;
+		height: 20px;
+		width: 20px;
+	}
+	
+	.tennis-attr
+	{
+		background-image: url(/_site_images/_sitewide/cta-cool_sprite.png);
+		background-position: -129px -300px;
+		background-repeat: no-repeat;
+		display: block;
+		height: 20px;
+		width: 20px;
+	}
+	
+	.club-repairs-attr
+	{
+		background-image: url(/_site_images/_sitewide/cta-cool_sprite.png);
+		background-position: -149px -320px;
+		background-repeat: no-repeat;
+		display: block;
+		height: 20px;
+		width: 20px;
+	}
+	
+#results-stores
+{
+	clear: left;
+/*	margin-top: 10px;	Hiding while filters are not displayed */
+	padding: 10px 0;
+}
+
+#results-stores ol
+{
+	border-bottom: 1px solid #999;
+	border-top: 1px solid #999;
+	display: block;
+	max-height: 470px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+#results-stores li
+{
+	border-bottom: 1px solid #ccc;
+	cursor: pointer;
+	font-size: 12px;
+	list-style: none;
+	margin: 0;
+	padding: 0 25px 10px 5px;
+}
+
+#results-stores li:hover
+{
+	background-color:#ffd;
+	
+}
+
+#results-stores li.selected
+{
+	background-color:#ffb;
+}
+
+#ie7 #results-stores li
+{
+	margin: 0;
+	padding: 0;
+}
+
+#results-stores li:last-child
+{
+	border-bottom: 0;	
+}
+
+	#results-stores li h3
+	{
+		float: left;
+		font-size: 14px;
+	}
+	
+		#results-stores li h3 a
+		{
+			color:#333;
+		}
+		
+		#results-stores li:hover h3 a
+		{
+			text-decoration:underline;
+		}
+	
+	#results-stores .store-attr li
+	{
+		border-bottom: 0;
+		float: right;
+		height: 20px;
+		padding: 0 1px;
+		margin-top: 7px;
+		text-indent: -9999px;
+		width: 20px;
+	}
+	
+	#ie7 #results-stores .store-attr li
+	{
+		margin-top:0;
+	}
+	
+	#results-stores li p + p
+	{
+		margin-top: 0;
+	}
+	
+	.store-address
+	{
+		clear: both;
+		font-size: 11px;
+	}
+	
+	#results-stores li p.store-links
+	{
+		margin-top: 10px;
+	}
+	
+#store-map
+{
+	float: right;
+	padding-top: 20px;
+	position:relative;
+	width: 600px;
+}
+
+#map
+{
+	border: 1px solid #ccc;
+	padding: 9px;
+	position: relative;
+	width: 580px;
+}
+
+#map > p
+{
+	padding-bottom: 5px;
+}
+
+#map-states
+{
+	background-color: #fff;
+	padding: 15px 5px;
+	width: 570px;
+}
+
+#map-google
+{
+	background-color: #fff;
+	border: 1px solid #ccc;
+	display: none;
+	height: 498px;
+	overflow: hidden;
+	position: relative;
+	width: 578px;
+}
+
+#enter-directions
+{
+	background-color: #eee;	/*Yellow Highlight= #ffb */
+	border: 1px solid #ccc;
+	border-top: 0;
+	display: none;
+	padding: 10px 9px 19px;
+	width: 580px;
+}
+
+	#enter-directions label
+	{
+		background-image: url(http://maps.gstatic.com/mapfiles/markers2/icon_greenA.png);
+		background-position:60px 0;
+		background-repeat: no-repeat;
+		float: left;
+		font-size: 16px;
+		font-variant: bold;
+		padding:9px 35px 9px 0;
+		text-align: right;
+		width: 55px;
+	}
+	
+	#directions-end label
+	{
+		background-image: url(http://maps.gstatic.com/mapfiles/markers2/icon_greenB.png);
+	}
+
+	#enter-directions input
+	{
+		color:#999;
+		display: block;
+		float: left;
+		font-size: 14px;
+		height: 25px;
+		padding: 3px;
+		width: 330px
+	}
+	
+	#enter-directions input:focus
+	{
+		color:#333;
+	}
+	
+	#ie7 #enter-directions input
+	#ie8up #enter-directions input
+	{
+		height: 21px;
+		padding-top: 7px;
+	}
+
+
+	ul.ui-autocomplete.ui-menu
+	{
+		border-radius: 0 0 5px 5px;
+		-moz-border-radius: 0 0 5px 5px;
+		box-shadow: 0 2px 3px rgba(0,0,0,0.5);
+	/*	left:624px !important;	*/
+		padding:3px;
+		text-align:left;
+	}
+	
+		a#submit-address
+		{
+			background-image: url(/_site_images/_sitewide/cta-cool_sprite.png);
+			background-position: -657px -140px;
+			background-repeat: no-repeat;
+			display: block;
+			height: 35px;
+			margin-left: 430px;
+			padding: 0;
+			text-indent: -9999px;
+			width: 149px;
+		}
+
+		a:hover#submit-address
+		{
+			background-position: -657px -175px;
+		}
+
+		a:active#submit-address
+		{
+			background-position: -657px -210px;
+		}
+		
+		a#change-address
+		{
+			cursor:pointer;
+			margin-left: 20px;
+		}
+		
+	#directions-end
+	{
+		padding-top: 10px;
+	}
+	
+	#ie7 #directions-end
+	{
+		clear:left;
+	}
+	
+	#directions-start p,
+	#directions-end p
+	{
+		font-size: 14px;
+		line-height: 1.0em;
+		padding-top: 11px;
+	}
+	
+	#directions-start p.error
+	{
+		background-color: #FFFFDD;
+		border: 1px solid #990000;
+		border-radius: 5px;
+		-moz-border-radius: 5px;
+		color: #CC0000;
+		display: none;
+		line-height:1.5em;
+		margin: 0 0 10px;
+		padding: 5px 5px 3px;
+	}
+	
+	#directions-end p strong
+	{
+		padding-right:5px;
+	}
+	
+#driving-directions
+{
+	border: 1px solid #ccc;
+	border-top: 0;
+	display: none;
+	max-height: 450px;
+	overflow-y: auto;
+	padding: 10px 9px;
+	width: 580px;
+}
+
+#ie7 #driving-directions
+{
+	max-height: none;
+	overflow-y: auto;
+}
+
+#driving-start,
+#driving-end
+{
+	background-color:#deb;
+	border: 0px solid #fff;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	box-shadow: 0 1px 1px rgba(0,0,0,0.25);
+	height: 35px;
+	padding: 5px 10px 0;
+	margin: 10px 0;
+}
+
+	#driving-start img,
+	#driving-end img
+	{
+		float: left;
+		padding-right: 10px;
+	}
+	
+	#driving-start p,
+	#driving-end p
+	{
+		font-size: 14px;
+		font-weight: bold;
+		padding-top: 7px;
+	}
+
+#directions-steps
+{
+	padding-left: 10px;
+}
+
+#directions-steps li
+{
+	border-bottom: 1px solid #ccc;
+	clear: left;
+	margin-top: 0;
+	padding: 7px 5px 3px;
+}
+
+#directions-steps li p
+{
+	position: relative;
+}
+
+#directions-steps li span.directions-text
+{
+	padding-right: 80px;
+}
+
+#ie7 #directions-steps li span.directions-text,
+#ie8up #directions-steps li span.directions-text
+{
+	display:inline-block;
+}
+
+#directions-steps li span.distance
+{
+	position: absolute;
+	right: 0;
+	top: 0;
+	text-align:right;
+}
+
+#directions-steps li span.step-bearing
+{
+	font-size: 11px;
+}
+
+#driving-end
+{
+	background-color: #fed;
+}
+
+#google-copyright
+{
+	text-align: center;
+}
+
+#view-directions
+{
+	background-color:#eee;
+	border: 1px solid #ccc;
+	border-top: 0;
+	display: none;
+	padding: 10px 9px 9px;
+	position:relative;
+	width: 580px;
+}
+
+	#view-directions a
+	{
+		cursor:pointer;
+		font-weight: bold;
+	}
+	
+	#view-google-map:after
+	{
+		background-image:url(/_site_images/_sitewide/icon_sprite.png);
+		background-position:-460px -300px;
+		background-repeat:no-repeat;
+		content:"";
+		display:inline-block;
+		height:20px;
+		position:absolute;
+		top:3px;
+		width:20px;
+	}
+	
+	#print-directions,
+	#email-directions
+	{
+		float: right;
+		margin-left:15px;
+	}
+	
+	#send-email
+	{
+		min-height: 150px;
+		text-align:left;
+	}
+	
+	#send-email p.error
+	{
+		background-color: #ffd;
+		border: 1px solid #990000;
+		border-radius: 5px 5px 5px 5px;
+		color: #c00;
+		display: none;
+		margin-bottom: 10px;
+		padding: 5px 5px 3px;
+		width: 65%;
+	}
+	
+	#send-email > p {padding-bottom:10px;}
+	
+	#send-email p + p {margin-top:0;}
+	
+	#send-email li
+	{
+		float:left;
+		font-size:14px;
+		list-style:none;
+		margin:0;
+		padding:0;
+		width: 50%;
+	}
+	
+	#send-email li.error input
+	{
+		background-color: #ffd;
+		border-color:#c00;
+	}
+	
+	#send-email li.error input:focus
+	{
+		background-color:#fff;
+	}
+	
+	#send-email li.error label
+	{
+		color:#c00;
+	}
+	
+	#to-emailaddress
+	{
+		color:#999;
+		height: 28px;
+		width: 95%;
+	}
+	
+	input:focus#to-emailaddress
+	{
+		color:#333;
+		font-style: normal;
+	}
+	
+	#send-email #email-submit-button
+	{
+		padding: 13px 0 0 10px;
+		width:25%;
+	}
+	
+	a#email-submit
+	{
+		background-image:url(/_site_images/_sitewide/cta-cool_sprite.png);
+		background-position:-1112px 0;
+		background-repeat:no-repeat;
+		cursor:pointer;
+		display:block;
+		height:35px;
+		text-indent:-9999px;
+		width:137px;
+	}
+	
+	a:hover#email-submit
+	{
+		background-position:-1112px -35px;
+	}
+	
+	a:active#email-submit
+	{
+		background-position:-1112px  -70px;
+	}
+
+	#send-email #email-confirm
+	{
+		text-align: center;
+	}
+	
+	a#email-close
+	{
+		background-image: url(/_site_images/_sitewide/cta-cool_sprite.png);
+		background-position: -409px -140px;
+		background-repeat: no-repeat;
+		cursor: pointer;
+		display: block;
+		height: 35px;
+		margin: 15px auto 0;
+		text-indent: -9999em;
+		width: 109px;
+	}
+		
+	a:hover#email-close
+	{
+		background-position: -409px -175px;
+	}
+		
+	a:active#email-close
+	{
+		background-position: -409px -210px;
+	}
+	
+.box
+{
+	background-image: url(/_site_images/_sitewide/background_sprite.png);
+	background-position:left bottom;
+	background-repeat: repeat-x;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+}
+
+#marketing-banners
+{
+	clear: both;
+}
+
+.banner
+{
+	margin-top: 15px;
+}
+
+#employment,
+#store-pickup
+{
+	float: left;
+	margin-top: 15px;
+	padding: 9px 14px;
+	width: 410px;
+}
+
+#employment h4,
+#store-pickup h4,
+#employment h5,
+#store-pickup h5
+{
+	font-size: 21px;
+	font-weight: bold;
+	padding: 10px 0 0 70px;
+}
+
+#employment h4 a,
+#store-pickup h4 a
+{
+	color: #333;
+	text-decoration: none;
+}
+
+#employment h5,
+#store-pickup h5
+{
+	font-size: 16px;
+	font-weight: normal;
+	padding-top: 5px;
+}
+
+#employment p,
+#store-pickup p
+{
+	clear: left;
+	margin: 0;
+	padding-top: 10px;
+}
+
+#employment p a,
+#store-pickup p a
+{
+	font-weight: bold;
+}
+
+#employment > a
+{
+	background-image: url(/_site_images/_sitewide/icon_sprite.png);
+	background-position:0 0;
+	background-repeat: no-repeat;
+	display: block;
+	float: left;
+	height: 60px;
+	text-indent: -9999px;
+	width: 60px;
+}
+
+#store-pickup
+{
+	margin-left: 20px;
+}
+
+#store-pickup > a
+{
+	background-image: url(/_site_images/_sitewide/icon_sprite.png);
+	background-position:-60px -60px;
+	background-repeat: no-repeat;
+	display: block;
+	float: left;
+	height: 60px;
+	text-indent: -9999px;
+	width: 60px;
+}
+
+	
+/* -----------------------------------------------------------------
+				stores/store-finder.html
+END */
+
+
+/* BEGIN
+				stores/store-detail.html
+----------------------------------------------------------------- */
+
+a#new-store-search
+{
+	background-color:#eee;
+	background-image: url(/_site_images/_sitewide/icon_sprite.png);
+	background-position: -400px -237px ;
+	background-repeat:no-repeat;
+	border:1px solid #ccc;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.25);
+	color:#666;
+	cursor:pointer;
+	display:block;
+	float:left;
+	margin-bottom:10px;
+	padding: 7px 10px 5px 20px;
+	text-align:center;
+	text-decoration:none;
+}
+
+a:hover#new-store-search
+{
+	background-color:#f6f6f6;
+	color:#333;
+}
+
+a:active#new-store-search
+{
+	box-shadow:none;
+}
+
+.store-detail h1
+{
+	clear:left;
+	float: left;
+}
+
+#ie7 a#new-store-search
+{
+	margin-right:775px;
+	width:123px;
+}
+
+#ie7 .store-detail h1
+{
+	clear:none;
+}
+
+.store-detail > p
+{
+	float: left;
+	padding: 20px 0 0 10px;
+}
+
+#store-social
+{
+	float: right;
+	padding-top: 17px;
+	width: 250px;
+}
+
+.facebook-like
+{
+	float: right;
+	width: 155px;
+}
+
+.google-plus
+{
+	float: right;
+	width:75px;
+}
+
+#store-side
+{
+	clear:left;
+	float: left;
+	width: 275px;
+}
+
+.section
+{
+	border-bottom: 1px solid #ccc;
+	padding: 10px 0;
+	width:100%;
+}
+
+.section .section
+{
+	border-bottom: 0;
+	border-top: 1px solid #ccc;
+	margin-top: 10px;
+	padding-bottom: 0;
+	
+}
+
+.section h3,
+.section h4
+{
+	font-size: 14px;
+	padding: 0;
+}
+
+#store-info,
+#store-hours,
+#custom-fitting,
+#store-employment
+{
+	border-bottom:0;
+	padding-bottom:0;
+}
+
+#store-info img
+{
+	border: 0px solid #ccc;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+	width: 273px;
+}
+
+#ie7 #store-info img {border:1px solid #eee;}
+
+#store-info p
+{
+	font-size: 11px;
+	margin-top: 0;
+	text-align: center;
+}
+
+p#store-address {padding: 7px 0 3px;}
+
+p#store-phone
+{
+	font-size: 14px;
+}
+
+#store-gm
+{
+	margin-top: 0;
+}
+
+#store-hours h3
+{
+	background-color: #ccc;
+	background-image: url(/_site_images/_sitewide/heading_sprite.png);
+	background-position: left top;
+	background-repeat: repeat-x;
+	border: 1px solid #ccc;
+	border-radius: 5px 5px 0 0;
+	font-size: 14px;
+	padding: 12px 0 9px 10px;
+}
+
+#hours
+{
+	border:1px solid #ccc;
+	border-top:0;
+}
+
+#hours li
+{
+	list-style: none;
+	margin: 0;
+	padding: 5px 0 3px 10px;
+}
+
+#hours li:nth-child(2n)
+{
+	background-color: #eef;
+}
+
+#hours li.today
+{
+	background-color:#ddd;
+	border-bottom: 1px solid #bbb;
+	border-top: 1px solid #bbb;
+}
+
+.week-day
+{
+	display: inline-block;
+	font-size:11px;
+	font-weight: bold;
+	text-align: right;
+	width: 67px;
+}
+
+.open-time,
+.close-time
+{
+	display: inline-block;
+	text-align: center;
+	width: 40px;
+}
+
+.closed
+{
+	color: #c00;
+	font-size: 10px;
+	font-weight: bold;
+	padding-left: 2px;
+	text-transform: uppercase;
+}
+
+#store-attr
+{
+	float: left;
+}
+
+#store-attr .store-attr
+{
+	display: block;
+	float: left;
+}
+
+#store-attr .store-attr li
+{
+	float: left;
+	list-style: none;
+	margin: 0;
+	padding: 5px 10px 5px 0;
+}
+	
+	#store-attr .store-attr li a
+	{
+		color: #333;
+		float: left;
+		height: 17px;
+		padding: 3px 0 0 23px;
+		text-decoration: none;
+		width: auto;
+	}
+#custom-fitting h4 {padding-bottom:10px;}
+#store-extras,
+#store-employment
+{
+	clear: left;
+}
+
+#store-extras ul
+{
+	display:block;
+	padding-top:5px;
+	
+}
+#store-extras li
+{
+	list-style:none;
+	padding:5px 0;
+	margin:0 0 0 20px;
+}
+
+.yelp:before
+{
+	background-image:url(/_site_images/_sitewide/icon_sprite.png);
+	background-position:-480px -320px;
+	background-repeat:no-repeat;
+	content:"";
+	display:inline-block;
+	height:20px;
+	position:absolute;
+	left:-20px;
+	top:-5px;
+	width:20px;
+}
+
+.google-places:before
+{
+	background-image:url(/_site_images/_sitewide/icon_sprite.png);
+	background-position:-500px -340px;
+	background-repeat:no-repeat;
+	content:"";
+	display:inline-block;
+	height:20px;
+	position:absolute;
+	left:-20px;
+	top:-5px;
+	width:20px;
+}
+
+.yelp,.google-places,a.new-window {position:relative;}
+a.new-window:after
+{
+	background-image:url(/_site_images/_sitewide/icon_sprite.png);
+	background-position:-460px -300px;
+	background-repeat:no-repeat;
+	content:"";
+	display:inline-block;
+	height:20px;
+	position:absolute;
+	right:-20px;
+	top:-5px;
+	width:20px;
+}
+
+#store-employment a
+{
+	margin-left: 5px;
+}
+
+#other-stores li
+{
+	
+	list-style:none;
+	margin-left: 0;
+	padding-left: 0;
+}
+
+#other-stores li a
+{
+/*	background-image: url(/_site_images/_sitewide/icon_sprite.png);
+	background-position: -440px -280px;
+	background-repeat:no-repeat;
+	color:#333;
+	padding:6px 0 0 23px;	*/
+	display:inline-block;
+	height:14px;
+	padding:6px 0 0;
+	
+}
+
+#store-main
+{
+	padding-top: 10px;
+}
+
+#announcement
+{
+	float: right;
+	font-size: 14px;
+	line-height: 1.5em;
+	padding-bottom: 15px;
+	width: 600px;
+}
+
+#announcement #message
+{
+	color: #c00;
+	font-weight: bold;
+	padding-left: 7px;
+}
+
+#store-main #store-marketing
+{
+	float: right;
+	min-height: 100px;
+	padding-bottom: 15px;
+	width: 600px;
+}
+
+#store-main #store-map
+{
+	padding-top:0;
+}
+
+#store-main #store-map > p
+{
+	position:absolute;
+	right: 0;
+	top:9px;
+}
+
+#store-main #store-map #print-map
+{
+	background-color:#f6f6f6;
+	background-image: url(/_site_images/_sitewide/icon_sprite.png);
+	background-position: -416px -253px;
+	background-repeat:no-repeat;
+	border:1px solid #ddd;
+	border-radius:3px;
+	-moz-border-radius:3px;
+	box-shadow:0 1px 0px rgba(0,0,0,0.25); 
+	cursor: pointer;
+	display:block;
+	font-size: 12px;
+	font-weight:bold;
+	margin:-2px 10px 0 0;
+	padding: 6px 4px 4px 28px;
+	width:55px;
+}
+	
+	#store-main #store-map a:hover#print-map
+	{
+		background-color:#fff;
+		box-shadow:none;
+		text-decoration:none;
+	}
+	
+	#store-main #store-map a:active#print-map
+	{
+		background-color:#eee;
+	}
+
+#store-main #store-map #map-google
+{
+	clear: both;
+}
+
+#events
+{
+	padding-top: 25px;
+}
+
+#events .events-list
+{
+	border: 1px solid #ccc;
+	border-top: 0;
+	border-radius: 0 0 5px 5px;
+	-moz-border-radius: 0 0 5px 5px;
+	padding: 20px;
+}
+
+/* Booking Bug Styles */
+	.white_content {
+	display: none;
+	position: absolute;
+	top: 10%;
+	left: 15%;
+	width: 650px;
+	height: 600px;
+	background-color: white;
+	border:1px solid #999;
+	z-index:1002;
+	overflow: auto;
+	}
+
+	.black_overlay{
+	display: none;
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background-color: white;
+	z-index:1001;
+	-moz-opacity: 0.85;
+	opacity:.85;
+	filter: alpha(opacity=80);
+	}
+
+	#lb_title {
+	width:790px;
+	height:39px;
+	background-image: url(/_site_images/_sitewide/header.gif);
+	}
+	#lb_close {
+	width:25px;
+	height:25px;
+	background: url(/_site_images/_sitewide/close.gif) no-repeat scroll -0 0 transparent;
+	float:right;
+	margin:5px;
+	}
+	#lb_close:hover {
+	background-position:-25px 0px;
+	}
+	
+	.find-store a, .find-store a:link {
+		background: url(/_site_images/ps_lp/custom-fit/find-store.png) no-repeat; width:130px; height:33px; display:block; text-indent:-9999px;
+	}
+	
+	.find-store a:hover {
+		background: url(/_site_images/ps_lp/custom-fit/find-store.png) no-repeat; width:130px; height:33px; display:block; background-position:0px -34px;
+	}
+	
+	.smart-fit a, .smart-fit a:link {
+		background: url(/_site_images/ps_lp/custom-fit/smart-fit-bttn.png) no-repeat; width:130px; height:33px; display:block; text-indent:-9999px;
+	}
+	
+	.smart-fit a:hover {
+		background: url(/_site_images/ps_lp/custom-fit/smart-fit-bttn.png) no-repeat; width:130px; height:33px; display:block; background-position:0px -34px;
+	}
+	
+	.schedule-fit a, .schedule-fit a:link {
+		background: url(/_site_images/ps_lp/custom-fit/schedule-fit-bttn2.png) no-repeat; width:130px; height:33px; display:block; text-indent:-9999px;
+	}
+	
+	.schedule-fit a:hover {
+		background: url(/_site_images/ps_lp/custom-fit/schedule-fit-bttn2.png) no-repeat; width:130px; height:33px; display:block; background-position:0px -34px;
+	}
+	
+	.learn-more a, .learn-more a:link {
+		background: url(/_site_images/ps_lp/custom-fit/book-now-bttn.png) no-repeat; width:130px; height:33px; display:block; text-indent:-9999px;
+	}
+	
+	.learn-more a:hover {
+		background: url(/_site_images/ps_lp/custom-fit/book-now-bttn.png) no-repeat; width:130px; height:33px; display:block; background-position:0px -34px;
+	}
+	
+	.read-study a, .read-study a:link {
+		background: url(/_site_images/ps_lp/custom-fit/read-study-bttn.png) no-repeat; width:130px; height:33px; display:block; text-indent:-9999px;
+	}
+	
+	.read-study a:hover {
+		background: url(/_site_images/ps_lp/custom-fit/read-study-bttn.png) no-repeat; width:130px; height:33px; display:block; background-position:0px -34px;
+	}
+	
+	.advanced-close a, .advanced-close a:link {
+		background:url(/_site_images/ps_lp/custom-fit/close-bttn.jpg) no-repeat; width:40px; height:49px; display:block; text-indent:-9999px;
+	}
+	
+	.advanced-close a:hover {
+		background: url(/_site_images/ps_lp/custom-fit/close-bttn.jpg) no-repeat; width:40px; height:49px; display:block; background-position:0px -50px;
+	}
+		
+	.advanced-fit-header {
+		background: url(/_site_images/ps_lp/custom-fit/advanced-fit-header) no-repeat; width:610px; height:50px; float:left;
+	}
+
+/* -----------------------------------------------------------------
+				stores/store-detail.html
+END */

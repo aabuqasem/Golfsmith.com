@@ -1,0 +1,123 @@
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*
+
+		Brady Starr's.css
+		Golfsmith.com
+		
+		* globale.css	- All "Standard" or "Screen" view site layout CSS should be included here. Including Classes and ID's effecting "Text" positioning/spacing.
+		* Sections are flagged. See TOC for "finding" the section you need.
+		
+	== Table of Contents ==
+		
+		* Highlight the following flag and use "Find Next" under "Edit" to locate the following sections:
+			=>MOBILE
+			=>GLOBAL
+
+*/
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+/*----------------------------------------------------------------
+			=>MOBILE
+----------------------------------------------------------------*/
+
+.mobile-only
+{
+	display: none;
+}
+
+/*----------------------------------------------------------------
+			=>GLOBAL
+----------------------------------------------------------------*/
+
+body
+{
+	margin: 0 auto;
+}
+
+#wrap
+{
+	text-align: left;
+	width: 900px;
+	margin: 0 auto;
+	position: relative;
+}
+
+#site_promo
+{
+	margin-bottom: 0.75em;
+}
+
+ul li, ol li
+{
+	line-height: 1.0;
+	margin-top: 0.416667em;
+}
+
+a.carrot_link
+{
+	background: url(/_site_images/_sitewide/carrot.gif) center right no-repeat;
+	padding: 0 12px 0 0;
+}
+
+a.carrot_link_555
+{
+	background: url(/_site_images/_sitewide/carrot_555.gif) center right no-repeat;
+	padding: 0 17px 0 0;
+}
+
+a.edit
+{
+	background: url(/_site_images/_sitewide/edit_icon.gif) left top no-repeat;
+	padding: 6px 0 0 20px;
+}
+
+a.email
+{
+	background: url(/_site_images/_sitewide/email_icon.gif) top left no-repeat;
+	padding: 3px 0 3px 20px;
+}
+
+a.file_doc,
+a.doc_file
+{
+background: url(/_site_images/_sitewide/word.gif) top left no-repeat;
+padding: 0 0 5px 20px; /* Controls spacing between background "word doc" image and the text link */
+}
+
+a.file_doc span,
+a.doc_file span
+{
+font-size: 0.916667em;
+}
+
+a.file_pdf,
+a.pdf_file
+{
+background: url(/_site_images/_sitewide/pdf.gif) top left no-repeat;
+padding: 0 0 5px 20px; /* Controls spacing between background "pdf" image and the text link */
+vertical-align: top;
+}
+
+a.file_pdf span,
+a.pdf_file span
+{
+font-size: 0.916667em;
+}
+
+a.print
+{
+	background: url(/_site_images/_sitewide/page_icon.gif) top left no-repeat;
+	padding: 5px 0 3px 20px;
+}
+
+a.share
+{
+	background: url(/_site_images/_sitewide/share_icon.gif) top left no-repeat;
+	padding: 1px 0 3px 18px;
+}
+
+a.trash
+{
+	background: url(/_site_images/_sitewide/trash_icon.gif) left top no-repeat;
+	padding: 3px 0 0 15px;
+}

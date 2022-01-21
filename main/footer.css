@@ -1,0 +1,341 @@
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*
+
+		Brady Starr's.css
+		for Golfsmith.com
+		
+		* footer.css			- Footer styles ONLY!
+							These styles control the basic look and feel of the site Footer
+
+		
+	== Table of Contents ==
+		
+		* Highlight the following flag and use "Find Next" under "Edit" to locate the following sections:
+			=>TOPPER	- Everything that lives above the green background
+			=>MAIN		- Everything that lives in the green background
+			=>CATCH ALL	- Everything below the green background
+*/
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+
+
+#footer
+{
+	margin: 20px 0;
+}
+
+
+/*----------------------------------------------------------------
+			=>TOPPER
+----------------------------------------------------------------*/
+
+#footer_equity a,
+#footer_equity a:link,
+#footer_equity a:visited,
+#footer_equity a:hover,
+#footer_equity a:active
+{
+	color: #222;
+}
+
+#footer_equity li
+{
+	float: left;
+	text-align: center;
+	width: 300px;
+}
+	
+	#footer_equity li h5
+	{
+		padding-bottom: 0;
+	}
+	
+	#footer_equity li p
+	{
+		font-size: 11px;
+	}
+	
+	
+/*----------------------------------------------------------------
+			=>MAIN
+----------------------------------------------------------------*/
+
+#footer_main
+{
+	color: #333;
+	position: relative;
+}
+
+#footer h5 {
+	font-size: 1.333333em;
+    padding: .8em 0 .366667em;
+}
+
+#footer h4 {
+	font-size:1.5em;
+	padding:.9em 0 .35em;
+}
+
+#footer_main a,
+#footer_main a:link,
+#footer_main a:visited,
+#footer_main a:hover,
+#footer_main a:active
+{
+	color: #222;
+}
+
+#footer_main a.carrot_link
+{
+	background-image: url(/_site_images/_sitewide/carrot_555-bc7.gif); 
+}
+
+#footer_promote
+{
+	background-color: #fff;
+	border-top: 3px solid #666;
+	margin: 0 10px;
+	width: 880px;
+}
+
+	#footer_promote ul
+	{
+		display: block;
+		float: left;
+		width: 880px;
+	}
+
+		#footer_promote li
+		{
+			float: left;
+			padding: 10px 0 10px 19px;
+			width: 410px;
+		}
+			
+			#footer_promote li img
+			{
+				float: left;
+				padding-right: 10px;
+			}
+
+			#footer_promote li h4
+			{
+				padding-bottom: 5px;
+				padding-top: 0;
+			}
+			
+			#footer_promote li p
+			{
+				margin-bottom: 0;
+			}
+
+#footer_ribbon
+{
+	background: #cb9 url(/_site_images/_site_footer/ribbon_shadow.gif) bottom left no-repeat;
+	border-top: 1px solid #666;
+	width:900px;
+	height:90px;
+	padding:0;	
+	/*padding: 0 20px 20px;*/
+	/*width: 860px;*/
+}
+
+	#footer_ribbon ul
+	{
+		float:left;
+		width:900px;
+		float:left;
+	}
+
+	/*#footer_ribbon li
+	{
+		float:left;
+		width: 285px;
+	}*/
+	#footer_ribbon li:first-child {
+		float: left;
+	}
+	
+	#footer_ribbon li {
+		float:right;
+	}
+	
+		#footer_ribbon li#ribbon_emailOffers
+		{
+			/*width: 260px;*/
+			text-align:center;
+			margin:20px auto 5px 10px;
+			width:425px;
+		}
+		
+		#footer_ribbon li#ribbon_catalogs
+		{
+			margin-right: 40px;
+			text-align: center;
+			width: 320px;
+		}
+		
+		#footer_ribbon li#ribbon_retailStores
+		{
+			text-align: center;
+			margin:20px auto 5px;
+			width:425px;
+			/*width: 240px;*/
+		}
+	
+		#footer_ribbon #ribbon_catalogs p
+		{
+			padding-top: 3px;
+		}
+		
+			#footer_ribbon #ribbon_catalogs p a
+			{
+				padding-left: 5px;
+			}
+	
+		#submitAddress_footer,
+		#submitZip_footer
+		{
+			position: relative;
+			top: 3px;
+		}
+	
+		#footer_ribbon li label
+		{
+			color: #333;
+			display: inline;
+			padding-right: 5px;
+		}
+		
+		#footer_ribbon li input[type="text"]
+		{
+			width: 118px;
+		}
+		
+		#footer_ribbon li input#addressField_footer
+		{
+			width: 130px;
+		}
+		
+		#footer_ribbon li input#zipField_footer
+		{
+			width: 75px;
+		}
+		
+		#footer_ribbon li span
+		{
+			display: block;
+			padding-top: 7px;
+		}
+	
+#footer_links
+{
+	background-color: #fff;
+	width: 878px;
+	border-left:1px solid #ccc;
+	border-right:1px solid #ccc;
+	text-align:left;
+	margin: 0 auto;
+}
+
+	#footer_links_table td
+	{
+		padding: 0 10px;
+		width: 156px;
+	}
+	
+#footer_social
+{
+/*	background: #fff url(/_site_images/_site_footer/footer_btm.gif) bottom left no-repeat;
+	margin: 0 10px;
+	padding: 20px 0 10px;
+	width: 880px;*/
+	border-bottom:2px solid #666;
+	background:0;
+	text-align:center;
+	margin:0 auto;
+	padding:20px 0;
+	border-left:1px solid #ccc;
+	border-right:1px solid #ccc;
+	width:878px;
+}
+
+	#footer_social hr
+	{
+		color: #353;
+		background-color: #353;
+		border-color: #353;
+		margin: 0 10px;
+		width: 860px;
+	}
+
+	#footer_social ul
+	{
+	/*	display: block;
+		margin: 0 50px;
+		padding-top: 10px;
+		width: 780px;*/
+		margin:0;
+		width:250px;
+		padding:0;
+		display:inline-block;
+	}
+	
+	#footer_social li
+	{
+		float: left;
+		width: 50px;
+	}
+	
+	#footer_social img
+	{
+		vertical-align: middle;
+	}
+	
+/*----------------------------------------------------------------
+			=>CATCH ALL
+----------------------------------------------------------------*/
+
+#footer_catchAll
+{
+	font-size: 10px;
+	text-align: center;
+	width: 900px;
+}
+
+	#catchAll_brandImages
+	{
+		background-color: #FFFFFF;
+		text-align: center;
+		width: 900px;
+	}
+
+		#catchAll_brandImages ul li
+		{
+			display: inline;
+			margin: 0;
+			padding: 0;
+		}
+
+			#catchAll_brandImages img
+			{
+				padding: 2px;
+			}
+	
+	#catchAll_navigation p
+	{
+		font-size: 11px;
+		font-weight: bold;
+	}
+	
+	#catchAll_navigation li
+	{
+		display: inline;
+		line-height: 1.5;
+	}
+	
+	#catchAll_navigation li a
+	{
+		color: #888;
+		padding: 0 5px;
+	}

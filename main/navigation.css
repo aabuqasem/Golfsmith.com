@@ -1,0 +1,822 @@
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*
+
+		Brady Starr's.css
+		Golfsmith.com
+		
+		* navigation.css				- All CSS producing the core navigation drop-downs or fly-outs should be included here. Basic 'a' link styling should be here too.
+
+
+		== Table of Contents ==
+
+			* Highlight the following flag and use "Find Next" under "Edit" to locate the following sections:
+	=>GLOBAL
+	=>STYLING
+		
+		
+*/
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+
+/*
+	=>GLOBAL
+----------------*/
+
+a:hover
+{
+	text-decoration: underline;
+}
+
+
+/*
+	=>STYLING
+----------------*/
+
+#nav {
+position:relative;
+width: 900px;
+background-color: #fff;  /* Dark Green */
+border-bottom: 3px solid #fff;
+border-top: 5px solid #fff;
+}
+
+#nav.canada
+{
+background-color: #bc7;
+}
+
+
+/* -----------------------------------*/
+/* #1 - PRIMARY NAVIGATION
+/* -----------------------------------*/
+
+#nav1
+{
+	display:none;
+	position: relative;
+	height: 30px; /* Primary Navigation Height */
+	padding: 0;
+	z-index: 11;
+}
+
+/* START US Search */
+
+#nav1-search
+{
+	height: 25px;
+	left: 5px;
+	position: absolute;
+	width: 310px;
+}
+
+.widerSearch #nav1-search
+{
+	width: 340px;
+}
+
+	#nav1-search form#search
+	{
+		height: 25px;
+		margin: 0;
+		padding: 0;
+		position: absolute;
+		width: 310px;
+	}
+	
+	.widerSearch #nav1-search form#search
+	{
+		width: 340px;
+	}
+	
+	#nav1-search form div#nav1-search_text
+	{
+		background-color: #fff;
+		border: 1px solid #000;
+		height: 22px;
+		float: left;
+		width: 150px;
+	}
+	
+	.widerSearch #nav1-search form div#nav1-search_text
+	{
+		width: 180px;
+	}
+	
+		#nav1-search form div:hover#search_text
+		{
+			background-color: #f5f0e3;
+		}
+	
+			#nav1-search form div label
+			{
+				display: none;
+			}
+			
+			#nav1-search form div input#site_search  /* Text Field */
+			{
+				background: none;
+				border: 0;
+				display: block;
+				float: left;
+				left: 0;
+				top: 3px;
+				position: absolute;
+				width: 125px;
+			}
+			
+			.widerSearch #nav1-search form div input#site_search  /* Text Field */
+			{
+				width: 155px;
+			}
+			
+			#nav1-search form div input#submitSearch_btn /* Search "GO" Button */
+			{
+				background-color:none;
+				background: url(/_site_images/_site_navigation/go_btn.gif) top left no-repeat;
+				border: none;
+				cursor: pointer;
+				float: right;
+				height: 20px;
+				margin: 1px;
+				width: 21px;
+			}
+		
+		#nav1-search form div#nav1-search_brand
+		{
+			float: left;
+			padding-left: 5px;
+			width: 150px;
+		}
+	
+			#nav1-search form select#brand_search
+			{
+				border-color: #000;
+				height: 24px;
+				padding: 3px 3px 3px 0;
+				width: 150px;
+			}
+			
+			#nav1-search_brand .jqf1Sel .jqf1SelList
+			{
+				left: 187px;
+			}
+
+
+/* END US Search */
+
+
+/* BEGIN Tabs */
+
+#nav1-links
+{
+	position: absolute;
+	right: 2px; /* Not a full 10px b/c there is 3px of margin on the right side of the last tab (<li>)  */
+	text-align: right;
+}
+
+#nav1-links li
+{
+	float:left;
+	display: block;
+	list-style: none;
+	margin: 0 3px 0 0;
+	padding: 0;
+}
+
+#nav1-links li a
+{
+	background-image: none;
+	/* background-image: url(/_site_images/_site_navigation/navigation-sprite.png); */
+	background-position: left top;
+	display: block;
+	height: 30px;
+	text-align: left;
+	text-indent: -9999px;
+}
+	
+	#nav1-links li#nav1-golfStore a
+	{
+		background-image: none;
+		/* background-position: 0 0; */
+		width: 110px;
+	}
+	
+		#nav1-links li#nav1-golfStore a:hover
+		{
+			background-image: none;
+			/* background-position: 0 -30px; */
+		}
+		
+		#nav1-links li#nav1-golfStore a.on, #nav1 ul li#nav1-golfStore a:hover.on
+		{
+			background-image: none;
+			/* background-position: 0 -60px; */
+		}
+
+	#nav1-links li#nav1-outlet a
+	{
+		background-image: none;
+		/* background-position: -110px 0; */
+		width: 76px;
+	}
+		#nav1-links li#nav1-outlet a:hover
+		{
+			background-image: none;
+			/* background-position: -110px -30px; */
+		}
+		
+		#nav1-links li#nav1-outlet a.on, #nav1 ul li#nav1-outlet a:hover.on
+		{
+			background-image: none;
+			/* background-position: -110px -60px; */
+		}
+
+	#nav1-links li#nav1-preOwned a
+	{
+		background-image: none;
+		/* background-position: -186px 0; */
+		width: 109px;
+	}
+	
+		#nav1-links li#nav1-preOwned a:hover
+		{
+			background-image: none;
+			/* background-position: -186px -30px; */
+		}
+		
+		#nav1-links li#nav1-preOwned a.on, #nav1 ul li#nav1-preOwned a:hover.on
+		{
+			background-image: none;
+			/* background-position: -186px -60px; */
+		}
+
+	#nav1-links li#nav1-clubmaking a
+	{
+		background-image: none;
+		/* background-position: -295px 0; */
+		width: 116px;
+	}
+		
+		#nav1-links li#nav1-clubmaking a:hover
+		{
+			background-image: none;
+			/* background-position: -295px -30px; */
+		}
+		
+		#nav1-links li#nav1-clubmaking a.on, #nav1 ul li#nav1-clubmaking a:hover.on
+		{
+			background-image: none;
+			/* background-position: -295px -60px; */
+		}
+
+	#nav1-links li#nav1-women a
+	{
+		background-position: -411px 0;
+		width: 77px;
+	}
+	
+		#nav1-links li#nav1-women a:hover
+		{
+			background-position: -411px -30px;
+		}
+		
+		#nav1-links li#nav1-women a.on, #nav1 ul li#nav1-women a:hover.on
+		{
+			background-position: -411px -60px;
+		}
+
+	#nav1-links li#nav1-tennis a
+	{
+		background-position: -488px 0;
+		width: 74px;
+	}
+	
+		#nav1-links li#nav1-tennis a:hover
+		{
+			background-position: -488px -30px;
+		}
+		
+		#nav1-links li#nav1-tennis a.on, #nav1 ul li#nav1-tennis a:hover.on
+		{
+			background-position: -488px -60px;
+		}
+	
+	#nav1-links li#nav1-giftCenter a
+	{
+		background-position: -621px 0;
+		width: 109px;
+	}
+	
+		#nav1-links li#nav1-giftCenter a:hover
+		{
+			background-position: -621px -30px;
+		}
+		
+		#nav1-links li#nav1-giftCenter a.on, #nav1 ul li#nav1-giftCenter a:hover.on
+		{
+			background-position: -621px -60px;
+		}
+	
+	#nav1-links li#nav1-saleClearance a
+	{
+		background-position: -730px 0;
+		width: 76px;
+	}
+	
+		#nav1-links li#nav1-saleClearance a:hover
+		{
+			background-position: -730px -30px;
+		}
+		
+		#nav1-links li#nav1-saleClearance a.on, #nav1 ul li#nav1-saleClearance a:hover.on
+		{
+			background-position: -730px -60px;
+		}
+		
+	#nav1-links li#nav1-after18 a
+	{
+		background-position: -808px 0;
+		width: 74px;
+	}
+	
+		#nav1-links li#nav1-after18 a:hover
+		{
+			background-position: -808px -30px;
+		}
+		
+		#nav1-links li#nav1-after18 a.on, #nav1 ul li#nav1-after18 a:hover.on
+		{
+			background-position: -808px -60px;
+		}
+
+/* END Tabs */
+
+
+
+/* -----------------------------------*/
+/* #2 - SECONDARY NAVIGATION
+/* -----------------------------------*/
+
+#nav_bar
+{
+	position:relative;
+	height: 30px; /* Secondary Navigation Height */
+	background-color: #fff; /* Light Green */
+	z-index: 10;
+}
+
+#nav_bar.nav2_pr
+{
+	background-color: #c00;
+	color:#ddd;
+}
+
+	#nav_bar ul
+	{
+		padding: 0;
+	}
+	
+	
+/* CANADA Nav */
+
+#nav_bar ul li.navL2_search
+{
+	float: left;
+	list-style: none;
+	margin: 3px 0 0;
+	padding: 0;
+	width: 200px; /* 190px wide for the search box div plus an additional 10px for padding */
+}
+
+#nav_bar ul li.navL2,	/* navL2 = Navigation Secondary Link */
+#nav_bar ul li.navT2,	/* navT2 = Navigation Secondary Text ONLY */
+#nav_bar ul li.navL2_outlet /* navL2 outlet = Styles for the deals tab */
+{
+	float: left;
+	height: 30px;
+	display: block;
+	margin: 0 7px;
+	padding: 0;
+	list-style: none;
+	text-align: center;
+}
+
+#nav_bar ul li.navL2 span.navL2_span,
+#nav_bar ul li.navL2_outlet span.navL2_span,
+#nav_bar ul li.navT2 span
+{
+	padding: 0 3px;
+	display: block;
+	height: 30px;
+}
+
+	#nav_bar.nav2_pr ul li.navT2 span.navL2_category
+	{
+		font-family: Helvetica, Arial, sans-serif;
+		font-size: 12px;
+		height: 30px;
+		margin: 0;
+		padding: 9px 5px 0;
+	}
+	
+	#nav_bar.nav2_pr ul li.navT2 span a
+	{
+		color:#eee;
+		font-size: 14px;
+		font-weight: bold;
+		text-shadow: 0 0.005em 0.05em #900
+	}
+	
+	#nav_bar.nav2_pr ul li.navT2 span a:hover
+	{
+		border-bottom: 1px solid #fff;
+		color:#fff;
+		text-decoration: none;
+	}
+
+#nav_bar ul li.navL2, #nav_bar ul li.navL2_outlet
+{
+	background: none;
+	/* background: url(/_site_images/_site_navigation/nav2_L.gif) top left no-repeat; */
+	border-top: 1px solid rgba(0,0,0,0.00);
+	border-left: 1px solid rgba(0,0,0,0.00);
+	border-right: 1px solid rgba(0,0,0,0.00);
+}
+
+#nav_bar ul li:hover.navL2
+{
+	background: none;
+	/* background: url(/_site_images/_site_navigation/nav2_L.gif) top left no-repeat; */
+	border-top: 1px solid #333;
+	border-left: 1px solid #333;
+	border-right: 1px solid #333;
+	border-bottom: 1px solid #fff;
+}
+
+#nav_bar ul li.navL2_outlet,
+#nav_bar ul li:hover.navL2_deals
+{
+	background:none;
+	border:none;
+}
+
+#ps-nav2-Deals:hover
+{
+	background: #5fafd2;
+}
+
+#nav_bar ul li.navL2 span:hover.navL2_span
+{
+	background: #FFFFFF;
+	/* background: url(/_site_images/_site_navigation/nav2_R.gif) top right no-repeat; */
+}
+
+#nav_bar.nav2_cm ul li:hover#ca_cm_link,
+#nav_bar ul li:hover.noDrop
+{
+	background: none;
+}
+
+#nav_bar.nav2_cm ul li#ca_cm_link span:hover,
+#nav_bar ul li.noDrop span:hover.navL2_span
+{
+	background: none;
+}
+
+#nav_bar ul li.navL2 span.navL2_category, #nav_bar ul li.navL2_outlet span.navL2_deals
+{
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	line-height: 1.0;
+	margin: 0;
+	padding: 0;
+	text-transform: capitalize;
+}
+
+	#nav_bar ul li.navL2 span.navL2_category a, #nav_bar ul li.navL2_outlet span.navL2_deals a
+	{
+		display: block;
+		height: 30px;
+		margin: 0;
+		padding: 9px 5px 0;
+		background: none;
+		color: #222;
+	}
+	
+	#nav_bar ul li.navL2 span.navL2_category a:hover
+	{
+		background: none;
+		color: #000;
+		text-decoration:none;
+	}
+	
+	#nav_bar ul li.navL2_outlet:hover span.navL2_deals a
+	{
+		background: #be1e24 !important;
+		color: #fff;
+		text-decoration:none;
+	}
+	
+		#nav_bar ul li.navL2 span.navL2_category a.no_link
+		{
+			cursor: default;
+			font-weight: bold;
+			text-decoration: none;
+		}
+
+
+/* -----------------------------------*/
+/* #3 - TERTIARY NAVIGATION
+/* -----------------------------------*/
+
+#nav_bar ul li div.nav_box {
+	display: none
+}
+
+#nav_bar ul li:hover div.nav_box {
+    background-color: #FFF;
+    border-bottom: 3px solid #333;
+    border-left: 1px solid #333;
+    border-right: 1px solid #333;
+	border-top: 1px solid #333;
+    display: block;
+    left: 0;
+    margin: 0 5px;
+    padding: 10px 0 10px 18px;
+    position: absolute;
+    top: 30px;
+    width: 870px;
+    z-index: -1;
+    -moz-box-shadow: 0 5px 5px rgba(0,0,0,0.3);
+    -webkit-box-shadow: 0 5px 5px rgba(0,0,0,0.3);
+    box-shadow: 0 5px 5px rgba(0,0,0,0.3)
+}
+
+#nav_bar ul li div.nav_box.column2	/* The box containing all the main SEO important links */
+{
+	width: 450px; /* To Leave 20px on either side and 2px for the border */
+}
+
+#nav_bar ul li div.nav_box.column3	/* The box containing all the main SEO important links */
+{
+	width: 880px; /* To Leave 20px on either side and 2px for the border */
+	margin-left:1px;
+}
+
+#nav_bar ul li.hovering div.nav_box	/* The CSS Class controlling the Javascript Functionality */
+{
+	display: block;
+}
+
+/* DO NOT USE THIS STYLE UNLESS YOU REMOVE THE JAVASCIPT CONTROLLING THE DROP DOWN MENU */
+/*
+#nav_bar ul li:hover div.nav_box
+{
+	visibility:visible; /* Show this box only during rollover/hovering on secondary link 
+}
+*/
+
+
+/* Float links sets horizontally */
+/* ---------------------------- */
+
+#nav_bar ul li div div
+{
+	padding: 0 0 0 10px; /* Add padding to give each UL some horizontal space */
+	margin: 0 18px 0 0;
+	float: left;
+	width: 187px;
+}
+
+#nav_bar ul li div div.list_links
+{
+	/* border-left: 1px dotted #333; */
+	/* padding-left: 9px; */	/* Correct padding due to the "box-model" you must account for the "1px border" in the over-all width. */
+	border-left: none;
+	padding-left: 10px; /* updated to remove the dotted line */
+}
+
+#nav_bar ul li ul
+{
+	display: block;
+	height: auto; /* Without this, this "ul" would only be 30px tall due to the cascade from above */
+	/* ALSO - "height" cannot be given "inherit" as IE interprets as "get the height from the last none 'height' value" or in this case "30" - using "auto" does the same thing across all browsers. */
+	padding: 0; /* Need this to cancel the cascade from "#nav ul" above. */
+	position: static;
+	width: 187px; /* The WIDTH of the TERTIARY LINK AREA */
+}
+
+#nav_bar ul li ul + ul	/* The "adjacent sibling" selector (+) doesn't work for ie6 */
+{
+	padding-top: 10px;
+}
+
+
+/* Tertiary Links */
+
+#nav_bar ul li div div.list_links ul + ul	/* The "adjacent sibling" selector (+) doesn't work for ie6 */
+{
+	padding-top: 10px;
+}
+
+#nav_bar ul li ul li
+{
+	color: #999;
+	display: block;
+	font-weight: normal;
+	line-height: 1.8; /* This adjusts the LEADING */
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	text-align: left; /* Negates the Cascaded text-alignment */
+}
+
+	/* Tertiary Link Headings */
+	#nav_bar ul li ul li.li_heading
+	{
+		color: #222;
+		font-weight: bold;
+		padding: 0; /* Negates the Cascaded padding */
+	}
+
+	#nav_bar ul li ul li a
+	{
+		color: #222;
+		display: block;
+		padding: 0 5px 1px;
+		-moz-border-radius: 3px;
+		border-radius: 3px;
+	}
+	
+		#nav_bar ul li ul li a:hover
+		{
+			/* background-color:#f5f0e3;	*/
+			background: #efefef url("/_site_images/_sitewide/carrot_555.gif") no-repeat 175px center;
+		}
+
+			#nav_bar ul li ul li.save a,
+			#nav_bar ul li ul li.save a:link,
+			#nav_bar ul li ul li a:link.save,
+			#nav_bar ul li ul li a.save
+			{
+				color: rgb(190,30,36);
+			}
+			
+			#nav_bar ul li ul li.save a:hover
+			{
+				background: #f5f0e3 url("/_site_images/_sitewide/carrot_c00.gif") no-repeat 175px center;
+			}
+
+/* Shop By Brand */
+#nav_bar ul li div.brands ul li
+{
+	font-size: 10px;
+	font-family: Tahoma, Geneva, Verdana, sans-serif;
+	letter-spacing: 0.1em;
+	line-height: 1.2; /* This adjusts the LEADING */
+}
+
+#nav_bar ul li div ul li.brand_store
+{
+	background: url(/_site_images/_site_navigation/brandStore_icon.gif) center right no-repeat;
+	font-weight: bold;
+	letter-spacing: 0.1em;
+	border-bottom: 1px dotted #deb;
+}
+
+	#nav_bar ul li div ul li:hover.brand_store a
+	{
+		background: url(/_site_images/_site_navigation/brandStore_icon_H.gif) center right no-repeat;
+		background-color:#ddeebb;
+	}
+	
+#nav_bar ul li div#ps-nav3-brands ul li:hover.nav_seeAll a
+{
+	background-color:#f5f0e3;
+}
+
+#nav_bar ul li div#ps-nav3-brands ul li:hover a
+{
+	background-color:#ddeebb;
+}
+
+#nav_bar ul li ul li#brandStore_key
+{
+	border-top: 1px dotted #bc7;
+	display: block;
+	font-weight: bold;
+	margin-top: 1.5em;
+	padding: 1em 0 0;
+}
+
+	#brandStore_key p
+	{
+		margin: 0;
+		padding: 0;
+	}
+
+
+
+/* -----------------------------------*/
+/* SALE AND CLEARANCE FORECAST STYLES
+/* -----------------------------------*/
+
+.SandC#nav
+{
+background-color: #353; /* Dark Grey */
+border-bottom: 3px solid #c00;
+border-top: 5px solid #353;
+}
+	.SandC #nav_bar
+	{
+		background-color: #f7f7f7;
+		color: #222;
+	}
+	
+		.SandC #nav_bar ul li.navT2
+		{
+			padding-left: 0px;
+		}
+
+		.SandC #nav_bar ul li.navT2 h5
+		{
+			font-size: 15px;
+			padding: 9px 0 0;
+		}
+		
+		.SandC#nav #nav_bar ul li.navL2 h3
+		{
+			font-size: 15px;
+		}
+
+		.SandC#nav #nav_bar ul li.navL2 h3 a
+		{
+			color: #600;
+			padding: 0 5px;
+		}
+
+		.SandC#nav #nav_bar ul li.navL2 h3 a:hover
+		{
+			color: #c00;
+		}
+
+		.SandC#nav #nav_bar ul li:hover.navL2,
+		.SandC#nav #nav_bar ul li.navL2 span:hover
+		{
+			background: none;
+		}
+		
+		
+/* TAB SPECIFIC */		
+#ps-nav2-Deals:hover .navL2_span
+{
+	background-color: #be1e24 !important;
+}
+
+#ps-nav2-Deals:hover .navL2_span .navL2_category a
+{
+	color:#fff !important;
+}
+
+#ps-nav2-Deals:hover .navL2_span .li_heading
+{
+	color: #be1e24 !important;
+}
+/* END TAB SPECIFIC */		
+		
+/* END SALE AND CLEARANCE FORECAST STYLES */
+
+#nav div.SandC
+{
+	background-color: #f6f6f6;
+}
+
+#nav div.SandC ul li:hover.navL2
+{
+	background-color: #fff;
+	background-image: none;
+	box-shadow: 0 -1px 1px rgba(0,0,0,0.2);
+}
+
+#nav div.SandC ul li.navL2 span:hover.navL2_span
+{
+	
+	background-image: none;
+}
+
+#ie7 #nav div.SandC ul li.navL2,
+#ie8up #nav div.SandC ul li.navL2
+{
+	border-left: 1px solid #f6f6f6;
+	border-right: 1px solid #f6f6f6;
+}
+
+#ie7 #nav div.SandC ul li:hover.navL2,
+#ie8up #nav div.SandC ul li:hover.navL2
+{
+	border-left: 1px solid #eee;
+	border-right: 1px solid #eee;
+}
+
+
+/* -------------------------------------------------------------------------------------------------------------- */

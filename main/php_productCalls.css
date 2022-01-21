@@ -1,0 +1,407 @@
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*
+
+		Brady Starr's.css
+		Golfsmith.com
+		
+		* php_productCalls.css	- All "Standard" or "Screen" view site layout CSS should be included here. Including Classes and ID's effecting "Text" positioning/spacing.
+
+	== Table of Contents ==
+		
+		* Highlight the following flag and use "Find Next" under "Edit" to locate the following sections:
+			=>GLOBAL
+			=>PHP CALL-IN SPECIFIC
+			=>PRODUCT SPOT
+			
+*/
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+
+/*----------------------------------------------------------------
+			=>GLOBAL
+----------------------------------------------------------------*/
+
+.php_ratedProduct p,
+.php_simpleProduct p,
+.php_standardProduct p,
+.php_complexProduct p,
+.php_offerProduct
+{
+	margin: 0;
+	padding: 0;
+}
+
+p.brandName_php
+{
+	font-size: 0.916667em;
+	text-transform: uppercase;
+}
+
+p.productName_php
+{
+
+}
+
+p.wasPrice_php, span.wasPrice_php
+{
+	text-decoration: line-through;
+}
+
+p.savePrice_php
+{
+	color: #c00;
+}
+
+span.savePrice_php
+{
+	color: #c00;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+p.nowPrice_php
+{
+	font-size: 1.166667em;
+}
+
+span.nowPrice_php
+{
+	font-size: 1.166667em;
+	font-weight: bold;
+}
+
+.sale_wasPrice_php
+{
+	text-decoration: line-through;
+	padding-right: 30px;
+}
+
+.sale_savePrice_php
+{
+	color: #c00;
+	font-size: 1.166667em;
+	font-weight: bold;
+}
+
+.sale_nowPrice_php
+{
+	font-size: 1.166667em;
+	padding-right: 30px;
+	font-weight: bold;
+}
+
+ul.specialOffers_php
+{
+
+}
+
+
+/*----------------------------------------------------------------
+			=>PHP CALL-IN SPECIFIC
+----------------------------------------------------------------*/
+
+
+/* PROMOTE STYLE */
+.promoteStyle_product
+{
+	margin: 0 auto;
+	text-align: center;
+}
+
+	.promoteStyle_product .product_image
+	{
+		text-align: center;
+	}
+
+		.promoteStyle_product .name_brand
+		{
+			font-weight: bold;
+		}
+
+	.promoteStyle_product .product_price
+	{
+		font-weight: bold;
+		margin-top: 0;
+	}
+
+		.promoteStyle_product .product_price .was
+		{
+			font-size: 0.916667em;
+			font-weight: normal;
+			letter-spacing: 0.1em;
+			text-decoration: line-through;
+		}
+		
+		.promoteStyle_product .product_price .now
+		{
+			font-size: inherit;
+			text-transform: uppercase;
+		}
+		
+		.promoteStyle_product .product_price .save
+		{
+			font-size: inherit;
+			text-transform: uppercase;
+		}
+
+
+/* Top Rated Product Call-In */
+.php_ratedProduct
+
+
+
+/* Simple Product Call-In */
+.php_simpleProduct
+
+
+
+/* Standard Product Call-In */
+.php_standardProduct img
+{
+	background-color: #fff;
+	border: 1px solid #f5e8c1;
+	padding: 4px;
+}
+
+
+
+	.php_standardProduct p.brandName_php
+	{
+
+	}
+
+	.php_standardProduct p.productName_php
+	{
+
+	}
+
+	.php_standardProduct p.wasPrice_php
+	{
+
+	}
+
+	.php_standardProduct p.savePrice_php
+	{
+
+	}
+
+	.php_standardProduct p.nowPrice_php
+	{
+
+	}
+
+
+/* Complex Product Call-In */
+.php_complexProduct
+
+
+/* Product Offers Call-In */
+.php_offerProduct
+
+/* Image Lead-Off Product Call-In */
+
+div.php-img_leadoff
+{
+	display:block;
+	float:left;
+	height:100px;
+	padding-bottom:20px;
+	width:300px;
+}
+
+.php-img_leadoff-img
+{
+	float:left;
+	padding-right:5px;
+	width:65px;
+}
+	
+	.php-img_leadoff-img img
+	{
+		height:65px;
+		width:65px;
+	}
+
+.php-img_leadoff-story
+{
+	float:left;
+	height:100px;
+	padding-right:20px;
+	width:210px;
+}
+
+/*----------------------------------------------------------------
+			=>PRODUCT SPOT
+----------------------------------------------------------------*/
+
+.product-spot
+{
+	padding-bottom: 20px;
+	position: relative;
+	text-align: center;
+	width: 160px;
+}
+
+	.product-spot p + p
+	{
+		margin-top: 5px;
+	}
+
+	.product-spot-image img
+	{
+		background: #fff;
+		border: 1px solid #ccc;
+		padding: 4px;
+	}
+
+	.product-spot-name
+	{
+		font-size: 14px;
+	}
+
+	.product-spot-rating
+	{
+		margin: 0 auto;
+	}
+
+	.product-spot-reviews
+	{
+		background-color: #fff;
+		border-bottom: 1px solid #F5E8C1;
+		border-left: 1px solid #F5E8C1;
+		border-right: 1px solid #F5E8C1;
+		display: block;
+		font-size: 10px;
+		margin: 0 auto;
+		padding: 0 4px 4px;
+		position: relative;
+		text-transform: uppercase;
+		top: -7px;
+		width: 110px;
+	}
+
+	.product-spot-pricing p,
+	.product-spot-pricing p + p
+	{
+		font-size: 14px;
+		font-weight: bold;
+		margin: 0;
+		padding: 0;
+	}
+
+		p.product-spot-price
+		{
+			font-size: 18px;
+			font-weight: normal;
+		}
+		
+		p.product-spot-savings
+		{
+			color: #c00;
+		}
+		
+		p.product-spot-original
+		{
+			color: #999;
+			font-size: 11px;
+			text-decoration: line-through;
+		}
+
+	.product-spot-offer
+	{
+		/* display: none; */
+	}
+
+		.product-spot-offer-text
+		{
+		
+		}
+		
+		.product-spot-offer-details
+		{
+		
+		}
+
+	.product-spot-video a
+	{
+		background-image: url(/_site_images/_sitewide/cta-cool_sprite.png);
+		background-position: 0px -280px;
+		background-repeat: no-repeat;
+		display: block;
+		height: 25px;
+		margin: 0 auto;
+		position: absolute;
+		right: 15px;
+		text-indent: -9999em;
+		top: 3px;
+		width: 25px;
+	}
+	
+	.product-spot-video a:hover
+	{
+		background-position: -24px -280px;
+	}
+	
+	.product-spot-video a:active
+	{
+		background-position: -48px -280px;
+	}
+
+	.product-spot-isp
+	{
+		background-image: url(/_site_images/_sitewide/cta-warm_sprite.png);
+		background-position: -165px -280px;
+		background-repeat: no-repeat;
+		/* display: none; */
+		height: 35px;
+		margin: 0 auto;
+		text-indent: -9999em;
+		width: 125px;
+	}
+
+	.product-spot-ship-date
+	{
+		font-size: 11px;
+	}
+
+	.product-spot-financing
+	{
+		/* display: none; */
+	}
+
+		.product-spot-financing-text
+		{
+		
+		}
+		
+		.product-spot-financing-details
+		{
+		
+		}
+
+	.product-spot-details a
+	{
+		background-image: url(/_site_images/_sitewide/cta-cool_sprite.png);
+		background-position: -520px -140px;
+		background-repeat: no-repeat;
+		display: block;
+		height: 35px;
+		margin: 0 auto;
+		text-indent: -9999em;
+		width: 137px;
+	}
+	
+	.product-spot-details a:hover
+	{
+		background-position: -520px -175px;
+	}
+	
+	.product-spot-details a:active
+	{
+		background-position: -520px -210px;
+	}
+	
+	.product-spot-see-all	/* Shows [BRAND]+[CATEGORY], [BRAND], and [CATEGORY] Endeca Links */
+	{
+		/* display: none; */
+	}

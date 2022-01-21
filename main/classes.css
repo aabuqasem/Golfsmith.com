@@ -1,0 +1,434 @@
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*
+
+		Brady Starr's.css
+		for Golfsmith.com
+		
+		* classes.css			- Sitewide class styles ONLY!
+
+
+	== Table of Contents ==
+
+		* Highlight the following flag and use "Find Next" under "Edit" to locate the following sections:
+	=>GLOBAL
+	=>ELEMENT SPECIFIC
+	=>COLORED BOXES
+	=>LANDING PAGE
+*/
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+
+/*
+	=>GLOBAL
+----------------*/
+
+.align_R
+{
+	text-align: right;
+}
+
+.allCaps
+{
+	text-transform: uppercase;
+}
+
+.bottomBorder
+{
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 10px;
+}
+
+.bottomBorder_red
+{
+	border-bottom: 1px solid rgb(190,30,36);
+	margin-bottom: 10px;
+}
+
+.center
+{
+	margin: 0 auto;
+	text-align: center;	/* Added after much of the site was tested - may need to REMOVE if causing text to center align */
+}
+
+.clear
+{
+	clear: both;
+	line-height: 1px;
+	height: 1px;
+}
+
+.clear_L
+{
+	clear: left;
+}
+
+.clear_R
+{
+	clear: right;
+}
+
+.float_L
+{
+	float: left;
+}
+
+.float_R
+{
+	float: right;
+}
+
+.green
+{
+color: #bbcc77;
+}
+
+.img_frame
+{
+	background-color: #fff;
+	border: 1px solid #ba8;
+	padding: 4px;
+}
+
+.no_border
+{
+	border: none;
+}
+
+.no_padding
+{
+	padding: 0;
+}
+
+.p_maxWidth
+{
+	width: 600px;
+}
+
+.smallTxt
+{
+	font-size: 0.75em;
+}
+
+.subTxt
+{
+	font-size: 11px;
+	line-height: 1.1em;
+}
+
+.txt_black
+{
+	color: #000;
+}
+
+.width_100
+{
+	width: 100%;
+}
+
+.width_75
+{
+	width: 75%;
+}
+
+.width_50
+{
+	width: 50%;
+}
+
+.width_25
+{
+	width: 25%;
+}
+
+/*
+	=>LIST STYLES
+----------------*/
+
+.no_listStyle li
+{
+	list-style: none;
+	margin:0.416667em 0 0;
+	padding: 0;
+}
+
+.disc li
+{
+	list-style: disc;
+	margin-left: 22px;
+	padding-left: 5px;
+}
+
+.checkmarks li
+{
+	list-style: none;
+	background: url(/_site_images/_sitewide/check.gif) top left no-repeat;
+	margin:0.416667em 0 0;
+	padding: 0 0 0 15px; /* Controls spacing between background "check" image and the text link */
+	margin-top: 10px;
+}
+
+.carrots li
+{
+	list-style: none;
+	background: url(/_site_images/_sitewide/carrot.gif) center left no-repeat;
+	margin:0.416667em 0 0;
+	padding-left: 10px; /* Controls spacing between background "carrot" image and the text link */
+}
+
+
+/*
+	=>ELEMENT SPECIFIC
+----------------*/
+
+a.no_link
+{
+	cursor: pointer;
+	text-decoration: none;
+}
+
+a.pointer
+{
+	cursor: pointer;
+}
+
+blockquote.pull /* Pull Quote */
+{
+
+	margin: 1em;
+	width: 33%;
+}
+
+cite.footnote sup, cite.footnote sub
+{
+	font-size: 0.9091em; /* About 10px */
+	font-style: normal;
+}
+
+hr.gray
+{
+	color: #222; /* IE <hr> color */
+	background-color: #222; /* Mozilla <hr> color, b/c the border was dropped this is the color that will be visible (default is transparent) */
+}
+
+hr.red
+{
+	color: #c00; /* IE <hr> color */
+	background-color: #c00; /* Mozilla <hr> color, b/c the border was dropped this is the color that will be visible (default is transparent) */
+}
+
+img.padding_R10
+{
+	padding-right: 10px;
+}
+
+img.padding_L10
+{
+	padding-left: 10px;
+}
+
+p.footnote
+{
+	border-top: 1px dotted #bbcc77;
+	padding: 5px 0 0;
+	text-align: center;
+}
+
+
+p.help
+{
+	background: url(/_site_images/_sitewide/question_icon.gif) top left no-repeat;
+	color: #333;
+	height: 20px;
+	position: relative;
+	text-indent: -9999px;
+	width: 20px;
+}
+	
+p:hover.help
+{
+	background: url(/_site_images/_sitewide/question_icon_H.gif) top left no-repeat;
+}
+	
+p.help span.help_content
+{
+	background-color: #fff;
+	border: 1px solid #458;
+	border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+	display: none;
+	padding: 14px;
+	position: absolute;
+	right: 10px;
+	text-indent: 0;
+	top: 10px;
+}
+
+p:hover.help span.help_content
+{
+	display: block;
+}
+
+/* New Question & Answer Popup */
+a.question
+{
+	background: url(/_site_images/_sitewide/question_icon.gif) top left no-repeat;
+	color: #333;
+	height: 20px;
+	padding: 2px 0 5px 23px;
+	position: relative;
+	text-decoration: underline;
+}
+
+#ie6 a.question,
+#ie7 a.question
+{
+	display: inline-block;
+	position: static;
+}
+
+a:hover.question
+{
+	background: url(/_site_images/_sitewide/question_icon_H.gif) top left no-repeat;
+	color: #333;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+a.question .answer
+{
+	background-color: #fff;
+	border: 1px solid #353;
+	display: none;
+	left: 10px;
+	padding: 9px;
+	position: absolute;
+	top: 30px;
+	width: 300px;
+	z-index: 500;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=120, Color='#333333')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=120, Color='#333333');
+	/* CSS3 */
+	box-shadow: 0px 0px 5px #333;
+	/* For Safari & Chrome */
+	-webkit-box-shadow: 0px 0px 5px #333;
+	/* For FireFox	*/
+	-moz-box-shadow: 0px 0px 5px #333; 
+}
+
+a:hover.question .answer
+{
+	display: block;
+}
+
+/* End New Question & Answer Popup */
+
+
+/*
+	=>COLORED BOXES
+---------------- */
+
+/* Green DDEEBB */	
+.corners_ddeebb
+{
+	background: #deb url(/_site_images/_sitewide/corners/ddeebb/ddeebb_b.gif) bottom left repeat-x;
+}
+
+	.corners_ddeebb .corners_tl
+	{
+		background: url(/_site_images/_sitewide/corners/ddeebb/ddeebb_tl.gif) top left no-repeat;
+		height: 10px;
+	}
+	
+	.corners_ddeebb .corners_tr
+	{
+		background: url(/_site_images/_sitewide/corners/ddeebb/ddeebb_tr.gif) top right no-repeat;
+		float: right;
+		height: 10px;
+		width: 10px;
+	}
+	
+	.corners_ddeebb .corners_content
+	{
+		padding: 0 10px;
+	}
+	
+	.corners_ddeebb .corners_bl
+	{
+		background: url(/_site_images/_sitewide/corners/ddeebb/ddeebb_bl.gif) bottom left no-repeat;
+		height: 10px;
+	}
+	
+	.corners_ddeebb .corners_br
+	{
+		background: url(/_site_images/_sitewide/corners/ddeebb/ddeebb_br.gif) bottom right no-repeat;
+		float: right;
+		height: 10px;
+		width: 10px;
+	}
+
+	
+/* Green BBCC77 */	
+.corners_bbcc77
+{
+	background: #bc7 url(/_site_images/_sitewide/corners/bbcc77/bbcc77_b.gif) bottom left repeat-x;
+}
+
+	.corners_bbcc77 .corners_tl
+	{
+		background: url(/_site_images/_sitewide/corners/bbcc77/bbcc77_tl.gif) top left no-repeat;
+		height: 10px;
+	}
+	
+	.corners_bbcc77 .corners_tr
+	{
+		background: url(/_site_images/_sitewide/corners/bbcc77/bbcc77_tr.gif) top right no-repeat;
+		float: right;
+		height: 10px;
+		width: 10px;
+	}
+	
+	.corners_bbcc77 .corners_content
+	{
+		padding: 0 10px;
+	}
+	
+	.corners_bbcc77 .corners_bl
+	{
+		background: url(/_site_images/_sitewide/corners/bbcc77/bbcc77_bl.gif) bottom left no-repeat;
+		height: 10px;
+	}
+	
+	.corners_bbcc77 .corners_br
+	{
+		background: url(/_site_images/_sitewide/corners/bbcc77/bbcc77_br.gif) bottom right no-repeat;
+		float: right;
+		height: 10px;
+		width: 10px;
+	}
+
+
+
+/*
+	=>LANDING PAGE
+----------------*/
+
+ul.php_products li
+{
+	float: left;
+	height: 260px;	/* Was 220px Before lrg thms */
+	padding: 0 10px;
+	width: 130px;
+}
+
+
+ul.php_products_5wide li	/* Inside a 700px Wide area */
+{
+	float: left;
+	height: 260px;	/* Was 220px Before lrg thms */
+	padding: 0 5px;
+	width: 130px;
+}
+

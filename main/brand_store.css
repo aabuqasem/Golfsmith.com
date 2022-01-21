@@ -1,0 +1,285 @@
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*
+
+		Brady Starr's.css
+		for Golfsmith.com
+		
+		* brand_store.css			- Styles for Brand Stores ONLY!
+
+
+	== Table of Contents ==
+
+		* Highlight the following flag and use "Find Next" under "Edit" to locate the following sections:
+	=>GLOBAL
+	=>STORE SPECIFIC
+*/
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+/*
+	=>CLASSES
+----------------*/
+
+.grayBlock_15
+{
+	background-color: #f2f2f2;
+	border: 1px solid #ccc;
+	margin-top: 35px;
+	padding: 0 14px 14px;
+}
+
+
+/*
+	=>GLOBAL
+----------------*/
+
+
+
+/* NEW BRAND STORE */
+
+#brand_store
+{
+margin: 0 auto;
+width: 770px; /* Will need to address this later when we update all brand stores with the new template */
+}
+
+#brand_store object
+{
+	display: block;	/* Removes the default padding produced at the bottom of the flash object */
+}
+
+#bs_content
+{
+
+}
+
+.bs_content_spacer
+{
+	width: 5%
+}
+
+/* BEGIN
+Title Bar Above Feature Image */
+.H1headerGrad {
+	background-color: #000000;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#333333'); 
+	background: -webkit-gradient(linear, left top, left bottom, from(#000000), to(#333333)); 
+	background: -moz-linear-gradient(top, #000000, #333333);
+	-moz-border-radius-topright: 10px;
+	-moz-border-radius-topleft: 10px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	height: 50px;
+}
+.h1headerTitle {
+	font-weight: bold;
+	float: left; 
+	margin-left: 10px; padding-top: 13px; 
+	color: #FFF; font-size: 1.8em;
+}
+/* END
+Title Bar Above Feature Image */
+
+.bs_news
+{
+
+}
+
+	.bs_news .bs_content_main
+	{
+		width: 55%
+	}
+
+	/* Spacer TD is 5% */
+	
+	.bs_news .bs_content_sub
+	{
+		width: 39%
+	}
+
+.bs_products
+{
+
+}
+
+	.bs_products .bs_content_main
+	{
+	width: 60%
+	}
+
+	/* Spacer TD is 5% */
+
+	.bs_products .bs_content_sub
+	{
+	width: 34%
+	}
+
+/* Deprecated ???
+
+
+#brand_store h2
+{
+	font-family: Helvetica, Arial, sans-serif;
+	line-height:1.0;
+	padding:0;
+}
+
+#header_bs
+{
+border-bottom: 5px solid #000;
+border-top: 5px solid #000;
+}
+
+#content_bs
+{
+	background-color: #f5e8c1;
+	border-bottom: 1px solid #000;
+	padding: 15px 15px 0;
+}
+
+	#contentMain_bs
+	{
+		float: left;
+		width: 500px;
+	}
+
+	.contentFrame_bs
+	{
+		background-color: #fff;
+		border: 1px solid #ba8;
+		margin: 0 0 15px;
+		padding: 4px;
+	}
+	
+	#storeInfo_bs
+	{
+		background-color: #fff;
+	}
+	
+		.contentBG_bs
+		{
+			background-color: #f5f0e3;
+			padding: 0 10px 10px;
+		}
+		
+		.contentBG_bs h5
+		{
+			font-weight: bold;
+		}
+		
+		.contentBG_bs p img
+		{
+			float: left;
+			margin-right: 10px;
+		}
+	
+		.contentBG_bs ul li
+		{
+			display: block;
+			padding-bottom: 5px;
+		}
+		
+			.contentBG_bs ul ul.indentList_bs li
+			{
+				clear: none;
+				float: left;
+				padding: 0 0 0 3%;
+				width: 30%;
+			}
+			
+			.contentBG_bs ul ul.inline_list li
+			{
+				float: left;
+				padding: 0;
+				width: auto;
+			}
+			
+			.contentFeature_bs
+			{
+				clear: left;
+			}
+			
+			.contentFeature_bs ul
+			{
+				margin-top: 1.5em;
+			}
+			
+			.contentFeature_bs ul li
+			{
+				float: left;
+				margin-right: 3em;
+			}
+	
+#sidebar_bs
+{
+	float: right;
+	padding: 10px 0 20px;
+	width: 220px;
+}
+
+	#sidebar_bs h3
+	{
+		padding-top: 0;
+		line-height: 1.0;
+	}
+	
+	#sidebar_bs ul li
+	{
+		margin-top: 15px;
+	}
+	
+	#sidebar_bs ul li img
+	{
+		float: left;
+	}
+
+	.featuredProducts_bs
+	{
+		float: right;
+		width: 100px;
+	}
+	
+	.featuredProducts_bs p
+	{
+		margin: 0 0 10px;
+	}
+	
+	.featuredProducts_bs p a
+	{
+		line-height: 1.2;
+	}
+
+*/
+	
+/* STORIES STYLES */
+
+.brand_press ul li
+{
+	
+}
+
+.brand_press_menu
+{
+	background-color: #f5f0e3;
+	border: 1px solid #f5edd5;
+	padding: 9px;
+	width: 230px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+
+.brand_press_menu ul li
+{
+	border-bottom: 1px dotted #ba8;
+	margin: 0;
+	padding: 5px 0 3px;
+}
+
+.brand_press_menu ul li:hover
+{
+	background-color: #fff;
+}
+
+/*
+	=>STORE SPECIFIC
+----------------*/
+

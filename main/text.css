@@ -1,0 +1,310 @@
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*
+
+		Brady Starr's.css
+		for Golfsmith.com
+		
+		* text.css			- Sitewide text styles ONLY!
+							These styles control:
+											font-size
+											font-wieght
+											font-family
+											font-style
+											letter-spacing
+											line-height
+											quotes
+											text-align
+											text-decoration
+											text-transform
+											etc....
+
+
+		* HTML Base Font-Size 	= 100% (Generally most browsers default to 16px)
+		* Site Base Font-Size 		= 12px (Which is 75% of the default font-size for most browsers)
+		* Site Base line-height	= 18px (Which is 1.5em of the base font size. We will using margin to set the line height.)
+		* 'Font-Size' should never be smaller than 9px or 9pt as it won't be readable on Mac.
+
+
+	== Type Guide ==
+		*cite	= 11px (0.916667em)		line-height = 1.333333		padding = 1.166667em (0.8em 0 0.3666667em)
+		* p	= 12px (1em)			line-height = 1.5			padding = 1.5em (0 0 1.5em)
+		
+		* h6	= 14px (1.166667em)		line-height = 1.333333		padding = 1em (0.7em 0 0.3em)
+		* h5	= 16px (1.333333em)		line-height = 1.5			padding = 1.1666667em (0.8em 0 0.3666667em)
+		* h4	= 18px (1.5em)			line-height = 1.75			padding = 1.25em (0.9em 0 0.35em)
+		* h3	= 21px (1.75em)		line-height = 2				padding = 1em (0.7em 0 0.3em)
+		* h2	= 24px (2em)			line-height = 2.333333		padding = 0.666667em (0.416667em 0 0.25em)
+		* h1	= 30px (2.5em)			line-height = 2.833333		padding = 1.166667em (0.1em 0 0.0666667em)	Subtracted 1em to reduce the huge gaps
+		* See classes.css for ways to create smaller text
+		
+
+	== Table of Contents ==
+
+		* Highlight the following flag and use "Find Next" under "Edit" to locate the following sections:
+	=>RESET
+	=>STYLING
+*/
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+
+
+/*
+	=>RESET
+----------------*/
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px; /* This will be used by browsers <= IE6 for PC */
+	line-height: 1.0; /* Decimal place is used to avoid a CSS Validation ERROR */
+	text-align: center;
+}
+
+html>body
+{
+	font-size: 75%; /* This will be ignored by browsers <= IE6 for PC, and taget all modern browsers IE7, Mozilla, Opera and Safari */	
+}
+
+h1, h2, h3, h4, h5, h6, b, strong, th /* Tags that IE defaults as "BOLD" */
+{
+	font-weight: normal;
+}
+
+address, cite, dfn, em, i, var /* Tags that IE defaults as "ITALICIZED" */
+{
+	font-style: normal;
+}
+
+pre, code, kbd, samp, tt, font, textarea /* Tags that IE defaults as "Mono-Spaced"; 'font' tag was "Verdana" */
+{
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+del, s, strike /* Tags that ALL BROWSERS default to with a "Line-Through" style */
+{
+	text-decoration: none;
+}
+
+ins, a, u /* Tags that ALL BROWSERS default to with an "Underline" style */
+{
+	text-decoration: none;
+}
+
+
+
+/*
+	=>STYLING
+----------------*/
+
+
+b, strong
+{
+	font-weight: bold;
+}
+
+cite, em, i
+{
+	font-style: italic;
+}
+
+code, kbd, var /* The CODE element is intended for short words or phrases of code; the PRE block structuring element is more appropriate for multiple-line listings. */
+{
+	font-family: "Lucida Console", Monaco, "Courier New", Courier, monospace;
+	font-size: 1em;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+cite
+{
+	font-size: 0.916667em; /* About 11px */
+	font-style: normal;
+	line-height: 1.333333;
+	padding: 0.8em 0 0.366667em;
+	position: relative; /* Used to position the "sub" and "sup" tags */
+}
+
+del
+{
+	text-decoration: line-through;
+}
+
+h1
+{
+	font-size: 2.5em;
+/*	line-height: 2.833333;	*/
+	padding: 0.4em 0 0.266667em;
+}
+
+h2
+{
+	font-size: 2em;
+/*	line-height: 2.333333;	*/
+	padding: 0.416667em 0 0.25em;
+}
+
+h3
+{
+	font-size: 1.75em;
+/*	line-height: 2.0;	*/
+	padding: 0.7em 0 0.3em;
+}
+
+h4
+{
+	font-size: 1.5em;
+/*	line-height: 1.75;	*/
+	padding: 0.9em 0 0.35em;
+}
+
+h5
+{
+	font-size: 1.333333em;
+/*	line-height: 1.5;	*/
+	padding: 0.8em 0 0.366667em;
+}
+
+h6
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1.166667em;
+/*	line-height: 1.333333;	*/
+	padding: 0.7em 0 0.3em;
+}
+
+ins
+{
+	border-bottom: 3px double #bc7;
+}
+
+kbd /* The KBD ("Keyboard") element indicates text typed by a user. */
+{
+	text-transform: uppercase;
+	background-color: #f5f0e3;
+}
+
+p
+{
+	font-size: 1em;
+	line-height: 1.5;
+}
+
+p + p
+{
+	margin-top: 1.5em;
+}
+
+p.introtext
+
+{
+	font-size: 1.166667em;
+	line-height: 1.333333;
+}
+
+sub /* Use within a <cite> tag or any other relatively positioned tag or block level element */
+{
+	bottom: -0.5em;
+	font-size: 0.6667em;
+	left: 0.2em;
+	letter-spacing: 0.1em;
+	position: relative;
+	text-transform: uppercase;
+}
+
+sup /* Use within a <cite> tag or any other relatively positioned tag or block level element */
+{
+	font-size: 0.6667em;
+	left: 0.2em;
+	letter-spacing: 0.1em;
+	position: relative;
+	text-transform: uppercase;
+	top: -0.5em;
+}
+
+var /* The VAR element indicates a placeholder variable */
+{
+	font-style: italic;
+	font-weight: bold;
+}
+
+
+/* Special "pop-up" styling for "Abbreviations, Acronyms, and Definitions" */
+	abbr, acronym, dfn
+	{
+		font-weight: bold;
+		position: relative;
+	}
+
+	abbr span, acronym span, dfn span
+	{
+		display: none;
+	}
+
+	abbr:hover span, acronym:hover span, dfn:hover span
+	{
+		bottom: 1.5em;
+		display: block;
+		font-weight: normal;
+		left: -0.5em;
+		line-height: 1.2;
+		padding: 0.5em;
+		position: absolute;
+		text-align: left;
+/* CSS Transparency Filter, by: Chris Coyier @  http://css-tricks.com/css-transparency-settings-for-all-broswers/ */
+			/*filter: alpha(opacity=85); /* This one you need for IE but won't validate if included here - see IE.css */
+			-khtml-opacity: 0.85; /* This is for way old versions of Safari (1.x) when the rendering engine it was using was still referred to as KTHML, as opposed to the current WebKit */
+			-moz-opacity:0.85; /* You need this one to support way old school versions of the Mozilla browsers like Netscape Navigator. */
+			opacity: 0.85; /* This is the “most important” one because it is the current standard in CSS. This will work in most versions of Firefox, Safari, and Opera. */
+	}
+
+	acronym span, dfn span
+	{
+		width: 250px;
+	}
+
+
+/* Special styling for the Blockquote element. The BLOCKQUOTE element typically contains text quoted from another source. */
+	blockquote 
+	{
+		font-family: Georgia, "Times New Roman", Times, serif;
+		font-size: 1.3333em;
+		font-style: italic;
+		line-height: 1.3125;
+		padding: 1em;
+	}
+
+	blockquote cite
+	{
+		display: block;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 0.75em;
+		font-style: normal;
+		line-height: 1.75;
+		padding: 1em;
+		text-align: right;
+	}
+
+
+/* ------------------------- */
+/* DO NOT USE THESE ELEMENTS */
+
+/*pre  Normally this includes "white-space" as typed into the HTML itself from your web-authoring program.
+{
+	padding: 1em;
+	border: 1px dotted #331e00;
+	background-color: #ede4ca;
+	white-space: pre; /* The default declaration is "pre" instead of "normal" which would style this as described above.
+}
+
+q /* The QUOTE element is typically used for adding quotation marks around what someone said.
+{
+	quotes: inherit;
+}
+
+q q
+{
+	quotes: "'" "'";
+}
+*/

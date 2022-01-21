@@ -1,0 +1,460 @@
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*
+
+		Brady Starr's.css
+		Golfsmith.com
+		
+		* category_page.css	- All "Standard" or "Screen" view site layout CSS should be included here. Including Classes and ID's effecting "Text" positioning/spacing.
+		* Sections are flagged. See TOC for "finding" the section you need.
+		
+	== Table of Contents ==
+		
+		* Highlight the following flag and use "Find Next" under "Edit" to locate the following sections:
+			=>GLOBAL
+			=>CLASSES
+			=>CONTENT
+		
+
+*/
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+/*----------------------------------------------------------------
+			=>GLOBAL
+----------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------
+			=>CLASSES
+----------------------------------------------------------------*/
+ 
+
+
+
+/*----------------------------------------------------------------
+			=>CONTENT
+----------------------------------------------------------------*/
+
+
+#cp_content
+{
+	position: relative;
+	z-index: 1;
+}
+
+/* SIDEBAR */
+
+	#sidebar_cp
+		{
+			background: url(/_site_images/_site_homepages/rightRail_bg.gif) top right repeat-y;
+			border-left: 1px solid #f5f0e3;
+			float: right;
+			width: 174px; /* 1px shy of 190px wide due to the 1px border on the left */
+		}
+		
+			#featuredProducts
+			{
+				padding: 0 15px;
+				text-align: center;
+			}
+			
+				#featuredProducts li
+				{
+					margin: 0 0 2em;
+					padding: 0;
+				}
+				
+				/* PHP product Call-In styling */
+			
+				#featuredProducts li img
+				{
+					background-color: #fff;
+					border: 1px solid #f5e8c1;
+					margin-bottom: 5px;
+					padding: 4px;
+				}
+				 
+				#featuredProducts li div div
+				{
+					line-height: 1.2;
+				}
+				
+				/** H2 style changes for SEO purposes **/ 
+				#featuredProducts h2
+				{
+					font-size:18px;
+					margin-bottom: 1em;
+					padding:0.8em 0 0.366667em;
+				}
+				
+				#featuredProducts h2 span
+				{
+					font-size:14px;
+					display:block;
+					padding-bottom:3px;
+				}
+
+/* MAIN FEATURE SECTION */
+
+	#header_cp
+	{
+		border: 1px solid #bc7;
+		border-top-right-radius: 10px; 
+		-moz-border-radius-topright: 10px; 
+		float: left;
+		position: relative;
+		width: 700px;
+	}
+
+		#featureImg_cp
+		{
+			/* background: url(../_site_images/_category_page/feature_trCorner.gif) top right no-repeat; */
+			float: right;
+			padding: 0;	/* padding: 1px 1px 0 0; */
+			position: absolute;	/* relative */
+			right: 0;	/* -1px */
+			top: 70px;	/* -1px */
+			width: 230px;	/* 240px */
+		}
+		
+			#featureImg_cp img
+			{
+				height: 300px;
+				width: 230px;	/* 240px */
+			}
+			
+				#featureImg_cp img#cm_grip1,
+				#featureImg_cp img#cm_grip2,
+				#featureImg_cp img#cm_grip3
+				{
+					height: 300px;
+					padding-right: 5px;
+					width: 75px;
+				}
+				
+				#featureImg_cp img#cm_shaft1,
+				#featureImg_cp img#cm_shaft2,
+				#featureImg_cp img#cm_shaft3
+				{
+					height: 300px;
+					padding-right: 5px;
+					width: 75px;
+				}
+			
+
+/* Introduction Text and Links */
+
+		#intro_cp
+		{
+			float: left;
+			padding: 15px 0 15px 15px;
+			width: 685px;	/* 450px */
+		}
+		
+			#intro_cp form
+			{
+				width: 450px;
+			}
+		
+			#intro_cp .selectBox
+			{
+				margin-top: 1.5em;
+			}
+			
+				#intro_cp .selectBox label
+				{
+					display: inline;
+				}
+				
+				#intro_cp .selectBox select
+				{
+					width: 300px;
+				}
+				
+			#intro_cp p
+			{
+				width: 420px;
+			}
+			
+		#header_links
+		{
+			margin-top: 1em;
+			padding: 0 15px 15px;
+			width: 420px;	/* Previously no width restriction */
+		}
+
+			#header_links ul
+			{
+				float: left;
+				padding-right: 5px;
+				width: 135px;
+			}
+			
+				#header_links ul li.li_heading
+				{
+					font-weight: bold;
+					line-height: 1.5em;
+				}
+				
+				#header_links ul li
+				{
+					margin: 0;
+					padding: 0;
+					line-height: 1.5em;
+				}
+			
+#main_cp .heading-box
+	{
+		float: left;
+	}
+
+	#main_cp .heading-box p.heading-box-heading
+	{
+		color: #111;
+		font-size: 16px;
+		font-weight: bold;
+		height: 35px;
+		line-height: 1.05em;
+		padding: 0;
+		text-transform: uppercase;
+		width: 420px;
+	}
+	
+	#main_cp .heading-box.biege p.heading-box-heading
+	{
+		background: url(/_site_images/ps_hp/topSearches_bg_R.jpg) right top no-repeat;
+	}
+
+	#ie6 #main_cp .heading-box p.heading-box-heading
+	{
+		margin: 0;
+	}
+
+		#main_cp .heading-box p.heading-box-heading span.heading-box-heading-L
+		{
+			display: block;
+			height: 35px;
+			padding-left: 10px;
+		}
+		
+		#main_cp .heading-box.biege p.heading-box-heading span.heading-box-heading-L
+		{
+			background: url(/_site_images/ps_hp/topSearches_bg_L.jpg) left top no-repeat;
+		}
+
+		#main_cp .heading-box p.heading-box-heading a
+		{
+			color: #111;
+			display: inline-block;
+			padding-top: 12px;
+		}
+		
+		#main_cp .heading-box p.heading-box-heading span.smallTxt
+		{
+			display: inline-block;
+			font-size: 12px;
+			font-weight: normal;
+			padding-top: 12px;
+		}
+
+		#main_cp .heading-box table
+		{
+			background-color: #fff;
+			border-bottom: 1px solid #ba8;
+			border-left: 1px solid #ba8;
+			border-right: 1px solid #ba8;
+			width: 420px;
+		}
+		
+			#main_cp .heading-box table ul
+			{
+				padding: 5px 0;
+			}
+			
+				#main_cp .heading-box table ul li
+				{
+					padding: 3px 5px 1px;
+					
+				}			
+
+	#QandA_cp
+	{
+		clear: left;
+		float: left;
+		margin-top: 0.75em;
+		width: 700px;
+	}
+	
+		#qaHeader_cp
+		{
+			padding-bottom: 5px;
+			position: relative;
+		}
+	
+		#QandA_cp #askQuestion_btn
+		{
+			display: block;
+			position: absolute;
+			right: 0;
+			bottom: 8px;
+		}
+		
+	#category_content
+	{
+		clear: left;
+		float: left;
+		margin-top: 0.75em;
+		width: 700px;
+	}
+	
+/* 	Goft Tips Content
+--------------------------------*/
+
+#golftips_cp
+{
+	clear: left;
+	float: left;
+	padding-top: 15px;
+	width: 700px;
+}
+
+#more-topics
+{
+	background:none repeat scroll 0 0 #FAFDF6;
+	border:1px solid #BCC59A;
+	clear:both;
+	width:700px;
+}
+
+#more-topics h3
+{
+	background:url("http://golftips.golfsmith.com/content/images/store/siteimages/editor-header-bg.jpg") repeat-x scroll left top #496E00;
+	color:#FFFFFF;
+	height:23px;
+	margin-bottom:15px;
+	padding:3px 0 0 14px;
+}
+
+#more-topics .topic-row
+{
+	float:left;
+	padding:0 15px;
+	width:320px;
+}
+
+	#more-topics .topic-col-1,
+	#more-topics .topic-col-2,
+	#more-topics .topic-col-3
+	{
+		float:left;
+		width:320px;
+	}
+
+		#more-topics .title-text
+		{
+			border-bottom:1px solid #C9C9C9;
+			padding:0 0 6px;
+			position:relative;
+		}
+		
+		#ie6 #more-topics .title-text,
+		#ie7 #more-topics .title-text
+		{
+			position: static;
+			padding: 0 0 15px;
+		}
+
+			#more-topics .title-text h4
+			{
+				padding:0;
+				width:290px;
+			}
+			
+				#more-topics .title-text h4 a
+				{
+					color:#333333;
+				}
+
+			#more-topics .title-text a.see-all
+			{
+				bottom:5px;
+				color:#779922;
+				position:absolute;
+				right:0;
+				text-transform:uppercase;
+			}
+			
+			#ie6 #more-topics .title-text a.see-all,
+			#ie7 #more-topics .title-text a.see-all
+			{
+				position: static;
+				float: right;
+			}
+
+		#more-topics ul
+		{
+			list-style:none outside none;
+			padding:0 0 24px;
+		}
+
+			#more-topics li
+			{
+				padding:10px 0 0 0;
+			}
+
+				#more-topics li a
+				{
+					color:#779922;
+				}
+
+
+
+
+/* --------------------------------
+	End Goft Tips Content */
+
+		#howTo_cp
+		{
+			border-right: 1px solid #f5f0e3;
+			float: left;
+			width: 440px;
+		}
+		
+		#howTo_cp img
+		{
+			float: left;
+			margin-right:1em;
+			width: 100px;
+		}
+		
+			#howTo_cp ul li
+			{
+				line-height: 1.5em;
+			}
+			
+		#equity_cp
+		{
+			float: right;
+			padding-left: 10px;
+			width: 245px;
+		}
+			
+			#equity_cp ul li
+			{
+				margin: 0.75em 0;
+			}
+
+			#equity_cp ul li img
+			{
+				float: left;
+				padding-right: 5px;
+			}
+			
+			#equity_cp ul li h6
+			{
+				padding: 0;
+			}
+			
+			#equity_cp ul li p
+			{
+				line-height: 1.2;
+			}

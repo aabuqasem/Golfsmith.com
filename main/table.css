@@ -1,0 +1,256 @@
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*
+
+		Brady Starr's.css
+		for Golfsmith.com
+		
+		* table.css				- All general table styling should be inlcuded here.
+		
+	== Table of Contents ==
+		
+		* Highlight the following flag and use "Find Next" under "Edit" to locate the following sections:
+			=>GENERAL		- Set global rules for table elements
+			=>STYLING
+		
+*/
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+
+/*
+	=>GENERAL
+----------------*/
+
+colgroup col.column_heading
+{
+	background-color: #f5f0e3;
+	border-right: 1px solid #353;
+}
+
+colgroup col.column_borderR
+{
+	border-right: 1px solid #ccc;
+}
+
+/*
+	=>STYLING
+----------------*/
+
+/* table_horzMin = Simple table with horizontal row dividers and NO HOVER */
+table.table_horzMin
+{
+	background: #fff;
+	border-collapse: collapse;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	line-height: 1.2em;
+}
+
+table.table_horzMin thead td
+{
+	border: none;
+	border-top: 1px dotted #bc7;
+}
+
+table.table_horzMin thead th
+{
+	border-bottom: 2px solid #353;
+	font-size: 1.166667em;
+	font-weight: bold;
+	padding: 10px 8px;
+}
+
+table.table_horzMin td
+{
+	border-bottom: 1px solid #ccc;
+	color: #555;
+	padding: 6px 8px;
+}
+
+
+/* table_horzMax = Fancy table with horizontal row dividers WITH HOVER */
+
+table.table_horzMax
+{
+	background: #fff;
+	border-collapse: collapse;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	line-height: 1.2em;
+}
+
+table.table_horzMax thead td
+{
+	border: none;
+	border-top: 1px dotted #bc7;
+}
+
+table.table_horzMax thead th
+{
+	border-bottom: 2px solid #353;
+	font-size: 1.166667em;
+	font-weight: bold;
+	padding: 10px 8px;
+}
+
+table.table_horzMax th
+{
+	font-weight: bold;
+}
+
+table.table_horzMax td
+{
+	border-bottom: 1px solid #ccc;
+	color: #555;
+	padding: 6px 8px;
+}
+
+
+table.table_horzMax tbody tr:hover td
+{
+	background-color: #f5f0e3;
+	color: #111;
+}
+
+
+/* table_reorder = Custom table class for the /reorder.php table */
+
+table.table_reorder
+{
+	background: #fff;
+	border-collapse: collapse;
+	border: 1px solid #bc7;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	line-height: 1.2em;
+}
+
+table.table_reorder .reorder_price
+{
+	text-align: right;
+}
+
+table.table_reorder .reorder_checkbox,
+table.table_reorder .reorder_qty
+{
+	text-align: center;
+}
+
+table.table_reorder thead th
+{
+	background-color: #f5f0e3;
+	border-bottom: 2px solid #353;
+	font-size: 1.166667em;
+	font-weight: bold;
+	line-height: 1.5;
+	padding: 10px 8px;
+	text-align: center;
+	vertical-align: top;
+}
+
+table.table_reorder td
+{
+	border-bottom: 1px solid #bc7;
+	color: #555;
+	padding: 6px 8px;
+	vertical-align: middle;
+}
+
+/* table_golfsmith = A table class that creates a bold and easy table to read */
+
+table.table_golfsmith
+{
+	background: #fff;
+	border-collapse: collapse;
+	border-left: 1px solid #db9;
+	border-top: 1px solid #db9;
+	border-right: 1px solid #ba8;
+	font-family: Arial, Helvetica, sans-serif;	/* Required for the Dev Admin Tool */
+	font-size: 12px;	/* Required for the Dev Admin Tool */
+	line-height: 1.2em;
+}
+
+table.table_golfsmith th,
+table.table_golfsmith td
+{
+	padding: 10px 5px 7px;
+}
+
+table.table_golfsmith td
+{
+	border-bottom: 1px solid #ddd;
+}
+
+table.table_golfsmith tr:hover td
+{
+	background-color: #f5f0e3;
+}
+
+table.table_golfsmith tr th,
+table.table_golfsmith thead tr th,
+table.table_golfsmith thead tr td
+{
+	background-color: #f5edd5;
+	border-bottom: 2px solid #ba8;
+	font-size: 1.1em;
+	font-weight: bold;
+	vertical-align: center;
+}
+
+/* DoubleHeader= Table of data with a main and sub heading with alternating row colors*/
+
+table.doubleHeaderTable {
+	width: 900px;
+	padding: 0;
+	margin: 0;
+	border-right: 1px solid #162600;
+	border-left: 1px solid #162600;
+	border-bottom: 1px solid #162600;
+	border-top: 1px solid #162600;
+}
+
+
+
+table.doubleHeaderTable tr.heading1 td {
+	font: 14px Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #162600;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	text-align: center;
+	padding: 6px 6px 6px 12px;
+	background-color: #bbcc77;
+}
+
+
+table.doubleHeaderTable tr.heading2 td {
+	font: 11px Arial, Helvetica, sans-serif;
+	color: #000000;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	text-align: center;
+	padding: 6px 6px 6px 12px;
+	background: #bbcc77;
+}
+
+table.doubleHeaderTable td.divider {
+	border-right: 3px solid #162600;
+}
+
+table.doubleHeaderTable td {
+	border-right: 1px solid #162600;
+	border-bottom: 1px solid #162600;
+	background: #fff;
+	padding-top: 6px;
+	padding-bottom: 4px;
+	color: #4f6b72;
+}
+
+table.doubleHeaderTable tr.none td{
+	background: #ffffff;
+	font: bold 12px Verdana, Arial, Helvetica, sans-serif;
+	color: #797268;
+}
+
+
+table.doubleHeaderTable tr.alt td{
+	background: #f4f9df;
+	font: bold 12px Verdana, Arial, Helvetica, sans-serif;
+	color: #797268;
+}

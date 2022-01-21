@@ -1,0 +1,88 @@
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*
+
+		Brady Starr's.css
+		Golfsmith.com
+		
+		* error.css	- All "Standard" or "Screen" view site layout CSS should be included here. Including Classes and ID's effecting "Text" positioning/spacing.
+		* Sections are flagged. See TOC for "finding" the section you need.
+		
+	== Table of Contents ==
+		
+		* Highlight the following flag and use "Find Next" under "Edit" to locate the following sections:
+			=>CLASSES
+			=>GLOBAL
+
+*/
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+
+
+/*----------------------------------------------------------------
+			=>CLASSES
+----------------------------------------------------------------*/
+
+#error_401 li.li_heading,
+#error_404 li.li_heading
+{
+	font-weight: bold;
+}
+
+
+/*----------------------------------------------------------------
+			=>GLOBAL
+----------------------------------------------------------------*/
+
+#error_401,
+#error_404
+{
+	padding-top: 15px;
+	position: relative;
+}
+
+ #error_401 h5, #error_404 h5
+{
+	padding: 0.25em 0 0;
+}
+
+#error_401 li,
+#error_404 li
+{
+	margin-top: 1.5em;
+}
+
+#error_401 div.textInput,
+#error_404 div.textInput
+{
+	position: relative;
+}
+
+#error_401 div.textInput label,
+#error_404 div.textInput label
+{
+	display: inline;
+	font-size: 1.1em;
+	padding-right: 5px;
+	text-transform: none;
+}
+
+#error_401 div.textInput input[type="image"],
+#error_404 div.textInput input[type="image"]
+{
+	position: relative;
+	top: 3px;
+}
+
+#error_401 li ul,
+#error_404 li ul
+{
+	float: left;
+	margin: 0.5em 0 0 1em;
+	width: 20%;
+}
+
+#error_401 li li,
+#error_404 li li
+{
+	margin: 0.25em 0;
+}
